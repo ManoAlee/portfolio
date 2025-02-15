@@ -2,7 +2,7 @@ Portfólio de Alessandro Meneses
 Bem-vindo ao meu portfólio pessoal! Este site foi desenvolvido para apresentar minha trajetória profissional, habilidades, formação acadêmica e projetos. Ele é totalmente responsivo, com suporte a temas claro e escuro, e foi construído com tecnologias modernas para garantir uma experiência de usuário fluida e agradável.
 
 🚀 Visualização
-Você pode acessar o portfólio online aqui (substitua pelo link real quando disponível).
+Você pode acessar o portfólio online aqui https://portifolioalessandro.netlify.app
 
 ✨ Funcionalidades
 Tema Claro/Escuro: Alternância entre temas com persistência no localStorage.
