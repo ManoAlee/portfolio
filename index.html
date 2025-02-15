@@ -1,0 +1,198 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Alessandro Meneses - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        });
+
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.toggle('hidden');
+            section.classList.toggle('animate-fadeIn');
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .hover-animate:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .fade-in-up {
+            animation: fadeInUp 1s ease-in-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-black text-black dark:text-white flex flex-col items-center justify-center min-h-screen">
+    <div class="text-center mb-6 fade-in-up">
+        <h1 class="text-6xl font-bold mb-2">
+            Alessandro Dos Santos Costa Meneses
+            <div class="mt-4 text-lg bg-gray-100 dark:bg-gray-900 p-4 rounded-lg shadow-lg">
+                <p class="text-gray-700 dark:text-gray-300">Estudante de Gestão da Tecnologia da Informação | Power BI | Análise de Dados</p>
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a class="text-blue-500 hover-animate" href="https://linkedin.com/in/alessandro-meneses-2425ab231" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a class="text-red-500 hover-animate" href="mailto:ale_meneses2004@hotmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a class="text-gray-800 hover-animate" href="https://github.com/ManoAlee/portfolio.git" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </h1>
+    </div>
+    <div class="w-full max-w-md mx-auto">
+        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate flex items-center" onclick="toggleSection('resumo')">
+            <i class="fas fa-user-tie text-xl mr-2"></i>
+            <h2 class="text-xl font-semibold">Resumo Profissional</h2>
+        </div>
+        <div id="resumo" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden">
+            <p class="text-sm hover-animate">
+                Estudante de Gestão da Tecnologia da Informação (GTI) com previsão de conclusão em julho de 2025, possuo conhecimentos em análise de dados, Power BI e Excel, além de experiência em suporte técnico e controle de qualidade. Busco minha primeira oportunidade na área de tecnologia, onde possa aplicar meus conhecimentos acadêmicos e contribuir para a transformação digital e inovação nas organizações. Sou dedicado, proativo e tenho facilidade para trabalhar em equipe.
+            </p>
+        </div>
+        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate flex items-center" onclick="toggleSection('experiencia')">
+            <i class="fas fa-briefcase text-xl mr-2"></i>
+            <h2 class="text-xl font-semibold">Experiência Profissional</h2>
+        </div>
+        <div id="experiencia" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden">
+            <div class="mb-4 hover-animate">
+                <h3 class="text-lg font-semibold">Bellacor Indústria e Comércio de Tintas</h3>
+                <p class="text-sm italic">Assistente de Produção</p>
+                <p class="text-sm">Abril de 2024 - Dezembro de 2024 (9 meses) | Boituva, SP</p>
+                <ul class="list-disc list-inside text-sm">
+                    <li>Operação e monitoramento de máquinas de envase.</li>
+                    <li>Inspeção visual de produtos e controle de qualidade.</li>
+                    <li>Manutenção da organização e limpeza do setor.</li>
+                    <li>Apoio em ajustes simples de máquinas e cumprimento de metas.</li>
+                </ul>
+            </div>
+            <div class="mb-4 hover-animate">
+                <h3 class="text-lg font-semibold">BR Conecta</h3>
+                <p class="text-sm italic">Analista de Rede e Comunicação de Dados Júnior</p>
+                <p class="text-sm">Janeiro de 2024 - Fevereiro de 2024 (2 meses) | Boituva, SP</p>
+                <ul class="list-disc list-inside text-sm">
+                    <li>Suporte técnico aos usuários, com diagnóstico e resolução de problemas de conexão.</li>
+                    <li>Abertura e acompanhamento de chamados técnicos.</li>
+                </ul>
+            </div>
+            <div class="mb-4 hover-animate">
+                <h3 class="text-lg font-semibold">Schmersal Brasil</h3>
+                <p class="text-sm italic">Assistente Administrativo</p>
+                <p class="text-sm">Janeiro de 2023 - Dezembro de 2023 (1 ano) | Boituva, SP</p>
+                <ul class="list-disc list-inside text-sm">
+                    <li>Controle de qualidade: documentação e auditorias internas.</li>
+                    <li>Inspeção de embalagens e garantia de conformidade.</li>
+                    <li>Criação de planilhas para controle de processos.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate flex items-center" onclick="toggleSection('formacao')">
+            <i class="fas fa-graduation-cap text-xl mr-2"></i>
+            <h2 class="text-xl font-semibold">Formação Acadêmica</h2>
+        </div>
+        <div id="formacao" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden">
+            <div class="mb-4 hover-animate">
+                <h3 class="text-lg font-semibold">Fatec Tatuí</h3>
+                <p class="text-sm italic">Ensino Superior em Gestão da Tecnologia da Informação</p>
+                <p class="text-sm">Fevereiro de 2022 - Julho de 2025 (Previsão de Conclusão)</p>
+            </div>
+            <div class="mb-4 hover-animate">
+                <h3 class="text-lg font-semibold">SENAI "Ítalo Bologna" - Itu/SP</h3>
+                <p class="text-sm italic">Curso de Aprendizagem Industrial - Assistente Administrativo</p>
+                <p class="text-sm">Janeiro de 2023 - Dezembro de 2023</p>
+            </div>
+            <div class="mb-4 hover-animate">
+                <h3 class="text-lg font-semibold">SENAI "Ítalo Bologna" - Itu/SP</h3>
+                <p class="text-sm italic">Curso de Power BI</p>
+                <p class="text-sm">Dezembro de 2023</p>
+            </div>
+            <div class="mb-4 hover-animate">
+                <h3 class="text-lg font-semibold">Fundação Bradesco</h3>
+                <p class="text-sm italic">Excel Intermediário</p>
+                <p class="text-sm">Novembro de 2023</p>
+            </div>
+        </div>
+        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate flex items-center" onclick="toggleSection('competencias')">
+            <i class="fas fa-cogs text-xl mr-2"></i>
+            <h2 class="text-xl font-semibold">Principais Competências</h2>
+        </div>
+        <div id="competencias" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden">
+            <ul class="list-disc list-inside text-sm hover-animate">
+                <li>Análise de Dados e Power BI</li>
+                <li>Suporte Técnico e Redes</li>
+                <li>Controle de Qualidade e Processos</li>
+                <li>Gestão e Automação de Planilhas em Excel</li>
+                <li>SQL e Banco de Dados</li>
+            </ul>
+        </div>
+        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate flex items-center" onclick="toggleSection('projetos')">
+            <i class="fas fa-project-diagram text-xl mr-2"></i>
+            <h2 class="text-xl font-semibold">Projetos</h2>
+        </div>
+        <div id="projetos" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden">
+            <div class="flex justify-center items-center">
+                <i class="fas fa-spinner fa-spin text-4xl text-blue-500"></i>
+                <p class="ml-4 text-lg">Em desenvolvimento...</p>
+            </div>
+        </div>
+    </div>
+    <div class="absolute top-4 right-4 flex items-center space-x-2">
+        <img alt="Profile picture of Alessandro Dos Santos Costa Meneses" class="rounded-full" height="40" src="https://media.licdn.com/dms/image/v2/D4D35AQHIfYmh1Ojc_w/profile-framedphoto-shrink_200_200/B4DZUA45pYHwAY-/0/1739476671402?e=1740204000&v=beta&t=utYu3OJ-pi1IOMow5iZKTEAPHuXThfqvQ9E83Irdwos" width="40"/>
+        <button class="bg-gray-200 dark:bg-gray-800 text-black dark:text-white p-2 rounded-full hover-animate" onclick="toggleTheme()">
+            <i class="fas fa-adjust"></i>
+        </button>
+    </div>
+    <footer class="w-full text-center py-4 mt-6 bg-gray-200 dark:bg-gray-800 text-sm">
+        <div class="container mx-auto px-4 flex justify-center space-x-4">
+            <a href="tel:+5515998017732" class="text-blue-500 hover-animate">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="mailto:ale_meneses2004@hotmail.com" class="text-blue-500 hover-animate">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.google.com/maps/place/Boituva,+São+Paulo,+Brasil" target="_blank" class="text-blue-500 hover-animate">
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+            <a href="https://github.com/ManoAlee/portfolio.git" target="_blank" class="text-gray-800 hover-animate">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
