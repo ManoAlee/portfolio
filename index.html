@@ -5,6 +5,7 @@
     <title>Alessandro Meneses - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Franklin+Gothic+Extra+Condensed&display=swap" rel="stylesheet"/>
     <script>
         function toggleTheme() {
             const html = document.documentElement;
@@ -26,10 +27,13 @@
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
             section.classList.toggle('hidden');
-            section.classList.toggle('animate-fadeIn');
+            section.classList.toggle('animate-slideIn');
         }
     </script>
     <style>
+        body {
+            font-family: 'Franklin Gothic Extra Condensed', sans-serif;
+        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -54,14 +58,101 @@
                 transform: translateY(0);
             }
         }
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .bg-animated {
+            background: linear-gradient(270deg, #3c49de, #ffffff);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 15s ease infinite;
+        }
+        .dark .bg-animated {
+            background: linear-gradient(270deg, #000000, #3c49de);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 15s ease infinite;
+        }
+        @keyframes typingLoop {
+            0%, 20%, 100% { width: 0; }
+            40%, 60% { width: 100%; }
+        }
+        .typing-loop {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid;
+            animation: typingLoop 10s steps(40, end) infinite, blink-caret .75s step-end infinite;
+        }
+        .dark .typing-loop {
+            border-color: white;
+        }
+        .wave {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 200px;
+            background: url('https://www.svgrepo.com/show/2046/wave.svg') repeat-x;
+            background-size: cover;
+            animation: wave-animation 10s linear infinite;
+        }
+        @keyframes wave-animation {
+            0% { background-position-x: 0; }
+            100% { background-position-x: 1000px; }
+        }
+        .dark .wave {
+            background: url('https://www.svgrepo.com/show/2046/wave.svg') repeat-x;
+            background-size: cover;
+            filter: invert(1);
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .animate-slideIn {
+            animation: slideIn 0.5s ease-in-out;
+        }
+        .hover-animate-resumo:hover {
+            background-color: #f0f0f0;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .hover-animate-experiencia:hover {
+            background-color: #e0e0e0;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .hover-animate-formacao:hover {
+            background-color: #d0d0d0;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .hover-animate-competencias:hover {
+            background-color: #c0c0c0;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .hover-animate-projetos:hover {
+            background-color: #b0b0b0;
+            transition: background-color 0.3s ease-in-out;
+        }
     </style>
 </head>
-<body class="bg-white dark:bg-black text-black dark:text-white flex flex-col items-center justify-center min-h-screen">
+<body class="bg-animated dark:bg-black text-black dark:text-white flex flex-col items-center justify-center min-h-screen relative">
     <div class="text-center mb-6 fade-in-up">
         <h1 class="text-6xl font-bold mb-2">
             Alessandro Dos Santos Costa Meneses
             <div class="mt-4 text-lg bg-gray-100 dark:bg-gray-900 p-4 rounded-lg shadow-lg">
-                <p class="text-gray-700 dark:text-gray-300">Estudante de Gestão da Tecnologia da Informação | Power BI | Análise de Dados</p>
+                <p class="text-gray-700 dark:text-gray-300 typing-loop">
+                    <span>Estudante de Gestão da Tecnologia da Informação | Power BI | Análise de Dados</span>
+                    <span class="hidden">Análise de Dados e Power BI</span>
+                    <span class="hidden">Suporte Técnico e Redes</span>
+                    <span class="hidden">Controle de Qualidade e Processos</span>
+                    <span class="hidden">Gestão e Automação de Planilhas em Excel</span>
+                    <span class="hidden">SQL e Banco de Dados</span>
+                    <span class="hidden">Soft Skills: Comunicação, Trabalho em Equipe, Resolução de Problemas</span>
+                </p>
                 <div class="flex justify-center space-x-4 mt-4">
                     <a class="text-blue-500 hover-animate" href="https://linkedin.com/in/alessandro-meneses-2425ab231" target="_blank">
                         <i class="fab fa-linkedin"></i>
@@ -77,20 +168,20 @@
         </h1>
     </div>
     <div class="w-full max-w-md mx-auto">
-        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate flex items-center" onclick="toggleSection('resumo')">
+        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate-resumo flex items-center" onclick="toggleSection('resumo')">
             <i class="fas fa-user-tie text-xl mr-2"></i>
             <h2 class="text-xl font-semibold">Resumo Profissional</h2>
         </div>
-        <div id="resumo" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden">
-            <p class="text-sm hover-animate">
-                Estudante de Gestão da Tecnologia da Informação (GTI) com previsão de conclusão em julho de 2025, possuo conhecimentos em análise de dados, Power BI e Excel, além de experiência em suporte técnico e controle de qualidade. Busco minha primeira oportunidade na área de tecnologia, onde possa aplicar meus conhecimentos acadêmicos e contribuir para a transformação digital e inovação nas organizações. Sou dedicado, proativo e tenho facilidade para trabalhar em equipe.
+        <div id="resumo" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden animate-slideIn">
+            <p class="text-base hover-animate leading-relaxed">
+                Estudante de Gestão da Tecnologia da Informação (GTI) com previsão de conclusão em julho de 2025. Possuo conhecimentos em análise de dados, Power BI e Excel, além de experiência em suporte técnico e controle de qualidade. Busco minha primeira oportunidade na área de tecnologia, onde possa aplicar meus conhecimentos acadêmicos e contribuir para a transformação digital e inovação nas organizações. Sou dedicado, proativo e tenho facilidade para trabalhar em equipe.
             </p>
         </div>
-        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate flex items-center" onclick="toggleSection('experiencia')">
+        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate-experiencia flex items-center" onclick="toggleSection('experiencia')">
             <i class="fas fa-briefcase text-xl mr-2"></i>
             <h2 class="text-xl font-semibold">Experiência Profissional</h2>
         </div>
-        <div id="experiencia" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden">
+        <div id="experiencia" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden animate-slideIn">
             <div class="mb-4 hover-animate">
                 <h3 class="text-lg font-semibold">Bellacor Indústria e Comércio de Tintas</h3>
                 <p class="text-sm italic">Assistente de Produção</p>
@@ -122,11 +213,11 @@
                 </ul>
             </div>
         </div>
-        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate flex items-center" onclick="toggleSection('formacao')">
+        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate-formacao flex items-center" onclick="toggleSection('formacao')">
             <i class="fas fa-graduation-cap text-xl mr-2"></i>
             <h2 class="text-xl font-semibold">Formação Acadêmica</h2>
         </div>
-        <div id="formacao" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden">
+        <div id="formacao" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden animate-slideIn">
             <div class="mb-4 hover-animate">
                 <h3 class="text-lg font-semibold">Fatec Tatuí</h3>
                 <p class="text-sm italic">Ensino Superior em Gestão da Tecnologia da Informação</p>
@@ -147,25 +238,32 @@
                 <p class="text-sm italic">Excel Intermediário</p>
                 <p class="text-sm">Novembro de 2023</p>
             </div>
+            <div class="mb-4 hover-animate">
+                <h3 class="text-lg font-semibold">Santander X</h3>
+                <p class="text-sm italic">Santander X Explorer</p>
+                <p class="text-sm">Fevereiro de 2025</p>
+                <p class="text-sm italic">Tome melhores decisões baseadas em dados: Power BI</p>
+            </div>
         </div>
-        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate flex items-center" onclick="toggleSection('competencias')">
+        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate-competencias flex items-center" onclick="toggleSection('competencias')">
             <i class="fas fa-cogs text-xl mr-2"></i>
             <h2 class="text-xl font-semibold">Principais Competências</h2>
         </div>
-        <div id="competencias" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden">
+        <div id="competencias" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden animate-slideIn">
             <ul class="list-disc list-inside text-sm hover-animate">
-                <li>Análise de Dados e Power BI</li>
-                <li>Suporte Técnico e Redes</li>
-                <li>Controle de Qualidade e Processos</li>
-                <li>Gestão e Automação de Planilhas em Excel</li>
-                <li>SQL e Banco de Dados</li>
+                <li class="flex items-center"><i class="fas fa-chart-line text-blue-500 mr-2"></i>Análise de Dados e Power BI</li>
+                <li class="flex items-center"><i class="fas fa-network-wired text-green-500 mr-2"></i>Suporte Técnico e Redes</li>
+                <li class="flex items-center"><i class="fas fa-check-circle text-yellow-500 mr-2"></i>Controle de Qualidade e Processos</li>
+                <li class="flex items-center"><i class="fas fa-file-excel text-green-700 mr-2"></i>Gestão e Automação de Planilhas em Excel</li>
+                <li class="flex items-center"><i class="fas fa-database text-purple-500 mr-2"></i>SQL e Banco de Dados</li>
+                <li class="flex items-center"><i class="fas fa-comments text-pink-500 mr-2"></i>Soft Skills: Comunicação, Trabalho em Equipe, Resolução de Problemas</li>
             </ul>
         </div>
-        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate flex items-center" onclick="toggleSection('projetos')">
+        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate-projetos flex items-center" onclick="toggleSection('projetos')">
             <i class="fas fa-project-diagram text-xl mr-2"></i>
             <h2 class="text-xl font-semibold">Projetos</h2>
         </div>
-        <div id="projetos" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden">
+        <div id="projetos" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden animate-slideIn">
             <div class="flex justify-center items-center">
                 <a href="https://app.powerbi.com/groups/me/reports/f872c0c0-bbe0-412d-9341-fa77a112bcbc?ctid=cf72e2bd-7a2b-4783-bdeb-39d57b07f76f&pbi_source=linkShare" target="_blank" class="text-blue-500 hover-animate">
                     <i class="fas fa-chart-bar text-4xl"></i>
@@ -195,10 +293,4 @@
             <a href="https://www.google.com/maps/place/Boituva,+São+Paulo,+Brasil" target="_blank" class="text-blue-500 hover-animate">
                 <i class="fas fa-map-marker-alt"></i>
             </a>
-            <a href="https://github.com/ManoAlee/portfolio.git" target="_blank" class="text-gray-800 hover-animate">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-    </footer>
-</body>
-</html>
+            <a href="https://github.com/ManoAlee/portfolio.git" target="_blank" class="text-gray-
