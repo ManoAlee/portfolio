@@ -1,11 +1,11 @@
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Alessandro Meneses - Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Alessandro Meneses</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Franklin+Gothic+Extra+Condensed&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
     <script>
         function toggleTheme() {
             const html = document.documentElement;
@@ -32,7 +32,7 @@
     </script>
     <style>
         body {
-            font-family: 'Franklin Gothic Extra Condensed', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -64,12 +64,12 @@
             100% { background-position: 0% 50%; }
         }
         .bg-animated {
-            background: linear-gradient(270deg, #3c49de, #ffffff);
+            background: linear-gradient(135deg, #1E1E2F, #252A3B);
             background-size: 400% 400%;
             animation: backgroundAnimation 15s ease infinite;
         }
         .dark .bg-animated {
-            background: linear-gradient(270deg, #000000, #3c49de);
+            background: linear-gradient(135deg, #000000, #1E1E2F);
             background-size: 400% 400%;
             animation: backgroundAnimation 15s ease infinite;
         }
@@ -137,11 +137,69 @@
             background-color: #b0b0b0;
             transition: background-color 0.3s ease-in-out;
         }
+        .card {
+            background: #111827;
+            color: #fff;
+            max-width: 100%;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            margin-top: 8px;
+            color: #CBD5E0;
+        }
+
+        .button {
+            display: inline-block;
+            background: #2563EB;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 12px;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background: #1E40AF;
+        }
+
+        iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body class="bg-animated dark:bg-black text-black dark:text-white flex flex-col items-center justify-center min-h-screen relative">
-    <div class="text-center mb-6 fade-in-up">
-        <h1 class="text-6xl font-bold mb-2">
+    <div class="text-center mb-6 fade-in-up px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-2">
             Alessandro Dos Santos Costa Meneses
             <div class="mt-4 text-lg bg-gray-100 dark:bg-gray-900 p-4 rounded-lg shadow-lg">
                 <p class="text-gray-700 dark:text-gray-300 typing-loop">
@@ -167,7 +225,7 @@
             </div>
         </h1>
     </div>
-    <div class="w-full max-w-md mx-auto">
+    <div class="w-full max-w-md mx-auto px-4">
         <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate-resumo flex items-center" onclick="toggleSection('resumo')">
             <i class="fas fa-user-tie text-xl mr-2"></i>
             <h2 class="text-xl font-semibold">Resumo Profissional</h2>
@@ -264,33 +322,18 @@
             <h2 class="text-xl font-semibold">Projetos</h2>
         </div>
         <div id="projetos" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden animate-slideIn">
-            <div class="flex justify-center items-center">
-                <a href="https://app.powerbi.com/groups/me/reports/f872c0c0-bbe0-412d-9341-fa77a112bcbc?ctid=cf72e2bd-7a2b-4783-bdeb-39d57b07f76f&pbi_source=linkShare" target="_blank" class="text-blue-500 hover-animate">
-                    <i class="fas fa-chart-bar text-4xl"></i>
-                </a>
-                <div class="ml-4 text-lg">
-                    <p class="font-semibold">Projeto de BI: Dashboard para Análise de Dados da Empresa Bellacor</p>
-                    <p class="text-sm mt-2">Este projeto foi desenvolvido como parte do curso de Gestão da Tecnologia da Informação na Faculdade de Tecnologia de Tatuí. O dashboard criado no Power BI oferece uma análise detalhada do estoque da Bellacor, identificando padrões, tendências e produtos críticos para suportar a tomada de decisão estratégica.</p>
-                    <p class="text-red-500 font-bold mt-2">Clique no ícone para acessar o projeto.</p>
-                </div>
+            <div class="card">
+                <h2>Projeto de BI: Dashboard para Análise de Dados</h2>
+                <iframe title="Dashboard" src="https://app.powerbi.com/view?r=eyJrIjoiM2NjNDk4YzEtNTkxMi00ODNjLWE2MjEtMWI0NGFmNTBlOThlIiwidCI6ImNmNzJlMmJkLTdhMmItNDc4My1iZGViLTM5ZDU3YjA3Zjc2ZiIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
+                <p>Este projeto analisa dados do estoque da Bellacor, identificando padrões, tendências e produtos críticos para decisão estratégica.</p>
             </div>
         </div>
     </div>
     <div class="absolute top-4 right-4 flex items-center space-x-2">
-        <img alt="Profile picture of Alessandro Dos Santos Costa Meneses" class="rounded-full" height="40" src="https://media.licdn.com/dms/image/v2/D4D35AQHIfYmh1Ojc_w/profile-framedphoto-shrink_200_200/B4DZUA45pYHwAY-/0/1739476671402?e=1740204000&v=beta&t=utYu3OJ-pi1IOMow5iZKTEAPHuXThfqvQ9E83Irdwos" width="40"/>
+        <img alt="Interactive avatar of Alessandro Dos Santos Costa Meneses" class="rounded-full hover-animate" height="40" src="https://raw.githubusercontent.com/ManoAlee/portfolio/refs/heads/main/gif.webp" width="40"/>
         <button class="bg-gray-200 dark:bg-gray-800 text-black dark:text-white p-2 rounded-full hover-animate" onclick="toggleTheme()">
             <i class="fas fa-adjust"></i>
         </button>
     </div>
     <footer class="w-full text-center py-4 mt-6 bg-gray-200 dark:bg-gray-800 text-sm">
-        <div class="container mx-auto px-4 flex justify-center space-x-4">
-            <a href="https://wa.me/5515998017732" class="text-green-500 hover-animate" target="_blank">
-                <i class="fas fa-phone"></i>
-            </a>
-            <a href="mailto:ale_meneses2004@hotmail.com" class="text-blue-500 hover-animate">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://www.google.com/maps/place/Boituva,+São+Paulo,+Brasil" target="_blank" class="text-blue-500 hover-animate">
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-            <a href="https://github.com/ManoAlee/portfolio.git" target="_blank" class="text-gray-
+        <div class="
