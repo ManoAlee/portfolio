@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automação Python | Alessandro Meneses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/components/prism-python.min.js"></script>
+    <link href="../assets/css/styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-indigo-900 text-white min-h-screen">
+    <nav class="fixed top-0 w-full bg-gray-900/80 backdrop-blur-sm z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="text-xl font-bold hover:text-purple-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Voltar
+                </a>
+                <h1 class="text-2xl font-bold">Automação Python</h1>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 pt-24 pb-12">
+        <div class="bg-gray-800/50 rounded-xl shadow-2xl backdrop-blur-sm p-8">
+            <div class="mb-8">
+                <div class="flex flex-wrap gap-4 mb-6">
+                    <span class="px-4 py-2 bg-yellow-600/20 text-yellow-400 rounded-full text-sm">Python</span>
+                    <span class="px-4 py-2 bg-green-600/20 text-green-400 rounded-full text-sm">Excel</span>
+                    <span class="px-4 py-2 bg-blue-600/20 text-blue-400 rounded-full text-sm">Automação</span>
+                </div>
+                <h2 class="text-3xl font-bold mb-4">Automação de Análise de Dados</h2>
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                    Script Python para automatização de análise de dados em planilhas Excel, com geração de insights e relatórios automáticos.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div class="bg-gray-900/50 p-6 rounded-lg backdrop-blur-sm">
+                        <h3 class="text-xl font-semibold mb-4">Funcionalidades</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                <span>Leitura automática de planilhas Excel</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                <span>Cálculo de métricas importantes (total, média, tendências)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                <span>Análise de tendências com regressão linear</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                <span>Geração de relatórios automáticos</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-900/50 p-6 rounded-lg backdrop-blur-sm">
+                        <h3 class="text-xl font-semibold mb-4">Tecnologias Utilizadas</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center space-x-3">
+                                <i class="fab fa-python text-2xl text-yellow-400"></i>
+                                <span>Python 3.9</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-table text-2xl text-green-400"></i>
+                                <span>Pandas</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-calculator text-2xl text-blue-400"></i>
+                                <span>NumPy</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-file-excel text-2xl text-green-600"></i>
+                                <span>Openpyxl</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/50 p-6 rounded-lg backdrop-blur-sm">
+                    <h3 class="text-xl font-semibold mb-4">Código do Projeto</h3>
+                    <pre class="rounded-lg"><code class="language-python">
+import pandas as pd
+import numpy as np
+from datetime import datetime
+
+class AnalisadorDados:
+    def __init__(self, arquivo):
+        self.df = pd.read_excel(arquivo)
+        
+    def analise_basica(self):
+        return {
+            'total_vendas': self.df['vendas'].sum(),
+            'media_vendas': self.df['vendas'].mean(),
+            'max_venda': self.df['vendas'].max(),
+            'min_venda': self.df['vendas'].min()
+        }
+    
+    def analise_tendencia(self):
+        x = np.arange(len(self.df))
+        y = self.df['vendas'].values
+        
+        # Regressão linear
+        coef = np.polyfit(x, y, 1)
+        tendencia = coef[0]  # Coeficiente angular
+        
+        return {
+            'tendencia': tendencia,
+            'crescimento': tendencia > 0
+        }
+    
+    def gerar_relatorio(self):
+        analise = self.analise_basica()
+        tendencia = self.analise_tendencia()
+        
+        with open(f'relatorio_{datetime.now():%Y%m%d}.txt', 'w') as f:
+            f.write("=== Relatório de Análise ===\n\n")
+            f.write(f"Total de Vendas: R$ {analise['total_vendas']:,.2f}\n")
+            f.write(f"Média de Vendas: R$ {analise['media_vendas']:,.2f}\n")
+            f.write(f"Maior Venda: R$ {analise['max_venda']:,.2f}\n")
+            f.write(f"Menor Venda: R$ {analise['min_venda']:,.2f}\n\n")
+            f.write("=== Análise de Tendência ===\n")
+            f.write(f"Tendência: {'Crescimento' if tendencia['crescimento'] else 'Queda'}\n")
+            f.write(f"Taxa: {tendencia['tendencia']:.2%} por período\n")
+
+if __name__ == '__main__':
+    analisador = AnalisadorDados('dados_vendas.xlsx')
+    analisador.gerar_relatorio()
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900/80 backdrop-blur-sm py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2025 Alessandro Meneses</p>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializar Prism.js para syntax highlighting
+        Prism.highlightAll();
+    </script>
+</body>
+</html> 

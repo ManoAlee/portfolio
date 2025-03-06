@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Tráfego - Boituva | Alessandro Meneses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet"/>
+    <link href="../assets/css/styles.css" rel="stylesheet"/>
+    <script src="../assets/js/real-time-chart.js" defer></script>
+    <script src="../assets/js/traffic-monitoring.js" defer></script>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        main {
+            flex: 1;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+        .traffic-pulse {
+            animation: traffic-pulse 2s infinite;
+        }
+        @keyframes traffic-pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .dashboard-container {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .info-card {
+            background: rgba(17, 24, 39, 0.7);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-bar {
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-indigo-900 text-white">
+    <nav class="fixed top-0 w-full bg-gray-900/80 backdrop-blur-sm z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="text-xl font-bold hover:text-purple-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Voltar
+                </a>
+                <h1 class="text-2xl font-bold">Monitoramento de Tráfego - Boituva</h1>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 pt-24 pb-8">
+        <div class="info-card mb-6">
+            <div class="flex flex-wrap gap-4 mb-4">
+                <span class="px-4 py-2 bg-purple-600/20 text-purple-400 rounded-full text-sm">
+                    <i class="fas fa-clock mr-2"></i>Tempo Real
+                </span>
+                <span class="px-4 py-2 bg-blue-600/20 text-blue-400 rounded-full text-sm">
+                    <i class="fas fa-brain mr-2"></i>Machine Learning
+                </span>
+                <span class="px-4 py-2 bg-green-600/20 text-green-400 rounded-full text-sm">
+                    <i class="fas fa-network-wired mr-2"></i>IoT
+                </span>
+            </div>
+            <h2 class="text-2xl font-bold mb-3">Sistema Inteligente de Monitoramento de Tráfego</h2>
+            <p class="text-gray-300 text-lg">
+                Monitoramento em tempo real do fluxo de tráfego em Boituva, utilizando IA para otimização de rotas e redução de congestionamentos.
+            </p>
+        </div>
+
+        <div class="dashboard-container">
+            <!-- Mapa e Legenda -->
+            <div class="info-card">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-map-marked-alt mr-2 text-blue-400"></i>
+                    Mapa de Tráfego em Tempo Real
+                </h3>
+                <div id="map" class="mb-4 shadow-lg"></div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                    <div class="flex items-center justify-center">
+                        <span class="status-indicator bg-green-500"></span>
+                        <span>Fluxo Livre</span>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <span class="status-indicator bg-yellow-500"></span>
+                        <span>Moderado</span>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <span class="status-indicator bg-red-500"></span>
+                        <span>Congestionado</span>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <span class="status-indicator bg-purple-500 traffic-pulse"></span>
+                        <span>Incidente</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estatísticas -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Gráfico de Fluxo -->
+                <div class="info-card overflow-hidden">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-semibold flex items-center">
+                            <i class="fas fa-chart-line mr-2 text-indigo-400"></i>
+                            <span>Fluxo de Veículos</span>
+                        </h3>
+                        <div class="text-sm text-gray-400">
+                            Atualização em tempo real
+                        </div>
+                    </div>
+                    <div class="relative h-64">
+                        <canvas id="realTimeChart" class="absolute inset-0"></canvas>
+                    </div>
+                </div>
+
+                <!-- Status das Vias -->
+                <div class="info-card">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <i class="fas fa-road mr-2 text-yellow-400"></i>
+                        Status das Vias Principais
+                    </h3>
+                    <div class="space-y-6">
+                        <div id="av-pereira">
+                            <div class="flex justify-between items-center mb-2">
+                                <span><i class="fas fa-car mr-2"></i>Av. Pereira Ignácio</span>
+                                <span class="status-text text-green-400">Livre</span>
+                            </div>
+                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                <div class="status-bar h-full bg-green-500 transition-all duration-500" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div id="rua-joao-leite">
+                            <div class="flex justify-between items-center mb-2">
+                                <span><i class="fas fa-car mr-2"></i>Rua João Leite</span>
+                                <span class="status-text text-yellow-400">Moderado</span>
+                            </div>
+                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                <div class="status-bar h-full bg-yellow-500 transition-all duration-500" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div id="av-mario-covas">
+                            <div class="flex justify-between items-center mb-2">
+                                <span><i class="fas fa-car mr-2"></i>Av. Gov. Mario Covas</span>
+                                <span class="status-text text-red-400">Congestionado</span>
+                            </div>
+                            <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                <div class="status-bar h-full bg-red-500 transition-all duration-500" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Métricas -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="info-card">
+                    <h4 class="text-purple-400 text-sm mb-2">
+                        <i class="fas fa-tachometer-alt mr-2"></i>Fluxo Médio
+                    </h4>
+                    <p id="fluxo-valor" class="text-3xl font-bold">--</p>
+                    <div class="mt-2">
+                        <span class="text-sm text-gray-400">veículos/hora</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4 class="text-blue-400 text-sm mb-2">
+                        <i class="fas fa-clock mr-2"></i>Tempo Médio
+                    </h4>
+                    <p id="tempo-valor" class="text-3xl font-bold">--</p>
+                    <div class="mt-2">
+                        <span class="text-sm text-gray-400">trajeto centro</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4 class="text-green-400 text-sm mb-2">
+                        <i class="fas fa-chart-bar mr-2"></i>Redução
+                    </h4>
+                    <p id="reducao-valor" class="text-3xl font-bold">--</p>
+                    <div class="mt-2">
+                        <span class="text-sm text-gray-400">em congestionamentos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900/80 backdrop-blur-sm py-4 mt-auto">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2025 Alessandro Meneses</p>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializar mapa de Boituva
+        const map = L.map('map').setView([-23.2862, -47.6786], 14);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Adicionar marcadores de tráfego
+        const trafficPoints = [
+            {lat: -23.2862, lng: -47.6786, color: 'green', pulse: false, popup: 'Centro - Fluxo Livre'}, 
+            {lat: -23.2840, lng: -47.6760, color: 'yellow', pulse: false, popup: 'Av. Pereira Ignácio - Tráfego Moderado'}, 
+            {lat: -23.2890, lng: -47.6750, color: 'red', pulse: false, popup: 'Av. Gov. Mario Covas - Congestionado'}, 
+            {lat: -23.2830, lng: -47.6800, color: 'purple', pulse: true, popup: 'Incidente: Acidente sem vítimas'}
+        ];
+
+        trafficPoints.forEach(point => {
+            const circle = L.circleMarker([point.lat, point.lng], {
+                radius: 8,
+                fillColor: point.color,
+                color: point.color,
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.7
+            }).addTo(map);
+
+            if (point.pulse) {
+                circle._path.classList.add('traffic-pulse');
+            }
+
+            circle.bindPopup(point.popup);
+        });
+
+        // Atualizar dados a cada 5 segundos
+        setInterval(() => {
+            // Fluxo médio mais realista para Boituva (200-400 veículos/hora)
+            document.getElementById('fluxo-valor').textContent = Math.floor(Math.random() * 200 + 200);
+            
+            // Tempo médio mais realista (5-10 minutos)
+            document.getElementById('tempo-valor').textContent = Math.floor(Math.random() * 5 + 5) + ' min';
+            
+            // Redução mais realista (10-20%)
+            document.getElementById('reducao-valor').textContent = Math.floor(Math.random() * 10 + 10) + '%';
+        }, 5000);
+    </script>
+</body>
+</html> 
