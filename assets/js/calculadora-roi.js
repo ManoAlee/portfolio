@@ -1,159 +1,247 @@
-function calcularROI() {
-    const investimento = parseFloat(document.getElementById('investimento').value);
-    const retorno = parseFloat(document.getElementById('retorno').value);
-    const periodo = parseInt(document.getElementById('periodo').value);
-    
-    if (isNaN(investimento) || isNaN(retorno) || isNaN(periodo)) {
-        document.getElementById('resultado-roi').innerHTML = 'Por favor, preencha todos os campos corretamente.';
-        return;
-    }
-    
-    const roi = ((retorno - investimento) / investimento) * 100;
-    const roiAnual = roi / periodo;
-    
-    // Calcular projeções otimista e pessimista
-    const roiOtimista = roiAnual * 1.2;
-    const roiPessimista = roiAnual * 0.8;
-    
-    // Calcular pontos de equilíbrio
-    const breakEvenMeses = Math.ceil((investimento / (retorno/periodo)) * 12);
-    
-    const resultadoHTML = `
-        <div class="bg-gradient-to-r from-gray-900 to-gray-800 p-6 rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-            <div class="grid grid-cols-2 gap-6 mb-6">
-                <div class="stats-card bg-gradient-to-br from-blue-600/20 to-purple-600/20 p-4 rounded-lg backdrop-blur-sm">
-                    <h4 class="text-blue-400 text-sm mb-2">ROI Total</h4>
-                    <p class="text-3xl font-bold text-white">${roi.toFixed(2)}%</p>
-                    <div class="mt-2 text-sm text-gray-400">
-                        <span class="text-green-400">▲</span> ${roiOtimista.toFixed(2)}% (Otimista)
-                        <br>
-                        <span class="text-red-400">▼</span> ${roiPessimista.toFixed(2)}% (Pessimista)
+// Dados do mercado (atualizados manualmente - última atualização: março 2024)
+const DADOS_MERCADO = {
+    selic: 11.25,
+    cdi: 11.15,
+    poupanca: 7.87,
+    ibovespa: 12.50,
+    ifix: 8.75,
+    ipca: 4.62
+};
+
+function formatarMoeda(valor) {
+    return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(valor);
+}
+
+function formatarPorcentagem(valor) {
+    return new Intl.NumberFormat('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(valor) + '%';
+}
+
+function validarNumero(valor) {
+    return !isNaN(valor) && valor > 0 && isFinite(valor);
+}
+
+function atualizarBenchmarks() {
+    const benchmarkHTML = `
+        <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+            <h4 class="font-medium mb-4">Indicadores Atuais do Mercado</h4>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <p class="text-sm text-gray-400">Taxa Selic</p>
+                    <p class="text-lg font-bold text-green-400">${DADOS_MERCADO.selic}% a.a.</p>
                     </div>
+                <div>
+                    <p class="text-sm text-gray-400">CDI</p>
+                    <p class="text-lg font-bold text-blue-400">${DADOS_MERCADO.cdi}% a.a.</p>
                 </div>
-                <div class="stats-card bg-gradient-to-br from-purple-600/20 to-pink-600/20 p-4 rounded-lg backdrop-blur-sm">
-                    <h4 class="text-purple-400 text-sm mb-2">Ponto de Equilíbrio</h4>
-                    <p class="text-3xl font-bold text-white">${breakEvenMeses} meses</p>
-                    <div class="progress-bar mt-2 h-2 bg-gray-700 rounded-full">
-                        <div class="h-full bg-purple-500 rounded-full" style="width: ${Math.min((breakEvenMeses/36) * 100, 100)}%"></div>
-                    </div>
+                <div>
+                    <p class="text-sm text-gray-400">Poupança</p>
+                    <p class="text-lg font-bold text-yellow-400">${DADOS_MERCADO.poupanca}% a.a.</p>
                 </div>
-            </div>
-            <div class="relative h-64">
-                <canvas id="roiChart" class="w-full h-full"></canvas>
-            </div>
-            <div class="mt-4 grid grid-cols-3 gap-4 text-sm">
-                <div class="metric-card bg-gray-800/50 p-3 rounded-lg text-center">
-                    <p class="text-gray-400">ROI Mensal</p>
-                    <p class="text-xl font-bold text-white">${(roiAnual/12).toFixed(2)}%</p>
+                <div>
+                    <p class="text-sm text-gray-400">Ibovespa</p>
+                    <p class="text-lg font-bold text-purple-400">${DADOS_MERCADO.ibovespa}% a.a.</p>
                 </div>
-                <div class="metric-card bg-gray-800/50 p-3 rounded-lg text-center">
-                    <p class="text-gray-400">Retorno Total</p>
-                    <p class="text-xl font-bold text-white">R$ ${(retorno - investimento).toLocaleString()}</p>
+                <div>
+                    <p class="text-sm text-gray-400">IFIX</p>
+                    <p class="text-lg font-bold text-orange-400">${DADOS_MERCADO.ifix}% a.a.</p>
                 </div>
-                <div class="metric-card bg-gray-800/50 p-3 rounded-lg text-center">
-                    <p class="text-gray-400">Eficiência</p>
-                    <p class="text-xl font-bold text-white">${Math.min(100, (roi/periodo)).toFixed(0)}%</p>
+                <div>
+                    <p class="text-sm text-gray-400">IPCA</p>
+                    <p class="text-lg font-bold text-red-400">${DADOS_MERCADO.ipca}% a.a.</p>
                 </div>
             </div>
         </div>
     `;
     
-    document.getElementById('resultado-roi').innerHTML = resultadoHTML;
-    
-    // Criar gráfico avançado
-    const ctx = document.getElementById('roiChart').getContext('2d');
-    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0, 'rgba(139, 92, 246, 0.3)');
-    gradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
-    
-    const meses = periodo * 12;
-    const labels = Array.from({length: meses}, (_, i) => `Mês ${i + 1}`);
-    const dadosReais = Array.from({length: meses}, (_, i) => {
-        const mes = i + 1;
-        return investimento * (1 + (roiAnual/1200)) ** mes;
-    });
-    
-    const dadosOtimistas = dadosReais.map(valor => valor * 1.2);
-    const dadosPessimistas = dadosReais.map(valor => valor * 0.8);
-    
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: 'Projeção Real',
-                    data: dadosReais,
-                    borderColor: '#8B5CF6',
-                    backgroundColor: gradient,
-                    fill: true,
-                    tension: 0.4
-                },
-                {
-                    label: 'Cenário Otimista',
-                    data: dadosOtimistas,
-                    borderColor: '#34D399',
-                    borderDash: [5, 5],
-                    fill: false,
-                    tension: 0.4
-                },
-                {
-                    label: 'Cenário Pessimista',
-                    data: dadosPessimistas,
-                    borderColor: '#F87171',
-                    borderDash: [5, 5],
-                    fill: false,
-                    tension: 0.4
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Projeção de Retorno do Investimento',
-                    color: '#fff',
-                    font: {
-                        size: 16,
-                        weight: 'bold'
-                    }
-                },
-                legend: {
-                    labels: {
-                        color: '#fff'
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.1)'
-                    },
-                    ticks: {
-                        color: '#fff'
-                    }
-                },
-                y: {
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.1)'
-                    },
-                    ticks: {
-                        color: '#fff',
-                        callback: function(value) {
-                            return 'R$ ' + value.toLocaleString();
-                        }
-                    }
-                }
-            },
-            interaction: {
-                intersect: false,
-                mode: 'index'
-            },
-            animation: {
-                duration: 1000,
-                easing: 'easeInOutQuart'
+    const benchmarkDiv = document.getElementById('benchmarks');
+    if (benchmarkDiv) {
+        benchmarkDiv.innerHTML = benchmarkHTML;
+    }
+}
+
+function analisarInvestimento(roiAnual, tipoInvestimento) {
+    let analise = '';
+    let risco = '';
+    let recomendacao = '';
+
+    switch(tipoInvestimento) {
+        case 'poupanca':
+            if (roiAnual < DADOS_MERCADO.poupanca) {
+                analise = `Rendimento abaixo da poupança (${DADOS_MERCADO.poupanca}% a.a.)`;
+                recomendacao = 'Considere migrar para CDBs de grandes bancos que podem oferecer melhor rentabilidade com risco similar.';
+            } else {
+                analise = `Rendimento acima da poupança (${DADOS_MERCADO.poupanca}% a.a.)`;
+                recomendacao = 'Bom rendimento para baixo risco. Considere diversificar uma parte em Tesouro Selic.';
             }
+            risco = 'Baixo risco - Garantido pelo FGC até R$ 250 mil';
+            break;
+
+        case 'cdb':
+            if (roiAnual < DADOS_MERCADO.cdi) {
+                analise = `Rendimento abaixo do CDI (${DADOS_MERCADO.cdi}% a.a.)`;
+                recomendacao = 'Busque CDBs que paguem ao menos 100% do CDI.';
+            } else {
+                analise = `Rendimento acima do CDI (${DADOS_MERCADO.cdi}% a.a.)`;
+                recomendacao = 'Boa rentabilidade. Mantenha o investimento se o prazo estiver adequado.';
+            }
+            risco = 'Baixo a médio risco - Garantido pelo FGC até R$ 250 mil';
+            break;
+
+        case 'tesouro':
+            if (roiAnual < DADOS_MERCADO.selic) {
+                analise = `Rendimento abaixo da Selic (${DADOS_MERCADO.selic}% a.a.)`;
+                recomendacao = 'Verifique as taxas cobradas pela corretora.';
+            } else {
+                analise = `Rendimento alinhado ou acima da Selic (${DADOS_MERCADO.selic}% a.a.)`;
+                recomendacao = 'Boa estratégia para reserva de emergência e conservação de capital.';
+            }
+            risco = 'Baixo risco - Garantido pelo Tesouro Nacional';
+            break;
+
+        case 'acoes':
+            if (roiAnual < DADOS_MERCADO.ibovespa) {
+                analise = `Rendimento abaixo do Ibovespa (${DADOS_MERCADO.ibovespa}% a.a.)`;
+                recomendacao = 'Considere investir em ETFs ou revisar sua estratégia de stock picking.';
+            } else {
+                analise = `Rendimento acima do Ibovespa (${DADOS_MERCADO.ibovespa}% a.a.)`;
+                recomendacao = 'Excelente performance! Mantenha a estratégia mas monitore os riscos.';
+            }
+            risco = 'Alto risco - Sujeito à volatilidade do mercado';
+            break;
+
+        case 'fii':
+            if (roiAnual < DADOS_MERCADO.ifix) {
+                analise = `Rendimento abaixo do IFIX (${DADOS_MERCADO.ifix}% a.a.)`;
+                recomendacao = 'Avalie a qualidade dos FIIs em carteira e o momento do mercado imobiliário.';
+            } else {
+                analise = `Rendimento acima do IFIX (${DADOS_MERCADO.ifix}% a.a.)`;
+                recomendacao = 'Bom rendimento! Mantenha-se atento à qualidade dos ativos imobiliários.';
+            }
+            risco = 'Médio risco - Mercado imobiliário e renda variável';
+            break;
+    }
+
+    return { analise, risco, recomendacao };
+}
+
+function calcularROI() {
+    try {
+        // Obter valores dos inputs com validação
+        const investimento = parseFloat(document.getElementById('investimento').value) || 0;
+        const retorno = parseFloat(document.getElementById('retorno').value) || 0;
+        const periodo = parseFloat(document.getElementById('periodo').value) || 0;
+        const tipoInvestimento = document.getElementById('tipoInvestimento')?.value || 'poupanca';
+
+        // Validar inputs
+        if (investimento <= 0 || retorno <= 0 || periodo <= 0) {
+            alert('Por favor, preencha todos os campos com valores maiores que zero.');
+            return;
         }
-    });
-} 
+
+        // Cálculos básicos
+        const lucroTotal = retorno - investimento;
+        const roi = (lucroTotal / investimento) * 100;
+        const roiAnual = roi / periodo;
+        const lucroAnual = lucroTotal / periodo;
+        const lucroMensal = lucroAnual / 12;
+
+        // Determinar benchmark baseado no tipo de investimento
+        let benchmark = DADOS_MERCADO.poupanca;
+        let benchmarkNome = 'Poupança';
+        
+        switch(tipoInvestimento) {
+            case 'cdb':
+                benchmark = DADOS_MERCADO.cdi;
+                benchmarkNome = 'CDI';
+                break;
+            case 'tesouro':
+                benchmark = DADOS_MERCADO.selic;
+                benchmarkNome = 'Selic';
+                break;
+            case 'acoes':
+                benchmark = DADOS_MERCADO.ibovespa;
+                benchmarkNome = 'Ibovespa';
+                break;
+            case 'fii':
+                benchmark = DADOS_MERCADO.ifix;
+                benchmarkNome = 'IFIX';
+                break;
+        }
+
+        // Análise comparativa
+        const comparacao = roiAnual > benchmark ? 'acima' : 'abaixo';
+        const analise = `Rendimento ${comparacao} do ${benchmarkNome} (${benchmark}% a.a.)`;
+
+        // Determinar risco e recomendação
+        const risco = analisarInvestimento(roiAnual, tipoInvestimento).risco;
+        const recomendacao = analisarInvestimento(roiAnual, tipoInvestimento).recomendacao;
+
+        const resultadoHTML = `
+            <h3 class="text-lg sm:text-xl font-semibold mb-6">Análise do Investimento</h3>
+            
+            <div class="space-y-4">
+                <div class="bg-gray-800/50 p-4 rounded-lg">
+                    <h4 class="font-medium mb-2">ROI Total</h4>
+                    <p class="text-2xl font-bold text-green-400">${formatarPorcentagem(roi)}</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-800/50 p-4 rounded-lg">
+                        <h4 class="font-medium mb-2">ROI Anual</h4>
+                        <p class="text-xl font-bold text-blue-400">${formatarPorcentagem(roiAnual)}</p>
+                    </div>
+                    <div class="bg-gray-800/50 p-4 rounded-lg">
+                        <h4 class="font-medium mb-2">ROI Mensal</h4>
+                        <p class="text-xl font-bold text-purple-400">${formatarPorcentagem(roiAnual / 12)}</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-800/50 p-4 rounded-lg">
+                        <h4 class="font-medium mb-2">Lucro Total</h4>
+                        <p class="text-xl font-bold text-yellow-400">${formatarMoeda(lucroTotal)}</p>
+                    </div>
+                    <div class="bg-gray-800/50 p-4 rounded-lg">
+                        <h4 class="font-medium mb-2">Lucro Mensal</h4>
+                        <p class="text-xl font-bold text-orange-400">${formatarMoeda(lucroMensal)}</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800/50 p-4 rounded-lg">
+                    <h4 class="font-medium mb-2">Análise Comparativa</h4>
+                    <p class="text-sm text-gray-300">${analise}</p>
+                </div>
+
+                <div class="bg-gray-800/50 p-4 rounded-lg">
+                    <h4 class="font-medium mb-2">Perfil de Risco</h4>
+                    <p class="text-sm text-gray-300">${risco}</p>
+                </div>
+
+                <div class="bg-gray-800/50 p-4 rounded-lg">
+                    <h4 class="font-medium mb-2">Recomendação</h4>
+                    <p class="text-sm text-gray-300">${recomendacao}</p>
+                </div>
+            </div>
+        `;
+
+        const resultadoDiv = document.getElementById('resultado-roi');
+        resultadoDiv.innerHTML = resultadoHTML;
+
+    } catch (error) {
+        console.error('Erro ao calcular ROI:', error);
+        alert('Ocorreu um erro ao calcular. Por favor, verifique os valores inseridos.');
+    }
+}
+
+// Inicialização
+document.addEventListener('DOMContentLoaded', function() {
+    atualizarBenchmarks();
+}); 
