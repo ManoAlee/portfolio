@@ -1,94 +1,115 @@
-Portfólio de Alessandro Meneses
-Bem-vindo ao meu portfólio pessoal! Este site foi desenvolvido para apresentar minha trajetória profissional, habilidades, formação acadêmica e projetos. Ele é totalmente responsivo, com suporte a temas claro e escuro, e foi construído com tecnologias modernas para garantir uma experiência de usuário fluida e agradável.
+# Portfólio Profissional - Alessandro Dos Santos Costa Meneses
 
-🚀 Visualização
-Você pode acessar o portfólio online aqui https://portifolioalessandro.netlify.app
+[![Status do Projeto](https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue)](https://github.com/ManoAlee/portfolio)
+[![Versão](https://img.shields.io/badge/Versão-1.0.0-green)](https://github.com/ManoAlee/portfolio/releases)
+[![Licença](https://img.shields.io/badge/Licença-MIT-yellow)](LICENSE)
 
-✨ Funcionalidades
-Tema Claro/Escuro: Alternância entre temas com persistência no localStorage.
+## 🚀 Visão Geral
 
-Seções Interativas: Expansão e recolhimento de seções com animações suaves.
+Portfólio profissional desenvolvido com tecnologias modernas, apresentando projetos e experiências na área de Análise de Dados, Power BI e Desenvolvimento Web. O site conta com design responsivo, interativo e futurista, demonstrando habilidades técnicas e projetos práticos.
 
-Design Responsivo: Layout adaptável para dispositivos móveis e desktops.
+## 🎯 Projetos em Destaque
 
-Links de Contato: Acesso rápido ao LinkedIn, e-mail, GitHub e localização.
+### 🚦 Sistema de Monitoramento de Tráfego
+- Análise em tempo real do fluxo de tráfego em Boituva
+- Implementação de sensores IoT e algoritmos de machine learning
+- Previsão de congestionamentos usando IA
+- Tecnologias: Python, TensorFlow, MQTT, Dash
 
-Animações: Efeitos de hover e transições para melhorar a experiência do usuário.
+### 💰 Calculadora ROI Avançada
+- Ferramenta interativa para análise de retorno sobre investimento
+- Visualizações dinâmicas e múltiplos cenários
+- Projeções futuras e análise de tendências
+- Tecnologias: JavaScript, Chart.js, Analytics
 
-🛠️ Tecnologias Utilizadas
-HTML5: Estrutura do site.
+### 📊 Dashboard Analytics
+- Dashboard interativo para análise de dados empresariais
+- Integração com múltiplas fontes de dados
+- KPIs personalizados e visualizações dinâmicas
+- Tecnologias: Power BI, SQL, DAX
 
-Tailwind CSS: Estilização e design responsivo.
+## 🛠️ Tecnologias Utilizadas
 
-JavaScript: Interatividade e funcionalidades dinâmicas.
+### Frontend
+- HTML5
+- CSS3 (Tailwind CSS)
+- JavaScript
+- Chart.js
+- Prism.js
 
-Font Awesome: Ícones para redes sociais e seções.
+### Análise de Dados
+- Python 3.9
+- TensorFlow
+- Power BI
+- SQL
 
-Animações CSS: Efeitos de fade-in e hover.
+### Ferramentas
+- Git/GitHub
+- VS Code
+- Power BI Desktop
 
-📂 Estrutura do Projeto
-O projeto é organizado da seguinte forma:
+## 📱 Responsividade
 
-Página Principal: Apresentação pessoal, links de contato e seções interativas.
+O portfólio é totalmente responsivo, adaptando-se a diferentes tamanhos de tela:
+- Desktop (1024px+)
+- Tablet (768px - 1023px)
+- Mobile (320px - 767px)
 
-Seções:
+## 🎨 Design
 
-Resumo Profissional: Breve descrição sobre minha trajetória e objetivos.
+- Interface moderna com efeitos de glassmorphism
+- Animações suaves e interativas
+- Cards 3D com efeitos de hover
+- Gradientes dinâmicos
+- Efeitos de blur e transparência
 
-Experiência Profissional: Detalhes sobre minhas experiências de trabalho.
+## 📦 Estrutura do Projeto
 
-Formação Acadêmica: Informações sobre minha educação e cursos.
+```
+portfolio/
+├── index.html
+├── README.md
+├── LICENSE
+├── assets/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── calculadora-roi.js
+│   │   └── real-time-chart.js
+│   └── images/
+│       └── projects/
+└── pages/
+    ├── about/
+    ├── experience/
+    ├── skills/
+    └── projects/
+```
 
-Principais Competências: Lista das minhas habilidades técnicas.
+## 🚀 Como Executar
 
-Projetos: Área dedicada a projetos futuros (em desenvolvimento).
-
-🖥️ Como Executar Localmente
-Siga os passos abaixo para rodar o projeto no seu ambiente local:
-
-Clone o repositório:
-
-bash
-Copy
+1. Clone o repositório:
+```bash
 git clone https://github.com/ManoAlee/portfolio.git
-Navegue até o diretório do projeto:
+```
 
-bash
-Copy
+2. Navegue até o diretório do projeto:
+```bash
 cd portfolio
-Abra o arquivo index.html:
+```
 
-Use um servidor local (como o Live Server do VSCode) ou abra diretamente no navegador.
+3. Abra o arquivo `index.html` em seu navegador ou use um servidor local.
 
-🎨 Personalização
-Você pode personalizar o portfólio alterando os seguintes arquivos:
+## 📫 Contato
 
-Conteúdo: Edite o arquivo index.html para atualizar suas informações.
+- **LinkedIn:** [Alessandro Dos Santos Costa Meneses](https://linkedin.com/in/alessandro-meneses-2425ab231)
+- **Email:** alessandro.meneses@fatec.sp.gov.br
+- **GitHub:** [ManoAlee](https://github.com/ManoAlee)
 
-Estilos: Modifique as classes do Tailwind CSS no próprio HTML ou adicione estilos personalizados na tag <style>.
+## 📄 Licença
 
-Ícones: Substitua os ícones do Font Awesome pelos que preferir.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-🌟 Destaques
-Design Moderno: Utilização de gradientes, sombras e animações para um visual atraente.
+---
 
-Acessibilidade: Alternância de temas e ícones descritivos para melhorar a usabilidade.
-
-Organização: Código limpo e bem estruturado, facilitando a manutenção e expansão.
-
-📞 Contato
-Se você quiser entrar em contato comigo, aqui estão minhas informações:
-
-LinkedIn: Alessandro Meneses
-
-E-mail: ale_meneses2004@hotmail.com
-
-GitHub: ManoAlee
-
-Localização: Boituva, São Paulo, Brasil.
-
-📜 Licença
-Este projeto está sob a licença MIT. Sinta-se à vontade para usá-lo como base para o seu próprio portfólio!
-
-🙌 Agradecimentos
-Agradeço ao Tailwind CSS e ao Font Awesome por fornecerem as ferramentas que tornaram este projeto possível.
+Desenvolvido com ❤️ por Alessandro Dos Santos Costa Meneses 

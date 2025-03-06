@@ -1,339 +1,204 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Alessandro Meneses</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('theme') === 'dark') {
-                document.documentElement.classList.add('dark');
-            }
-        });
-
-        function toggleSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            section.classList.toggle('hidden');
-            section.classList.toggle('animate-slideIn');
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .animate-fadeIn {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        .hover-animate:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease-in-out;
-        }
-        .fade-in-up {
-            animation: fadeInUp 1s ease-in-out;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes backgroundAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .bg-animated {
-            background: linear-gradient(135deg, #1E1E2F, #252A3B);
-            background-size: 400% 400%;
-            animation: backgroundAnimation 15s ease infinite;
-        }
-        .dark .bg-animated {
-            background: linear-gradient(135deg, #000000, #1E1E2F);
-            background-size: 400% 400%;
-            animation: backgroundAnimation 15s ease infinite;
-        }
-        @keyframes typingLoop {
-            0%, 20%, 100% { width: 0; }
-            40%, 60% { width: 100%; }
-        }
-        .typing-loop {
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 3px solid;
-            animation: typingLoop 10s steps(40, end) infinite, blink-caret .75s step-end infinite;
-        }
-        .dark .typing-loop {
-            border-color: white;
-        }
-        .wave {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 200px;
-            background: url('https://www.svgrepo.com/show/2046/wave.svg') repeat-x;
-            background-size: cover;
-            animation: wave-animation 10s linear infinite;
-        }
-        @keyframes wave-animation {
-            0% { background-position-x: 0; }
-            100% { background-position-x: 1000px; }
-        }
-        .dark .wave {
-            background: url('https://www.svgrepo.com/show/2046/wave.svg') repeat-x;
-            background-size: cover;
-            filter: invert(1);
-        }
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        .animate-slideIn {
-            animation: slideIn 0.5s ease-in-out;
-        }
-        .hover-animate-resumo:hover {
-            background-color: #f0f0f0;
-            transition: background-color 0.3s ease-in-out;
-        }
-        .hover-animate-experiencia:hover {
-            background-color: #e0e0e0;
-            transition: background-color 0.3s ease-in-out;
-        }
-        .hover-animate-formacao:hover {
-            background-color: #d0d0d0;
-            transition: background-color 0.3s ease-in-out;
-        }
-        .hover-animate-competencias:hover {
-            background-color: #c0c0c0;
-            transition: background-color 0.3s ease-in-out;
-        }
-        .hover-animate-projetos:hover {
-            background-color: #b0b0b0;
-            transition: background-color 0.3s ease-in-out;
-        }
-        .card {
-            background: #111827;
-            color: #fff;
-            max-width: 100%;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-            text-align: center;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-        }
-
-        .card img {
-            width: 100%;
-            border-radius: 8px;
-        }
-
-        .card h2 {
-            font-size: 20px;
-            margin-top: 10px;
-        }
-
-        .card p {
-            font-size: 14px;
-            margin-top: 8px;
-            color: #CBD5E0;
-        }
-
-        .button {
-            display: inline-block;
-            background: #2563EB;
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 6px;
-            margin-top: 12px;
-            transition: background 0.3s;
-        }
-
-        .button:hover {
-            background: #1E40AF;
-        }
-
-        iframe {
-            width: 100%;
-            aspect-ratio: 16/9;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 20px;
-            }
-        }
-    </style>
+    <title>Alessandro Dos Santos Costa Meneses | Portfólio</title>
+    <meta name="description" content="Portfólio profissional de Alessandro Dos Santos Costa Meneses - Especialista em Análise de Dados e Desenvolvimento">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="assets/css/utilities.css" rel="stylesheet">
 </head>
-<body class="bg-animated dark:bg-black text-black dark:text-white flex flex-col items-center justify-center min-h-screen relative">
-    <div class="text-center mb-6 fade-in-up px-4">
-        <h1 class="text-4xl md:text-6xl font-bold mb-2">
-            Alessandro Dos Santos Costa Meneses
-            <div class="mt-4 text-lg bg-gray-100 dark:bg-gray-900 p-4 rounded-lg shadow-lg">
-                <p class="text-gray-700 dark:text-gray-300 typing-loop">
-                    <span>Estudante de Gestão da Tecnologia da Informação | Power BI | Análise de Dados</span>
-                    <span class="hidden">Análise de Dados e Power BI</span>
-                    <span class="hidden">Suporte Técnico e Redes</span>
-                    <span class="hidden">Controle de Qualidade e Processos</span>
-                    <span class="hidden">Gestão e Automação de Planilhas em Excel</span>
-                    <span class="hidden">SQL e Banco de Dados</span>
-                    <span class="hidden">Soft Skills: Comunicação, Trabalho em Equipe, Resolução de Problemas</span>
+<body>
+    <!-- Navegação -->
+    <nav class="nav">
+        <div class="container nav-content">
+            <a href="/" class="text-gradient font-bold text-xl">AM</a>
+            <div class="flex items-center gap-6">
+                <a href="/pages/about" class="text-gray-300 hover:text-white transition-colors">Sobre</a>
+                <a href="/pages/experience" class="text-gray-300 hover:text-white transition-colors">Experiência</a>
+                <a href="/pages/skills" class="text-gray-300 hover:text-white transition-colors">Habilidades</a>
+                <a href="/pages/projects" class="text-gray-300 hover:text-white transition-colors">Projetos</a>
+                <button id="theme-toggle" class="btn glass" aria-label="Alternar tema">
+                    <i class="fas fa-sun" aria-hidden="true"></i>
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <a href="#contact" class="btn btn-primary">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="container pt-32 pb-16">
+        <div class="grid grid-2 items-center gap-12">
+            <div class="animate-fade-in">
+                <div class="flex gap-4 mb-6">
+                    <span class="tag tag-primary">
+                        <i class="fas fa-code"></i>
+                        Desenvolvedor
+                    </span>
+                    <span class="tag tag-primary">
+                        <i class="fas fa-chart-line"></i>
+                        Analista de Dados
+                    </span>
+                </div>
+                <h1 class="title text-5xl mb-6">
+                    Transformando Dados em Soluções Inteligentes
+                </h1>
+                <p class="text-gray-300 text-lg mb-8">
+                    Estudante de GTI com foco em análise de dados e desenvolvimento de soluções tecnológicas. 
+                    Especializado em Power BI, análise de dados e automação de processos.
                 </p>
-                <div class="flex justify-center space-x-4 mt-4">
-                    <a class="text-blue-500 hover-animate" href="https://linkedin.com/in/alessandro-meneses-2425ab231" target="_blank">
-                        <i class="fab fa-linkedin"></i>
+                <div class="flex gap-4">
+                    <a href="/pages/projects" class="btn btn-primary">
+                        Ver Projetos
+                        <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a class="text-red-500 hover-animate" href="mailto:ale_meneses2004@hotmail.com">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a class="text-gray-800 hover-animate" href="https://github.com/ManoAlee/portfolio.git" target="_blank">
-                        <i class="fab fa-github"></i>
+                    <a href="#contact" class="btn glass">
+                        Entrar em Contato
                     </a>
                 </div>
             </div>
-        </h1>
-    </div>
-    <div class="w-full max-w-md mx-auto px-4">
-        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate-resumo flex items-center" onclick="toggleSection('resumo')">
-            <i class="fas fa-user-tie text-xl mr-2"></i>
-            <h2 class="text-xl font-semibold">Resumo Profissional</h2>
+            <div class="relative animate-fade-in">
+                <div class="glass p-8 relative z-10">
+                    <div class="profile-image-container">
+                        <img src="https://raw.githubusercontent.com/ManoAlee/portfolio/refs/heads/main/gif.webp" 
+                             alt="Alessandro Dos Santos Costa Meneses" 
+                             class="profile-image">
+                        <div class="pulse-border"></div>
+                        <div class="hover-info">
+                            <p class="text-sm font-medium">Estudante de GTI</p>
+                            <div class="flex items-center gap-2 mt-1">
+                                <img src="https://media.licdn.com/dms/image/v2/C560BAQGjRBOcU6l8Rg/company-logo_100_100/company-logo_100_100/0/1643767566858/fatectatui_logo?e=1749081600&v=beta&t=edlzQczVvDLMIKRvJTolKtB_PxsVh6yGGeOoV50cWvE" 
+                                     alt="FATEC Logo" 
+                                     class="w-6 h-6">
+                                <p class="text-xs opacity-80">FATEC Tatuí</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 glass p-4 rounded-lg group-hover:scale-105 transition-transform">
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <div class="w-3 h-3 bg-green-500 rounded-full pulse"></div>
+                                <div class="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75"></div>
+                            </div>
+                            <span class="text-sm font-medium">Disponível para oportunidades</span>
+                            <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-10 blur-3xl"></div>
+            </div>
         </div>
-        <div id="resumo" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden animate-slideIn">
-            <p class="text-base hover-animate leading-relaxed">
-                Estudante de Gestão da Tecnologia da Informação (GTI) com previsão de conclusão em julho de 2025. Possuo conhecimentos em análise de dados, Power BI e Excel, além de experiência em suporte técnico e controle de qualidade. Busco minha primeira oportunidade na área de tecnologia, onde possa aplicar meus conhecimentos acadêmicos e contribuir para a transformação digital e inovação nas organizações. Sou dedicado, proativo e tenho facilidade para trabalhar em equipe.
+    </header>
+
+    <!-- Projetos em Destaque -->
+    <section class="container py-16">
+        <h2 class="subtitle text-center mb-12">Projetos em Destaque</h2>
+        <div class="grid grid-3">
+            <!-- Monitoramento de Tráfego -->
+            <a href="/pages/analise-tempo-real.html" class="card group">
+                <div class="relative overflow-hidden rounded-lg mb-4">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Sistema de Monitoramento" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    Sistema de Monitoramento de Tráfego
+                </h3>
+                <p class="text-gray-400 mb-4">
+                    Análise em tempo real do fluxo de tráfego em Boituva usando IA.
+                </p>
+                <div class="flex gap-2">
+                    <span class="tag tag-primary text-xs">Python</span>
+                    <span class="tag tag-primary text-xs">Machine Learning</span>
+                    <span class="tag tag-primary text-xs">IoT</span>
+                </div>
+            </a>
+
+            <!-- Calculadora ROI -->
+            <a href="/pages/calculadora-roi.html" class="card group">
+                <div class="relative overflow-hidden rounded-lg mb-4">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Calculadora ROI" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    Calculadora ROI Avançada
+                </h3>
+                <p class="text-gray-400 mb-4">
+                    Ferramenta interativa para análise de retorno sobre investimento.
+                </p>
+                <div class="flex gap-2">
+                    <span class="tag tag-primary text-xs">JavaScript</span>
+                    <span class="tag tag-primary text-xs">Chart.js</span>
+                    <span class="tag tag-primary text-xs">Analytics</span>
+                </div>
+            </a>
+
+            <!-- Dashboard Power BI -->
+            <a href="/pages/dashboard.html" class="card group">
+                <div class="relative overflow-hidden rounded-lg mb-4">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Dashboard Analytics" class="w-full h-48 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    Dashboard Analytics
+                </h3>
+                <p class="text-gray-400 mb-4">
+                    Dashboard interativo para análise de dados empresariais.
+                </p>
+                <div class="flex gap-2">
+                    <span class="tag tag-primary text-xs">Power BI</span>
+                    <span class="tag tag-primary text-xs">SQL</span>
+                    <span class="tag tag-primary text-xs">DAX</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact" class="container py-16">
+        <div class="card max-w-2xl mx-auto text-center">
+            <h2 class="subtitle mb-6">Vamos Conversar?</h2>
+            <p class="text-gray-300 mb-8">
+                Estou sempre aberto a novas oportunidades e parcerias.
+                Entre em contato para discutirmos como posso contribuir com seu projeto.
             </p>
-        </div>
-        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate-experiencia flex items-center" onclick="toggleSection('experiencia')">
-            <i class="fas fa-briefcase text-xl mr-2"></i>
-            <h2 class="text-xl font-semibold">Experiência Profissional</h2>
-        </div>
-        <div id="experiencia" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden animate-slideIn">
-            <div class="mb-4 hover-animate">
-                <h3 class="text-lg font-semibold">Bellacor Indústria e Comércio de Tintas</h3>
-                <p class="text-sm italic">Assistente de Produção</p>
-                <p class="text-sm">Abril de 2024 - Dezembro de 2024 (9 meses) | Boituva, SP</p>
-                <ul class="list-disc list-inside text-sm">
-                    <li>Operação e monitoramento de máquinas de envase.</li>
-                    <li>Inspeção visual de produtos e controle de qualidade.</li>
-                    <li>Manutenção da organização e limpeza do setor.</li>
-                    <li>Apoio em ajustes simples de máquinas e cumprimento de metas.</li>
-                </ul>
-            </div>
-            <div class="mb-4 hover-animate">
-                <h3 class="text-lg font-semibold">BR Conecta</h3>
-                <p class="text-sm italic">Analista de Rede e Comunicação de Dados Júnior</p>
-                <p class="text-sm">Janeiro de 2024 - Fevereiro de 2024 (2 meses) | Boituva, SP</p>
-                <ul class="list-disc list-inside text-sm">
-                    <li>Suporte técnico aos usuários, com diagnóstico e resolução de problemas de conexão.</li>
-                    <li>Abertura e acompanhamento de chamados técnicos.</li>
-                </ul>
-            </div>
-            <div class="mb-4 hover-animate">
-                <h3 class="text-lg font-semibold">Schmersal Brasil</h3>
-                <p class="text-sm italic">Assistente Administrativo</p>
-                <p class="text-sm">Janeiro de 2023 - Dezembro de 2023 (1 ano) | Boituva, SP</p>
-                <ul class="list-disc list-inside text-sm">
-                    <li>Controle de qualidade: documentação e auditorias internas.</li>
-                    <li>Inspeção de embalagens e garantia de conformidade.</li>
-                    <li>Criação de planilhas para controle de processos.</li>
-                </ul>
+            <div class="flex justify-center gap-6">
+                <a href="https://linkedin.com/in/alessandro-meneses-2425ab231" target="_blank" class="btn glass">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="mailto:ale_meneses2004@hotmail.com" class="btn glass">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+                <a href="https://github.com/ManoAlee" target="_blank" class="btn glass">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
             </div>
         </div>
-        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate-formacao flex items-center" onclick="toggleSection('formacao')">
-            <i class="fas fa-graduation-cap text-xl mr-2"></i>
-            <h2 class="text-xl font-semibold">Formação Acadêmica</h2>
-        </div>
-        <div id="formacao" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden animate-slideIn">
-            <div class="mb-4 hover-animate">
-                <h3 class="text-lg font-semibold">Fatec Tatuí</h3>
-                <p class="text-sm italic">Ensino Superior em Gestão da Tecnologia da Informação</p>
-                <p class="text-sm">Fevereiro de 2022 - Julho de 2025 (Previsão de Conclusão)</p>
-            </div>
-            <div class="mb-4 hover-animate">
-                <h3 class="text-lg font-semibold">SENAI "Ítalo Bologna" - Itu/SP</h3>
-                <p class="text-sm italic">Curso de Aprendizagem Industrial - Assistente Administrativo</p>
-                <p class="text-sm">Janeiro de 2023 - Dezembro de 2023</p>
-            </div>
-            <div class="mb-4 hover-animate">
-                <h3 class="text-lg font-semibold">SENAI "Ítalo Bologna" - Itu/SP</h3>
-                <p class="text-sm italic">Curso de Power BI</p>
-                <p class="text-sm">Dezembro de 2023</p>
-            </div>
-            <div class="mb-4 hover-animate">
-                <h3 class="text-lg font-semibold">Fundação Bradesco</h3>
-                <p class="text-sm italic">Excel Intermediário</p>
-                <p class="text-sm">Novembro de 2023</p>
-            </div>
-            <div class="mb-4 hover-animate">
-                <h3 class="text-lg font-semibold">Santander X</h3>
-                <p class="text-sm italic">Santander X Explorer</p>
-                <p class="text-sm">Fevereiro de 2025</p>
-                <p class="text-sm italic">Tome melhores decisões baseadas em dados: Power BI</p>
+    </section>
+
+    <footer class="container py-8">
+        <div class="flex justify-between items-center">
+            <p class="text-gray-400">&copy; 2025 Alessandro Dos Santos Costa Meneses</p>
+            <div class="flex gap-4">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
-        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate-competencias flex items-center" onclick="toggleSection('competencias')">
-            <i class="fas fa-cogs text-xl mr-2"></i>
-            <h2 class="text-xl font-semibold">Principais Competências</h2>
-        </div>
-        <div id="competencias" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden animate-slideIn">
-            <ul class="list-disc list-inside text-sm hover-animate">
-                <li class="flex items-center"><i class="fas fa-chart-line text-blue-500 mr-2"></i>Análise de Dados e Power BI</li>
-                <li class="flex items-center"><i class="fas fa-network-wired text-green-500 mr-2"></i>Suporte Técnico e Redes</li>
-                <li class="flex items-center"><i class="fas fa-check-circle text-yellow-500 mr-2"></i>Controle de Qualidade e Processos</li>
-                <li class="flex items-center"><i class="fas fa-file-excel text-green-700 mr-2"></i>Gestão e Automação de Planilhas em Excel</li>
-                <li class="flex items-center"><i class="fas fa-database text-purple-500 mr-2"></i>SQL e Banco de Dados</li>
-                <li class="flex items-center"><i class="fas fa-comments text-pink-500 mr-2"></i>Soft Skills: Comunicação, Trabalho em Equipe, Resolução de Problemas</li>
-            </ul>
-        </div>
-        <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 cursor-pointer hover-animate-projetos flex items-center" onclick="toggleSection('projetos')">
-            <i class="fas fa-project-diagram text-xl mr-2"></i>
-            <h2 class="text-xl font-semibold">Projetos</h2>
-        </div>
-        <div id="projetos" class="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6 hidden animate-slideIn">
-            <div class="card">
-                <h2>Projeto de BI: Dashboard para Análise de Dados</h2>
-                <iframe title="Dashboard" src="https://app.powerbi.com/view?r=eyJrIjoiM2NjNDk4YzEtNTkxMi00ODNjLWE2MjEtMWI0NGFmNTBlOThlIiwidCI6ImNmNzJlMmJkLTdhMmItNDc4My1iZGViLTM5ZDU3YjA3Zjc2ZiIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
-                <p>Este projeto analisa dados do estoque da Bellacor, identificando padrões, tendências e produtos críticos para decisão estratégica.</p>
-            </div>
-        </div>
-    </div>
-    <div class="absolute top-4 right-4 flex items-center space-x-2">
-        <img alt="Interactive avatar of Alessandro Dos Santos Costa Meneses" class="rounded-full hover-animate" height="40" src="https://raw.githubusercontent.com/ManoAlee/portfolio/refs/heads/main/gif.webp" width="40"/>
-        <button class="bg-gray-200 dark:bg-gray-800 text-black dark:text-white p-2 rounded-full hover-animate" onclick="toggleTheme()">
-            <i class="fas fa-adjust"></i>
-        </button>
-    </div>
-    <footer class="w-full text-center py-4 mt-6 bg-gray-200 dark:bg-gray-800 text-sm">
-        <div class="
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 
