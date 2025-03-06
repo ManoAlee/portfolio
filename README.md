@@ -1,75 +1,105 @@
-# Portfólio Profissional - Alessandro Dos Santos Costa Meneses
+# 🚀 Portfólio Profissional - Alessandro Meneses
 
 [![Status do Projeto](https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue)](https://github.com/ManoAlee/portfolio)
-[![Versão](https://img.shields.io/badge/Versão-1.1.0-green)](https://github.com/ManoAlee/portfolio/releases)
+[![Versão](https://img.shields.io/badge/Versão-1.2.0-green)](https://github.com/ManoAlee/portfolio/releases)
 [![Licença](https://img.shields.io/badge/Licença-MIT-yellow)](LICENSE)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Alessandro_Meneses-blue?logo=linkedin)](https://linkedin.com/in/alessandro-meneses-2425ab231)
 
-## 🚀 Visão Geral
+## 📋 Índice
 
-Portfólio profissional desenvolvido com tecnologias modernas, apresentando projetos e experiências na área de Análise de Dados, Power BI e Desenvolvimento Web. O site conta com design responsivo, interativo e futurista, demonstrando habilidades técnicas e projetos práticos.
+- [Visão Geral](#-visão-geral)
+- [Projetos em Destaque](#-projetos-em-destaque)
+- [Tecnologias](#%EF%B8%8F-tecnologias)
+- [Instalação](#-instalação)
+- [Estrutura](#-estrutura)
+- [Recursos](#-recursos)
+- [Contato](#-contato)
+- [Licença](#-licença)
 
-## 🎯 Projetos em Destaque
+## 🎯 Visão Geral
 
-### 💰 Calculadora ROI Avançada com Dados em Tempo Real
-- Integração com API HG Brasil para dados do mercado financeiro
-- Análise comparativa com principais índices (Selic, CDI, Ibovespa)
-- Cálculos precisos de ROI, TIR e Payback
-- Recomendações personalizadas baseadas no tipo de investimento
-- Tecnologias: JavaScript, Chart.js, HG Brasil API
+Portfolio profissional desenvolvido para apresentar projetos e experiências nas áreas de:
+- Análise de Dados
+- Desenvolvimento Web
+- Business Intelligence
+- Automação de Processos
 
-### 🚦 Sistema de Monitoramento de Tráfego
-- Análise em tempo real do fluxo de tráfego em Boituva
-- Implementação de sensores IoT e algoritmos de machine learning
-- Previsão de congestionamentos usando IA
-- Tecnologias: Python, TensorFlow, MQTT, Dash
+## 💼 Projetos em Destaque
 
-### 📊 Dashboard Analytics
-- Dashboard interativo para análise de dados empresariais
-- Integração com múltiplas fontes de dados
-- KPIs personalizados e visualizações dinâmicas
-- Tecnologias: Power BI, SQL, DAX
+### 📊 Calculadora ROI com Dados em Tempo Real
+- Integração com HG Brasil Finance API
+- Análise comparativa com índices do mercado
+- Cálculos avançados (ROI, TIR, Payback)
+- Interface moderna e responsiva
+- Recomendações personalizadas
 
-## 🛠️ Tecnologias Utilizadas
+### 🚦 Monitoramento de Tráfego
+- Análise em tempo real
+- Machine Learning para previsões
+- Integração IoT
+- Dashboard interativo
+
+### 📈 Dashboard Analytics
+- Power BI
+- Análise de dados empresariais
+- KPIs personalizados
+- Integrações múltiplas
+
+## 🛠️ Tecnologias
 
 ### Frontend
-- HTML5
-- CSS3 (Tailwind CSS)
-- JavaScript (ES6+)
-- Chart.js
-- Prism.js
+```javascript
+const frontend = {
+    html: 'HTML5',
+    css: ['CSS3', 'Tailwind CSS'],
+    javascript: 'ES6+',
+    libraries: ['Chart.js', 'Prism.js']
+}
+```
 
 ### APIs e Integrações
-- HG Brasil Finance API
-- REST APIs
-- WebSocket
+```javascript
+const apis = {
+    market_data: 'HG Brasil Finance API',
+    protocols: ['REST', 'WebSocket'],
+    authentication: 'JWT'
+}
+```
 
 ### Análise de Dados
-- Python 3.9
-- TensorFlow
-- Power BI
-- SQL
-
-### Ferramentas
-- Git/GitHub
-- VS Code
-- Power BI Desktop
-
-## 📱 Responsividade
-
-O portfólio é totalmente responsivo, adaptando-se a diferentes tamanhos de tela:
-- Desktop (1024px+)
-- Tablet (768px - 1023px)
-- Mobile (320px - 767px)
-
-## 🎨 Design
-
-- Interface moderna com efeitos de glassmorphism
-- Animações suaves e interativas
-- Cards 3D com efeitos de hover
-- Gradientes dinâmicos
-- Efeitos de blur e transparência
-- Dark mode automático
-
-## 📦 Estrutura do Projeto
-
+```python
+data_stack = {
+    'languages': ['Python 3.9', 'SQL'],
+    'frameworks': ['TensorFlow', 'Pandas'],
+    'visualization': ['Power BI', 'Plotly'],
+    'databases': ['PostgreSQL', 'MongoDB']
+}
 ```
+
+## 📥 Instalação
+
+1. Clone o repositório
+```bash
+git clone https://github.com/ManoAlee/portfolio.git
+```
+
+2. Configure as variáveis de ambiente
+```bash
+# Crie um arquivo .env na raiz
+HG_BRASIL_API_KEY=sua_chave_aqui
+```
+
+3. Instale as dependências (se necessário)
+```bash
+npm install
+```
+
+4. Execute o projeto
+```bash
+# Usando servidor local
+python -m http.server 8000
+# ou
+php -S localhost:8000
+```
+
+## 📁 Estrutura
