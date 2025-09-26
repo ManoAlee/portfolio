@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHON v5.0 - Sistema de Análise Holística | Alessandro Meneses</title>
+    <meta name="description" content="Sistema de Análise Holística Evolutiva - Catalisador de evolução consciente através de análise técnico-filosófica profunda">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link href="../assets/css/utilities.css" rel="stylesheet">
+    <style>
+        .archon-terminal {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 100%);
+            border: 2px solid #00ff41;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+        }
+        
+        .archon-input {
+            background: transparent;
+            border: none;
+            color: #00ff41;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            outline: none;
+            width: 100%;
+        }
+        
+        .archon-input::placeholder {
+            color: rgba(0, 255, 65, 0.5);
+        }
+        
+        .analysis-layer {
+            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1) 0%, rgba(26, 26, 58, 0.8) 100%);
+            border-left: 4px solid #00ff41;
+            backdrop-filter: blur(10px);
+        }
+        
+        .philosophy-quote {
+            border-left: 4px solid #ff6b35;
+            background: rgba(255, 107, 53, 0.1);
+            font-style: italic;
+        }
+        
+        .pattern-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .evolution-metric {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .archon-logo {
+            background: linear-gradient(45deg, #00ff41, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse-glow {
+            from {
+                box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+            }
+            to {
+                box-shadow: 0 0 40px rgba(0, 255, 65, 0.8);
+            }
+        }
+        
+        .tier-1 { border-left-color: #ef4444; }
+        .tier-2 { border-left-color: #f59e0b; }
+        .tier-3 { border-left-color: #10b981; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 text-white min-h-screen">
+    <!-- Navegação -->
+    <nav class="nav">
+        <div class="container nav-content">
+            <a href="/" class="text-gradient font-bold text-xl">AM</a>
+            <div class="flex items-center gap-6">
+                <a href="/pages/about" class="text-gray-300 hover:text-white transition-colors">Sobre</a>
+                <a href="/pages/experience" class="text-gray-300 hover:text-white transition-colors">Experiência</a>
+                <a href="/pages/skills" class="text-gray-300 hover:text-white transition-colors">Habilidades</a>
+                <a href="/pages/projects" class="text-gray-300 hover:text-white transition-colors">Projetos</a>
+                <a href="/pages/archon.html" class="text-gray-300 hover:text-white transition-colors text-green-400">ARCHON</a>
+                <a href="/#contact" class="btn btn-primary">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="container pt-32 pb-16">
+        <div class="text-center animate-fade-in">
+            <div class="flex justify-center items-center gap-4 mb-6">
+                <i class="fas fa-brain text-4xl archon-logo"></i>
+                <h1 class="title text-5xl archon-logo">ARCHON v5.0</h1>
+            </div>
+            <h2 class="text-2xl text-gray-300 mb-4">Sistema de Análise Holística Evolutiva</h2>
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto mb-8">
+                Arquiteto de Sistemas Filosófico Auto-Evolutivo que catalisa evolução consciente 
+                através de análise técnico-filosófica profunda em simbiose analítica.
+            </p>
+            <div class="philosophy-quote p-6 rounded-lg max-w-4xl mx-auto">
+                <p class="text-lg">
+                    "A verdadeira maestria não está em conhecer todas as respostas, mas em fazer as perguntas certas 
+                    que revelam a essência oculta dos sistemas."
+                </p>
+                <cite class="block text-right text-sm text-gray-400 mt-2">- ARCHON v5.0</cite>
+            </div>
+        </div>
+    </header>
+
+    <!-- Interface de Comando -->
+    <section class="container py-16">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-2xl font-semibold mb-6 text-center">🎯 Interface de Invocação</h3>
+            <div class="archon-terminal p-8 pulse-glow">
+                <div class="flex items-center gap-2 mb-4 text-green-400">
+                    <i class="fas fa-terminal"></i>
+                    <span class="font-mono">ARCHON@holistic-analyzer:~$</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-green-400 font-mono">@Archon:</span>
+                    <input 
+                        type="text" 
+                        id="archon-command" 
+                        class="archon-input" 
+                        placeholder="Execute análise holística do sistema [DESCRIÇÃO] com foco em [DOMÍNIO_ESPECÍFICO]"
+                        autocomplete="off"
+                    >
+                    <button id="execute-analysis" class="btn btn-primary">
+                        <i class="fas fa-play mr-2"></i>
+                        Executar
+                    </button>
+                </div>
+                <div class="mt-4 text-xs text-green-400/70">
+                    Exemplos: "analise o sistema de ROI com foco em arquitetura" | "revise o código de análise de tráfego com foco em performance"
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motor de Análise -->
+    <section class="container py-16">
+        <h3 class="text-3xl font-semibold mb-12 text-center">⚡ Motor de Análise Tricamadas</h3>
+        
+        <div class="grid gap-8">
+            <!-- Camada 1: Espectro Técnico -->
+            <div class="analysis-layer p-8 rounded-lg">
+                <h4 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+                    <i class="fas fa-cogs text-blue-400"></i>
+                    🔍 CAMADA 1: ESPECTRO TÉCNICO COMPLETO
+                </h4>
+                <div class="pattern-matrix">
+                    <div class="space-y-3">
+                        <h5 class="font-semibold text-blue-300">Cloud & Infraestrutura</h5>
+                        <ul class="text-sm space-y-1 text-gray-300">
+                            <li>• Microsserviços, Serverless, K8s</li>
+                            <li>• GitOps, FinOps, IaC</li>
+                            <li>• Observabilidade, SRE, Chaos Engineering</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h5 class="font-semibold text-blue-300">Segurança & DevSecOps</h5>
+                        <ul class="text-sm space-y-1 text-gray-300">
+                            <li>• Security by Design, Zero Trust</li>
+                            <li>• SAST/DAST, SBOM, Threat Modeling</li>
+                            <li>• Secrets Management, Supply Chain</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h5 class="font-semibold text-blue-300">Dados & ML</h5>
+                        <ul class="text-sm space-y-1 text-gray-300">
+                            <li>• Data Mesh, MLOps, Feature Stores</li>
+                            <li>• Streaming, Governança, XAI</li>
+                            <li>• Vector DBs, LLMOps, Responsible AI</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h5 class="font-semibold text-blue-300">APIs & Integração</h5>
+                        <ul class="text-sm space-y-1 text-gray-300">
+                            <li>• REST Maturity, GraphQL, gRPC</li>
+                            <li>• Event-Driven, CQRS, Saga Pattern</li>
+                            <li>• API-First Design, Contract Testing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Camada 2: Cânone Profissional -->
+            <div class="analysis-layer p-8 rounded-lg">
+                <h4 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+                    <i class="fas fa-medal text-yellow-400"></i>
+                    🎯 CAMADA 2: CÂNONE DO PROFISSIONALISMO
+                </h4>
+                <div class="pattern-matrix">
+                    <div class="space-y-3">
+                        <h5 class="font-semibold text-yellow-300">Artesanato de Código</h5>
+                        <ul class="text-sm space-y-1 text-gray-300">
+                            <li>• Commits atômicos, Conventional Commits</li>
+                            <li>• TDD/BDD, Coverage, Test Pyramid</li>
+                            <li>• Clean Code, SOLID, DRY sem fanatismo</li>
+                            <li>• Linting, Formatting, DevContainers</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h5 class="font-semibold text-yellow-300">Colaboração & Processo</h5>
+                        <ul class="text-sm space-y-1 text-gray-300">
+                            <li>• Code review construtivo e educativo</li>
+                            <li>• README exemplar, ADRs, OpenAPI</li>
+                            <li>• Comunicação async-first, inclusiva</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h5 class="font-semibold text-yellow-300">Operações & Ciclo de Vida</h5>
+                        <ul class="text-sm space-y-1 text-gray-300">
+                            <li>• Pipelines rápidas, deployment seguro</li>
+                            <li>• Logs estruturados, métricas, traces</li>
+                            <li>• Blameless postmortems, runbooks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Camada 3: Pilares Filosóficos -->
+            <div class="analysis-layer p-8 rounded-lg">
+                <h4 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+                    <i class="fas fa-university text-purple-400"></i>
+                    🏛️ CAMADA 3: PILARES FILOSÓFICOS
+                </h4>
+                <div class="pattern-matrix">
+                    <div class="space-y-3">
+                        <h5 class="font-semibold text-purple-300">I. Investigação Socrática</h5>
+                        <ul class="text-sm space-y-1 text-gray-300">
+                            <li>• Questionar pressupostos fundamentais</li>
+                            <li>• "Por que este código existe?" → Telos</li>
+                            <li>• "Como sabemos que funciona?" → Epistemologia</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h5 class="font-semibold text-purple-300">II. Arquitetura Aristotélica</h5>
+                        <ul class="text-sm space-y-1 text-gray-300">
+                            <li>• Causa Eficiente: Como está implementado?</li>
+                            <li>• Causa Material: De que é feito?</li>
+                            <li>• <strong>Causa Final: Para que serve?</strong></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h5 class="font-semibold text-purple-300">III. Ética Tecnológica</h5>
+                        <ul class="text-sm space-y-1 text-gray-300">
+                            <li>• Impacto social, privacidade, viés</li>
+                            <li>• Sustentabilidade energética</li>
+                            <li>• Responsabilidade dos desenvolvedores</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h5 class="font-semibold text-purple-300">IV. Evolução Contínua</h5>
+                        <ul class="text-sm space-y-1 text-gray-300">
+                            <li>• Kaizen técnico, aprendizado experimental</li>
+                            <li>• Feedback loops, métricas de saúde</li>
+                            <li>• Antifragilidade arquitetural</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Área de Resultado -->
+    <section class="container py-16" id="analysis-results" style="display: none;">
+        <h3 class="text-3xl font-semibold mb-8 text-center">🔬 Resultado da Análise</h3>
+        <div id="analysis-output" class="max-w-6xl mx-auto space-y-8">
+            <!-- O resultado será inserido dinamicamente aqui -->
+        </div>
+    </section>
+
+    <!-- Configurações -->
+    <section class="container py-16">
+        <h3 class="text-2xl font-semibold mb-8 text-center">🎛️ Configurações Operacionais</h3>
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card p-6">
+                    <h4 class="text-xl font-semibold mb-4">Modo de Operação</h4>
+                    <select id="analysis-mode" class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white">
+                        <option value="adaptive">Adaptativo (Recomendado)</option>
+                        <option value="rapid">Rápido (15min máximo)</option>
+                        <option value="deep">Profundo (1h completa)</option>
+                        <option value="philosophical">Filosófico (Foco ético/sistêmico)</option>
+                        <option value="technical">Técnico (Análise pura)</option>
+                    </select>
+                </div>
+                <div class="card p-6">
+                    <h4 class="text-xl font-semibold mb-4">Domínio Especializado</h4>
+                    <select id="domain-focus" class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white">
+                        <option value="general">Geral</option>
+                        <option value="startup_mvp">Startup MVP</option>
+                        <option value="enterprise">Enterprise</option>
+                        <option value="open_source">Open Source</option>
+                        <option value="ai_ml">AI/ML</option>
+                        <option value="fintech">FinTech</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Métricas de Evolução -->
+    <section class="container py-16">
+        <h3 class="text-2xl font-semibold mb-8 text-center">🎯 Métricas de Evolução</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="evolution-metric p-6 rounded-lg">
+                <h4 class="font-semibold mb-3 text-blue-400">KPIs Técnicos</h4>
+                <ul class="text-sm space-y-1 text-gray-300">
+                    <li>• Latência, Throughput, Error Rate</li>
+                    <li>• MTTR, MTBF, Deployment Frequency</li>
+                    <li>• Code Quality Score</li>
+                </ul>
+            </div>
+            <div class="evolution-metric p-6 rounded-lg">
+                <h4 class="font-semibold mb-3 text-green-400">KPIs Humanos</h4>
+                <ul class="text-sm space-y-1 text-gray-300">
+                    <li>• Code Review Time</li>
+                    <li>• Knowledge Sharing Index</li>
+                    <li>• Team Satisfaction</li>
+                </ul>
+            </div>
+            <div class="evolution-metric p-6 rounded-lg">
+                <h4 class="font-semibold mb-3 text-purple-400">KPIs Filosóficos</h4>
+                <ul class="text-sm space-y-1 text-gray-300">
+                    <li>• Purpose Clarity Score</li>
+                    <li>• Ethical Alignment Index</li>
+                    <li>• Architectural Beauty Metric</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <script src="../assets/js/footer.js"></script>
+    <script src="../assets/js/archon.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
