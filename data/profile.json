@@ -1,0 +1,145 @@
+{
+  "basic_info": {
+    "name": "Alessandro Dos Santos Costa Meneses",
+    "title": "Assistente de TI JR",
+    "company": "Automotion", 
+    "location": "Boituva, SP",
+    "phone": "(15) 99801-7732",
+    "email": "ale_meneses2004@hotmail.com",
+    "linkedin": "https://linkedin.com/in/alessandro-meneses-2425ab231",
+    "github": "https://github.com/ManoAlee",
+    "bio": "Graduado em Gestão da Tecnologia da Informação com experiência sólida em infraestrutura de TI, suporte técnico e administração de sistemas."
+  },
+  "experience": [
+    {
+      "position": "Assistente de TI JR",
+      "company": "Automotion",
+      "location": "Boituva, SP", 
+      "start_date": "2025-06",
+      "end_date": "presente",
+      "description": "Especialista em infraestrutura de TI com responsabilidades abrangentes em suporte técnico, administração de sistemas e virtualização.",
+      "skills": ["Windows Server", "Linux", "Active Directory", "PowerShell", "Azure", "Hyper-V"],
+      "current": true
+    },
+    {
+      "position": "Assistente de produção",
+      "company": "Bellacor Industria E Comercio De Tintas",
+      "location": "Boituva, SP",
+      "start_date": "2024-04",
+      "end_date": "2024-12", 
+      "description": "Ajudante de Produção no Setor de Envase com foco em qualidade e processos.",
+      "skills": ["Controle de Qualidade", "Processos Industriais"],
+      "current": false
+    },
+    {
+      "position": "Analista de rede e comunicação de dados júnior",
+      "company": "BR Conecta",
+      "location": "Boituva, SP",
+      "start_date": "2024-01",
+      "end_date": "2024-02",
+      "description": "Suporte Técnico Júnior com foco em atendimento ao cliente e resolução de problemas técnicos.",
+      "skills": ["Suporte Técnico", "Atendimento ao Cliente"],
+      "current": false
+    }
+  ],
+  "education": [
+    {
+      "degree": "Gestão da Tecnologia da Informação",
+      "school": "FATEC Tatuí",
+      "location": "Tatuí, SP",
+      "start_date": "2022-02",
+      "end_date": "2025-07",
+      "status": "Concluído",
+      "description": "Formação com foco em gestão de infraestrutura de TI, análise de dados e desenvolvimento de sistemas."
+    },
+    {
+      "degree": "Curso de Aprendizagem Industrial",
+      "school": "SENAI Ítalo Bologna",
+      "location": "Itu, SP",
+      "start_date": "2023-01",
+      "end_date": "2023-12",
+      "status": "Concluído",
+      "description": "Especialização em Assistente Administrativo com foco em processos industriais."
+    }
+  ],
+  "skills": {
+    "technical": [
+      {"name": "Windows Server", "level": 85, "category": "Sistemas"},
+      {"name": "Linux", "level": 80, "category": "Sistemas"},
+      {"name": "Active Directory", "level": 90, "category": "Administração"},
+      {"name": "PowerShell", "level": 85, "category": "Automação"},
+      {"name": "Python", "level": 75, "category": "Desenvolvimento"},
+      {"name": "Power BI", "level": 80, "category": "Análise"},
+      {"name": "Hyper-V", "level": 75, "category": "Virtualização"},
+      {"name": "Azure", "level": 70, "category": "Cloud"}
+    ],
+    "soft_skills": [
+      "Trabalho em Equipe",
+      "Resolução de Problemas", 
+      "Comunicação Eficaz",
+      "Gestão de Tempo",
+      "Aprendizado Contínuo"
+    ]
+  },
+  "certifications": [
+    {
+      "name": "Microsoft Excel 2016",
+      "issuer": "Microsoft",
+      "date": "2023",
+      "status": "Ativo"
+    },
+    {
+      "name": "Tome melhores decisões baseadas em dados Power BI",
+      "issuer": "Curso Online",
+      "date": "2023",
+      "status": "Ativo"
+    },
+    {
+      "name": "Fundamentos do Power BI",
+      "issuer": "Curso Online",
+      "date": "2023",
+      "status": "Ativo"
+    },
+    {
+      "name": "Fundamentos de Data Science e Inteligência Artificial",
+      "issuer": "Curso Online",
+      "date": "2023",
+      "status": "Ativo"
+    },
+    {
+      "name": "Administrando Banco de Dados",
+      "issuer": "Curso Técnico",
+      "date": "2023",
+      "status": "Ativo"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Sistema de Monitoramento de Tráfego",
+      "description": "Análise em tempo real do fluxo de tráfego usando IA e IoT",
+      "technologies": ["Python", "Machine Learning", "IoT"],
+      "status": "Em desenvolvimento",
+      "link": "/pages/analise-tempo-real.html"
+    },
+    {
+      "name": "Calculadora ROI Avançada", 
+      "description": "Ferramenta interativa para análise de retorno sobre investimento",
+      "technologies": ["JavaScript", "Chart.js", "Analytics"],
+      "status": "Concluído",
+      "link": "/pages/calculadora-roi.html"
+    },
+    {
+      "name": "Dashboard Analytics",
+      "description": "Dashboard interativo para análise de dados empresariais",
+      "technologies": ["Power BI", "SQL", "DAX"],
+      "status": "Concluído", 
+      "link": "/pages/dashboard.html"
+    }
+  ],
+  "meta": {
+    "last_updated": "2025-10-02T10:30:00",
+    "version": "2.1.0",
+    "auto_sync": false,
+    "linkedin_last_sync": null
+  }
+}
