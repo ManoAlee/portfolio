@@ -3,14 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alessandro Dos Santos Costa Meneses | Portfólio</title>
-    <meta name="description" content="Portfólio profissional de Alessandro Dos Santos Costa Meneses - Especialista em Análise de Dados e Desenvolvimento">
+    <title>Alessandro Meneses | Assistente de TI JR | Graduado GTI | Infraestrutura & Suporte Técnico</title>
+    <meta name="description" content="Alessandro Meneses - Assistente de TI JR na Automotion. Graduado em GTI, especialista em Windows Server, Linux, Active Directory, virtualização e Power BI. Boituva-SP.">
+    <meta name="keywords" content="Alessandro Meneses, Assistente TI, Infraestrutura TI, Suporte Técnico, Windows Server, Linux, Active Directory, Power BI, GTI, FATEC, Boituva">
+    <meta name="author" content="Alessandro Dos Santos Costa Meneses">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://manoalee.github.io/portfolio/">
+    <meta property="og:title" content="Alessandro Meneses | Assistente de TI JR | Portfolio Profissional">
+    <meta property="og:description" content="Graduado em GTI, especialista em infraestrutura de TI, suporte técnico e análise de dados. Experiência em Windows Server, Linux e virtualização.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/ManoAlee/portfolio/refs/heads/main/gif.webp">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://manoalee.github.io/portfolio/">
+    <meta property="twitter:title" content="Alessandro Meneses | Assistente de TI JR">
+    <meta property="twitter:description" content="Especialista em infraestrutura de TI e suporte técnico. Graduado em GTI pela FATEC.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/ManoAlee/portfolio/refs/heads/main/gif.webp">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4F46E5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AM Portfolio">
+    
+    <!-- DNS Prefetch e Preconnect para otimização -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//images.unsplash.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload da fonte principal -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    
+    <!-- Preload do CSS principal -->
+    <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/styles.css"></noscript>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/styles.css" rel="stylesheet">
     <link href="assets/css/utilities.css" rel="stylesheet">
+    <link href="assets/css/animations.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navegação -->
@@ -36,16 +73,16 @@
         <div class="grid grid-2 items-center gap-12">
             <div class="animate-fade-in">
                 <div class="flex gap-4 mb-6">
-                    <span class="tag tag-primary">
-                        <i class="fas fa-server"></i>
+                    <span class="tag tag-primary tag-animated">
+                        <i class="fas fa-server icon-rotate"></i>
                         Infraestrutura de TI
                     </span>
-                    <span class="tag tag-primary">
-                        <i class="fas fa-headset"></i>
+                    <span class="tag tag-primary tag-animated">
+                        <i class="fas fa-headset icon-rotate"></i>
                         Suporte Técnico
                     </span>
-                    <span class="tag tag-primary">
-                        <i class="fas fa-chart-line"></i>
+                    <span class="tag tag-primary tag-animated">
+                        <i class="fas fa-chart-line icon-rotate"></i>
                         Análise de Dados
                     </span>
                 </div>
@@ -56,15 +93,15 @@
                     Graduado em Gestão da Tecnologia da Informação com experiência sólida em infraestrutura de TI, suporte técnico e administração de sistemas. Especialista em Active Directory, Windows Server, Linux, virtualização e soluções em nuvem (Microsoft 365, Azure). Experiência em automação com PowerShell, Python e Bash, administração de banco de dados e Power BI. Foco em alta disponibilidade, segurança da informação e otimização de processos.
                 </p>
                 <div class="flex gap-4">
-                    <a href="/pages/projects" class="btn btn-primary">
+                    <a href="/pages/projects" class="btn btn-primary btn-animated">
                         Ver Projetos
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fas fa-arrow-right icon-rotate"></i>
                     </a>
-                    <a href="#contact" class="btn glass">
+                    <a href="#contact" class="btn glass btn-animated">
                         Entrar em Contato
                     </a>
-                    <a href="https://linkedin.com/in/alessandro-meneses-2425ab231" target="_blank" class="btn glass" style="display:flex;align-items:center;gap:6px;">
-                        <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/alessandro-meneses-2425ab231" target="_blank" class="btn glass btn-animated" style="display:flex;align-items:center;gap:6px;">
+                        <i class="fab fa-linkedin icon-rotate"></i>
                         LinkedIn
                     </a>
                 </div>
@@ -74,7 +111,9 @@
                     <div class="profile-image-container gradient-border">
                         <img src="https://raw.githubusercontent.com/ManoAlee/portfolio/refs/heads/main/gif.webp" 
                              alt="Alessandro Dos Santos Costa Meneses" 
-                             class="profile-image float">
+                             class="profile-image float"
+                             loading="lazy"
+                             decoding="async">
                         <div class="pulse-border"></div>
                         <div class="hover-info">
                             <p class="text-sm font-medium">Graduado em GTI</p>
@@ -107,9 +146,9 @@
         <h2 class="subtitle text-center mb-12">Projetos em Destaque</h2>
         <div class="grid grid-3">
             <!-- Monitoramento de Tráfego -->
-            <a href="/pages/analise-tempo-real.html" class="card group">
+            <a href="/pages/analise-tempo-real.html" class="card group card-hover animate-fade-in-up">
                 <div class="relative overflow-hidden rounded-lg mb-4">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Sistema de Monitoramento" class="w-full h-48 object-cover">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Sistema de Monitoramento" class="w-full h-48 object-cover" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
@@ -126,9 +165,9 @@
             </a>
 
             <!-- Calculadora ROI -->
-            <a href="/pages/calculadora-roi.html" class="card group">
+            <a href="/pages/calculadora-roi.html" class="card group card-hover animate-fade-in-up">
                 <div class="relative overflow-hidden rounded-lg mb-4">
-                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Calculadora ROI" class="w-full h-48 object-cover">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Calculadora ROI" class="w-full h-48 object-cover" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
@@ -145,9 +184,9 @@
             </a>
 
             <!-- Dashboard Power BI -->
-            <a href="/pages/dashboard.html" class="card group">
+            <a href="/pages/dashboard.html" class="card group card-hover animate-fade-in-up">
                 <div class="relative overflow-hidden rounded-lg mb-4">
-                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Dashboard Analytics" class="w-full h-48 object-cover">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Dashboard Analytics" class="w-full h-48 object-cover" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
@@ -170,8 +209,8 @@
         <div class="card max-w-2xl mx-auto text-center">
             <h2 class="subtitle mb-6">Vamos Conversar?</h2>
             <p class="text-gray-300 mb-8">
-                Estou sempre aberto a novas oportunidades e parcerias.
-                Entre em contato para discutirmos como posso contribuir com seu projeto.
+                💼 <strong>Disponível para oportunidades</strong> em infraestrutura de TI e suporte técnico.<br>
+                🚀 Entre em contato para discutirmos como posso contribuir com seu projeto ou equipe.
             </p>
             <div class="flex justify-center gap-4 flex-wrap">
                 <a href="https://linkedin.com/in/alessandro-meneses-2425ab231" target="_blank" class="btn glass">
@@ -194,8 +233,53 @@
         </div>
     </section>
 
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alessandro Dos Santos Costa Meneses",
+        "jobTitle": "Assistente de TI JR",
+        "description": "Graduado em Gestão da Tecnologia da Informação, especialista em infraestrutura de TI, suporte técnico e análise de dados",
+        "url": "https://manoalee.github.io/portfolio/",
+        "image": "https://raw.githubusercontent.com/ManoAlee/portfolio/refs/heads/main/gif.webp",
+        "telephone": "+55-15-99801-7732",
+        "email": "ale_meneses2004@hotmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Boituva",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
+        },
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Automotion"
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "FATEC Tatuí",
+            "description": "Gestão da Tecnologia da Informação"
+        },
+        "knowsAbout": [
+            "Infraestrutura de TI",
+            "Windows Server",
+            "Linux",
+            "Active Directory", 
+            "Virtualização",
+            "Power BI",
+            "Suporte Técnico",
+            "Análise de Dados"
+        ],
+        "sameAs": [
+            "https://linkedin.com/in/alessandro-meneses-2425ab231",
+            "https://github.com/ManoAlee"
+        ]
+    }
+    </script>
+
     <!-- O rodapé será carregado dinamicamente aqui -->
     <script src="assets/js/footer.js"></script>
+    <script src="assets/js/performance.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html> 
