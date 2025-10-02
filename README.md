@@ -1,7 +1,7 @@
 # 🚀 Portfólio Profissional - Alessandro Meneses
 
-[![Status do Projeto](https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue)](https://github.com/ManoAlee/portfolio)
-[![Versão](https://img.shields.io/badge/Versão-1.2.0-green)](https://github.com/ManoAlee/portfolio/releases)
+[![Status do Projeto](https://img.shields.io/badge/Status-Ativo-green)](https://github.com/ManoAlee/portfolio)
+[![Versão](https://img.shields.io/badge/Versão-2.0.0-blue)](https://github.com/ManoAlee/portfolio/releases)
 [![Licença](https://img.shields.io/badge/Licença-MIT-yellow)](LICENSE)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Alessandro_Meneses-blue?logo=linkedin)](https://linkedin.com/in/alessandro-meneses-2425ab231)
 
@@ -18,11 +18,12 @@
 
 ## 🎯 Visão Geral
 
-Portfolio profissional desenvolvido para apresentar projetos e experiências nas áreas de:
-- Análise de Dados
-- Desenvolvimento Web
-- Business Intelligence
-- Automação de Processos
+Portfólio profissional de Alessandro Meneses, graduado em Gestão da Tecnologia da Informação, atualmente atuando como Assistente de TI JR na Automotion. Especializado nas áreas de:
+- Infraestrutura de TI e Administração de Sistemas
+- Suporte Técnico e Help Desk
+- Virtualização e Cloud Computing (Microsoft 365, Azure)
+- Análise de Dados e Business Intelligence
+- Automação de Processos com PowerShell, Python e Bash
 
 ## 💼 Projetos em Destaque
 

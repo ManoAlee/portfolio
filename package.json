@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
-  "version": "1.0.0",
-  "description": "Portfólio profissional de Alessandro Dos Santos Costa Meneses",
+  "version": "2.0.0",
+  "description": "Portfólio profissional de Alessandro Dos Santos Costa Meneses - Assistente de TI JR | Graduado em GTI",
   "main": "index.html",
   "scripts": {
     "start": "live-server",
@@ -9,10 +9,15 @@
   },
   "keywords": [
     "portfolio",
-    "web",
-    "frontend",
+    "infraestrutura-ti",
+    "suporte-tecnico",
+    "active-directory",
+    "virtualizacao",
+    "cloud-computing",
     "data-analysis",
-    "power-bi"
+    "power-bi",
+    "automation",
+    "powershell"
   ],
   "author": "Alessandro Dos Santos Costa Meneses",
   "license": "MIT",
