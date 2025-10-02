@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Infraestrutura Corporativa | Alessandro Meneses</title>
+    <meta name="description" content="Projeto detalhado: Implementação completa de infraestrutura de TI corporativa com Active Directory, Hyper-V e monitoramento">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link href="../assets/css/utilities.css" rel="stylesheet">
+    <link href="../assets/css/animations.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navegação -->
+    <nav class="nav fixed w-full top-0 z-50 backdrop-blur-md bg-gray-900/80">
+        <div class="container nav-content">
+            <a href="/" class="text-gradient font-bold text-2xl">AM</a>
+            <div class="flex items-center gap-6">
+                <a href="/pages/projects" class="text-indigo-400 hover:text-white transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Voltar aos Projetos
+                </a>
+                <a href="/#contact" class="btn btn-primary btn-sm">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="pt-32 pb-12">
+        <div class="container">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="px-4 py-2 bg-indigo-600/20 text-indigo-300 rounded-full text-sm font-medium mb-6 inline-block">
+                    <i class="fas fa-server mr-2"></i>Infraestrutura Corporativa
+                </span>
+                <h1 class="text-5xl font-bold mb-6 gradient-text">
+                    Sistema de Infraestrutura Corporativa
+                </h1>
+                <p class="text-xl text-gray-300 mb-8">
+                    Modernização completa da infraestrutura de TI na Automotion com migração de 150+ usuários, 
+                    implementação de Active Directory e virtualização avançada.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <span class="px-3 py-2 bg-green-600/20 text-green-300 rounded-full text-sm">
+                        <i class="fas fa-check mr-2"></i>Projeto Concluído
+                    </span>
+                    <span class="px-3 py-2 bg-blue-600/20 text-blue-300 rounded-full text-sm">
+                        <i class="fas fa-calendar mr-2"></i>6 meses
+                    </span>
+                    <span class="px-3 py-2 bg-purple-600/20 text-purple-300 rounded-full text-sm">
+                        <i class="fas fa-users mr-2"></i>150+ usuários impactados
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="pb-20">
+        <div class="container max-w-6xl">
+            <!-- Visão Geral -->
+            <section class="mb-16">
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2">
+                        <div class="card">
+                            <h2 class="text-2xl font-bold mb-6 text-indigo-400">
+                                <i class="fas fa-info-circle mr-3"></i>Visão Geral do Projeto
+                            </h2>
+                            <div class="space-y-4 text-gray-300 leading-relaxed">
+                                <p>
+                                    Este projeto envolveu a completa modernização da infraestrutura de TI da Automotion, 
+                                    substituindo sistemas legados por uma arquitetura robusta e escalável baseada em 
+                                    tecnologias Microsoft.
+                                </p>
+                                <p>
+                                    A migração foi planejada e executada em fases, garantindo zero downtime nas operações 
+                                    críticas da empresa. O resultado foi uma redução significativa de incidentes e 
+                                    melhoria substancial na produtividade dos usuários.
+                                </p>
+                                <p>
+                                    <strong>Resultado Principal:</strong> 40% de redução no tempo de resolução de incidentes 
+                                    e 100% de melhoria na confiabilidade dos sistemas.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <!-- Estatísticas -->
+                        <div class="card">
+                            <h3 class="text-lg font-semibold mb-4 text-white">
+                                <i class="fas fa-chart-line mr-2 text-indigo-400"></i>Resultados
+                            </h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Usuários Migrados</span>
+                                    <span class="font-semibold text-green-400">150+</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Redução Incidentes</span>
+                                    <span class="font-semibold text-green-400">40%</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Downtime</span>
+                                    <span class="font-semibold text-green-400">0 horas</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Prazo</span>
+                                    <span class="font-semibold text-blue-400">No prazo</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tecnologias -->
+                        <div class="card">
+                            <h3 class="text-lg font-semibold mb-4 text-white">
+                                <i class="fas fa-cogs mr-2 text-indigo-400"></i>Tecnologias
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-tag">Windows Server 2019</span>
+                                <span class="tech-tag">Active Directory</span>
+                                <span class="tech-tag">Hyper-V</span>
+                                <span class="tech-tag">PowerShell</span>
+                                <span class="tech-tag">Group Policy</span>
+                                <span class="tech-tag">Backup Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Arquitetura -->
+            <section class="mb-16">
+                <div class="card">
+                    <h2 class="text-2xl font-bold mb-8 text-indigo-400">
+                        <i class="fas fa-network-wired mr-3"></i>Arquitetura Implementada
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="space-y-6">
+                            <div class="p-6 bg-gray-800/50 rounded-lg border border-gray-700">
+                                <h3 class="text-lg font-semibold mb-4 text-green-400">
+                                    <i class="fas fa-server mr-2"></i>Servidores Principais
+                                </h3>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Domain Controller Principal (Windows Server 2019)</li>
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Domain Controller Secundário (Backup)</li>
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>File Server com DFS</li>
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Backup Server com Veeam</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="p-6 bg-gray-800/50 rounded-lg border border-gray-700">
+                                <h3 class="text-lg font-semibold mb-4 text-blue-400">
+                                    <i class="fas fa-shield-alt mr-2"></i>Segurança
+                                </h3>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Políticas de Senha Avançadas</li>
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Controle de Acesso por Grupos</li>
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Auditoria de Eventos</li>
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Backup Automatizado</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="p-6 bg-gray-800/50 rounded-lg border border-gray-700">
+                                <h3 class="text-lg font-semibold mb-4 text-purple-400">
+                                    <i class="fas fa-desktop mr-2"></i>Virtualização
+                                </h3>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Hyper-V Host Cluster</li>
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>12 VMs de Produção</li>
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Live Migration Configurado</li>
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Storage Compartilhado</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="p-6 bg-gray-800/50 rounded-lg border border-gray-700">
+                                <h3 class="text-lg font-semibold mb-4 text-yellow-400">
+                                    <i class="fas fa-chart-area mr-2"></i>Monitoramento
+                                </h3>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>SCOM 2019</li>
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Performance Counters</li>
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Alertas Automatizados</li>
+                                    <li><i class="fas fa-chevron-right mr-2 text-indigo-400"></i>Dashboards Executivos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fases do Projeto -->
+            <section class="mb-16">
+                <div class="card">
+                    <h2 class="text-2xl font-bold mb-8 text-indigo-400">
+                        <i class="fas fa-tasks mr-3"></i>Fases de Implementação
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-indigo-600"></div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-white mb-2">Fase 1: Planejamento e Análise</h3>
+                                <p class="text-gray-300 mb-3">Levantamento completo da infraestrutura existente, mapeamento de dependências e criação do plano de migração detalhado.</p>
+                                <div class="flex gap-2">
+                                    <span class="text-xs px-2 py-1 bg-indigo-600/20 text-indigo-300 rounded">4 semanas</span>
+                                    <span class="text-xs px-2 py-1 bg-green-600/20 text-green-300 rounded">Concluído</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-blue-600"></div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-white mb-2">Fase 2: Preparação da Infraestrutura</h3>
+                                <p class="text-gray-300 mb-3">Instalação e configuração dos servidores físicos, setup da virtualização Hyper-V e preparação da rede.</p>
+                                <div class="flex gap-2">
+                                    <span class="text-xs px-2 py-1 bg-blue-600/20 text-blue-300 rounded">6 semanas</span>
+                                    <span class="text-xs px-2 py-1 bg-green-600/20 text-green-300 rounded">Concluído</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-purple-600"></div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-white mb-2">Fase 3: Implementação do Active Directory</h3>
+                                <p class="text-gray-300 mb-3">Configuração do domínio, políticas de grupo, estrutura organizacional e integração com sistemas existentes.</p>
+                                <div class="flex gap-2">
+                                    <span class="text-xs px-2 py-1 bg-purple-600/20 text-purple-300 rounded">8 semanas</span>
+                                    <span class="text-xs px-2 py-1 bg-green-600/20 text-green-300 rounded">Concluído</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-green-600"></div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-white mb-2">Fase 4: Migração dos Usuários</h3>
+                                <p class="text-gray-300 mb-3">Migração gradual dos usuários em grupos, treinamento da equipe e suporte durante a transição.</p>
+                                <div class="flex gap-2">
+                                    <span class="text-xs px-2 py-1 bg-green-600/20 text-green-300 rounded">6 semanas</span>
+                                    <span class="text-xs px-2 py-1 bg-green-600/20 text-green-300 rounded">Concluído</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-yellow-600"></div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-white mb-2">Fase 5: Otimização e Monitoramento</h3>
+                                <p class="text-gray-300 mb-3">Implementação de monitoramento, otimização de performance e documentação completa dos processos.</p>
+                                <div class="flex gap-2">
+                                    <span class="text-xs px-2 py-1 bg-yellow-600/20 text-yellow-300 rounded">2 semanas</span>
+                                    <span class="text-xs px-2 py-1 bg-green-600/20 text-green-300 rounded">Concluído</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Desafios e Soluções -->
+            <section class="mb-16">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-6 text-red-400">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>Principais Desafios
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-red-900/20 border border-red-800/50 rounded-lg">
+                                <h4 class="font-semibold text-red-300 mb-2">Migração sem Downtime</h4>
+                                <p class="text-gray-300 text-sm">Necessidade de manter operações críticas funcionando durante toda a migração.</p>
+                            </div>
+                            <div class="p-4 bg-red-900/20 border border-red-800/50 rounded-lg">
+                                <h4 class="font-semibold text-red-300 mb-2">Sistemas Legados</h4>
+                                <p class="text-gray-300 text-sm">Integração com aplicações antigas que dependiam da infraestrutura anterior.</p>
+                            </div>
+                            <div class="p-4 bg-red-900/20 border border-red-800/50 rounded-lg">
+                                <h4 class="font-semibold text-red-300 mb-2">Treinamento de Usuários</h4>
+                                <p class="text-gray-300 text-sm">Adaptação da equipe às novas políticas e procedimentos de segurança.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="text-xl font-semibold mb-6 text-green-400">
+                            <i class="fas fa-lightbulb mr-2"></i>Soluções Implementadas
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-green-900/20 border border-green-800/50 rounded-lg">
+                                <h4 class="font-semibold text-green-300 mb-2">Migração Faseada</h4>
+                                <p class="text-gray-300 text-sm">Implementação em grupos pequenos com rollback rápido em caso de problemas.</p>
+                            </div>
+                            <div class="p-4 bg-green-900/20 border border-green-800/50 rounded-lg">
+                                <h4 class="font-semibold text-green-300 mb-2">Ambiente Híbrido</h4>
+                                <p class="text-gray-300 text-sm">Mantivemos coexistência temporária entre sistemas antigos e novos.</p>
+                            </div>
+                            <div class="p-4 bg-green-900/20 border border-green-800/50 rounded-lg">
+                                <h4 class="font-semibold text-green-300 mb-2">Programa de Capacitação</h4>
+                                <p class="text-gray-300 text-sm">Treinamentos práticos e documentação detalhada para todos os usuários.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="text-center">
+                <div class="card bg-gradient-to-r from-indigo-600/20 to-purple-600/20 border-indigo-500/30">
+                    <h2 class="text-2xl font-bold mb-4 text-white">Interessado em uma solução similar?</h2>
+                    <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
+                        Tenho experiência comprovada em projetos de infraestrutura corporativa. 
+                        Vamos conversar sobre como posso ajudar sua empresa.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="/#contact" class="btn btn-primary btn-lg">
+                            <i class="fas fa-envelope mr-2"></i>Entre em Contato
+                        </a>
+                        <a href="/pages/projects" class="btn btn-outline btn-lg">
+                            <i class="fas fa-arrow-left mr-2"></i>Outros Projetos
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="../assets/js/footer.js"></script>
+
+    <style>
+        .tech-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background: rgba(99, 102, 241, 0.2);
+            color: rgb(196, 181, 253);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-left: 2px solid rgba(75, 85, 99, 0.3);
+            margin-left: 12px;
+            position: relative;
+        }
+
+        .timeline-marker {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-left: -13px;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-left: 0.5rem;
+        }
+    </style>
+</body>
+</html>
