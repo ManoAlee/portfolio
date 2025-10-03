@@ -342,7 +342,7 @@ function initPerformanceMonitoring() {
     // Service Worker Registration
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
+            navigator.serviceWorker.register('/config/sw.js')
                 .then(registration => {
                     if (performanceMonitor.isDev()) {
                         console.log('✅ Service Worker registrado com sucesso');

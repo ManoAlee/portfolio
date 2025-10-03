@@ -24,7 +24,7 @@
     <meta property="twitter:image" content="https://raw.githubusercontent.com/ManoAlee/portfolio/refs/heads/main/gif.webp">
     
     <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="config/manifest.json">
     <meta name="theme-color" content="#4F46E5">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -34,20 +34,28 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//images.unsplash.com">
+    <link rel="dns-prefetch" href="//raw.githubusercontent.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <!-- Preload da fonte principal -->
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="assets/css/styles.css" as="style">
+    <link rel="preload" href="assets/js/core/main.js" as="script">
+    <link rel="preload" href="https://raw.githubusercontent.com/ManoAlee/portfolio/refs/heads/main/gif.webp" as="image">
+    
+    <!-- Carregamento otimizado de fontes -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
     
-    <!-- Preload do CSS principal -->
-    <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="assets/css/styles.css"></noscript>
+    <!-- CSS Principal -->
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="assets/css/base/utilities.css" rel="stylesheet">
+    <link href="assets/css/base/animations.css" rel="stylesheet">
     
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="assets/css/utilities.css" rel="stylesheet">
-    <link href="assets/css/animations.css" rel="stylesheet">
+    <!-- Font Awesome com otimização -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
 </head>
 <body>
     <!-- Navegação -->
@@ -55,10 +63,10 @@
         <div class="container nav-content">
             <a href="/" class="text-gradient font-bold text-xl">AM</a>
             <div class="flex items-center gap-6">
-                <a href="/pages/about" class="text-gray-300 hover:text-white transition-colors">Sobre</a>
-                <a href="/pages/experience" class="text-gray-300 hover:text-white transition-colors">Experiência</a>
-                <a href="/pages/skills" class="text-gray-300 hover:text-white transition-colors">Habilidades</a>
-                <a href="/pages/projects" class="text-gray-300 hover:text-white transition-colors">Projetos</a>
+                <a href="pages/about/index.html" class="text-gray-300 hover:text-white transition-colors">Sobre</a>
+                <a href="pages/experience/index.html" class="text-gray-300 hover:text-white transition-colors">Experiência</a>
+                <a href="pages/skills/index.html" class="text-gray-300 hover:text-white transition-colors">Habilidades</a>
+                <a href="pages/projects/index.html" class="text-gray-300 hover:text-white transition-colors">Projetos</a>
                 <button id="theme-toggle" class="btn glass" aria-label="Alternar tema">
                     <i class="fas fa-sun" aria-hidden="true"></i>
                     <i class="fas fa-moon" aria-hidden="true"></i>
@@ -93,7 +101,7 @@
                     Graduado em Gestão da Tecnologia da Informação com experiência sólida em infraestrutura de TI, suporte técnico e administração de sistemas. Especialista em Active Directory, Windows Server, Linux, virtualização e soluções em nuvem (Microsoft 365, Azure). Experiência em automação com PowerShell, Python e Bash, administração de banco de dados e Power BI. Foco em alta disponibilidade, segurança da informação e otimização de processos.
                 </p>
                 <div class="flex gap-4">
-                    <a href="/pages/projects" class="btn btn-primary btn-animated">
+                    <a href="pages/projects/index.html" class="btn btn-primary btn-animated">
                         Ver Projetos
                         <i class="fas fa-arrow-right icon-rotate"></i>
                     </a>
@@ -146,7 +154,7 @@
         <h2 class="subtitle text-center mb-12">Projetos em Destaque</h2>
         <div class="grid grid-3">
             <!-- Monitoramento de Tráfego -->
-            <a href="/pages/analise-tempo-real.html" class="card group card-hover animate-fade-in-up">
+            <a href="pages/analise-tempo-real.html" class="card group card-hover animate-fade-in-up">
                 <div class="relative overflow-hidden rounded-lg mb-4">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Sistema de Monitoramento" class="w-full h-48 object-cover" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -165,7 +173,7 @@
             </a>
 
             <!-- Calculadora ROI -->
-            <a href="/pages/calculadora-roi.html" class="card group card-hover animate-fade-in-up">
+            <a href="pages/calculadora-roi.html" class="card group card-hover animate-fade-in-up">
                 <div class="relative overflow-hidden rounded-lg mb-4">
                     <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Calculadora ROI" class="w-full h-48 object-cover" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -184,7 +192,7 @@
             </a>
 
             <!-- Dashboard Power BI -->
-            <a href="/pages/dashboard.html" class="card group card-hover animate-fade-in-up">
+            <a href="pages/dashboard.html" class="card group card-hover animate-fade-in-up">
                 <div class="relative overflow-hidden rounded-lg mb-4">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Dashboard Analytics" class="w-full h-48 object-cover" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -277,16 +285,10 @@
     }
     </script>
 
-    <!-- O rodapé será carregado dinamicamente aqui -->
-    <script src="assets/js/footer.js"></script>
-    <script src="assets/js/performance.js"></script>
-    <script src="assets/js/dynamic-profile.js"></script>
-    <script src="assets/js/portfolio-stats.js"></script>
-    <script src="assets/js/testimonials.js"></script>
-    <script src="assets/js/advanced-theme.js"></script>
-    <script src="assets/js/interactive-timeline.js"></script>
-    <script src="assets/js/cv-generator.js"></script>
-    <script src="assets/js/blog-system.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- Configuração e scripts principais -->
+    <script src="config/portfolio.config.js"></script>
+    <script src="assets/js/components/footer.js"></script>
+    <script src="assets/js/core/performance.js"></script>
+    <script src="assets/js/core/main.js"></script>
 </body>
 </html> 

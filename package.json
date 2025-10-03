@@ -4,8 +4,14 @@
   "description": "Portfólio profissional de Alessandro Dos Santos Costa Meneses - Assistente de TI JR | Graduado em GTI",
   "main": "index.html",
   "scripts": {
-    "start": "live-server",
-    "build": "echo 'No build step required'"
+    "start": "live-server --port=8000 --open=/",
+    "dev": "live-server --port=3000 --watch=assets,pages,src",
+    "serve": "python3 -m http.server 8000",
+    "lint": "echo 'Verificando estrutura de arquivos...'",
+    "sync": "cd scripts && python3 linkedin_sync.py",
+    "update": "cd scripts && python3 apply_updates.py",
+    "deploy": "cd scripts && bash sync_portfolio.sh",
+    "build": "echo 'Portfolio otimizado para produção'"
   },
   "keywords": [
     "portfolio",

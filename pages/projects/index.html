@@ -3,592 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projetos | Alessandro Meneses | Especialista em Infraestrutura de TI</title>
-    <meta name="description" content="Portfolio de projetos de Alessandro Meneses - Infraestrutura corporativa, automação, dashboards e soluções inovadoras de TI">
-    <meta name="keywords" content="projetos TI, infraestrutura, automação, Power BI, Windows Server, Active Directory, PowerShell">
-    
-    <!-- Fonts & Icons -->
+    <title>Projetos | Alessandro Dos Santos Costa Meneses</title>
+    <meta name="description" content="Projetos desenvolvidos por Alessandro Dos Santos Costa Meneses - Especialista em Análise de Dados e Desenvolvimento">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="../../assets/css/styles.css" rel="stylesheet">
     <link href="../../assets/css/utilities.css" rel="stylesheet">
-    <link href="../../assets/css/animations.css" rel="stylesheet">
-    
-    <!-- PWA -->
-    <link rel="manifest" href="../../manifest.json">
-    <meta name="theme-color" content="#4F46E5">
 </head>
-<body class="bg-gray-900 text-white">
+<body>
     <!-- Navegação -->
-    <nav class="nav fixed w-full top-0 z-50 backdrop-blur-md bg-gray-900/80">
+    <nav class="nav">
         <div class="container nav-content">
-            <a href="/" class="text-gradient font-bold text-2xl hover:scale-105 transition-transform">AM</a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="/pages/about" class="nav-link">Sobre</a>
-                <a href="/pages/experience" class="nav-link">Experiência</a>
-                <a href="/pages/skills" class="nav-link">Habilidades</a>
-                <a href="/pages/projects" class="nav-link active">Projetos</a>
-                <a href="/#contact" class="btn btn-primary btn-sm">Contato</a>
+            <a href="../../index.html" class="text-gradient font-bold text-xl">AM</a>
+            <div class="flex items-center gap-6">
+                <a href="../about/index.html" class="text-gray-300 hover:text-white transition-colors">Sobre</a>
+                <a href="../experience/index.html" class="text-gray-300 hover:text-white transition-colors">Experiência</a>
+                <a href="../skills/index.html" class="text-gray-300 hover:text-white transition-colors">Habilidades</a>
+                <a href="../projects/index.html" class="text-gray-300 hover:text-white transition-colors active">Projetos</a>
+                <button id="theme-toggle" class="btn glass" aria-label="Alternar tema">
+                    <i class="fas fa-sun" aria-hidden="true"></i>
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <a href="../../index.html#contact" class="btn btn-primary">Contato</a>
             </div>
-            <button class="md:hidden hamburger" id="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="pt-32 pb-20 bg-gradient-to-br from-gray-900 via-purple-900/20 to-gray-900">
-        <div class="container text-center">
-            <div class="animate-fade-in-up">
-                <h1 class="text-5xl lg:text-6xl font-bold mb-6 gradient-text">
-                    Portfólio de Projetos
-                </h1>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-                    Soluções inovadoras em infraestrutura de TI, automação e análise de dados que 
-                    transformaram operações empresariais e otimizaram processos.
-                </p>
-                <div class="flex flex-wrap justify-center gap-4 mb-12">
-                    <span class="px-4 py-2 bg-indigo-600/20 text-indigo-300 rounded-full text-sm font-medium">
-                        <i class="fas fa-server mr-2"></i>6 Projetos Concluídos
-                    </span>
-                    <span class="px-4 py-2 bg-green-600/20 text-green-300 rounded-full text-sm font-medium">
-                        <i class="fas fa-users mr-2"></i>300+ Usuários Impactados
-                    </span>
-                    <span class="px-4 py-2 bg-purple-600/20 text-purple-300 rounded-full text-sm font-medium">
-                        <i class="fas fa-chart-line mr-2"></i>70% Melhoria Eficiência
-                    </span>
-                </div>
-            </div>
+    <!-- Header -->
+    <header class="container pt-32 pb-16">
+        <div class="text-center animate-fade-in">
+            <h1 class="title text-5xl mb-6">Projetos em Destaque</h1>
+            <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+                Explore meus principais projetos, onde combinei análise de dados, desenvolvimento e automação para criar soluções inovadoras.
+            </p>
         </div>
     </header>
 
-    <!-- Filtros de Projeto -->
-    <section class="py-12 bg-gray-800/50">
-        <div class="container">
-            <div class="flex flex-wrap justify-center gap-3 mb-8">
-                <button class="filter-btn active" data-filter="all">
-                    <i class="fas fa-th-large mr-2"></i>Todos
-                </button>
-                <button class="filter-btn" data-filter="infraestrutura">
-                    <i class="fas fa-server mr-2"></i>Infraestrutura
-                </button>
-                <button class="filter-btn" data-filter="analytics">
-                    <i class="fas fa-chart-bar mr-2"></i>Analytics
-                </button>
-                <button class="filter-btn" data-filter="automacao">
-                    <i class="fas fa-robot mr-2"></i>Automação
-                </button>
-                <button class="filter-btn" data-filter="desenvolvimento">
-                    <i class="fas fa-code mr-2"></i>Desenvolvimento
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Grid de Projetos -->
-    <main class="py-16">
-        <div class="container">
-            <div id="projects-grid" class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                <!-- Os projetos serão carregados dinamicamente -->
-            </div>
-        </div>
-    </main>
-
-    <!-- Seção de Estatísticas -->
-    <section class="py-20 bg-gradient-to-r from-indigo-900/20 to-purple-900/20">
-        <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 gradient-text">
-                    Impacto dos Projetos
-                </h2>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                    Números que demonstram o valor entregue através de soluções inovadoras
+    <!-- Projetos -->
+    <section class="container py-16">
+        <div class="grid grid-3 gap-8">
+            <!-- Monitoramento de Tráfego -->
+            <a href="../analise-tempo-real.html" class="card group">
+                <div class="relative overflow-hidden rounded-lg mb-4">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Sistema de Monitoramento" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute top-4 right-4">
+                        <span class="tag tag-primary">
+                            <i class="fas fa-chart-line"></i>
+                            Análise de Dados
+                        </span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    Sistema de Monitoramento de Tráfego
+                </h3>
+                <p class="text-gray-400 mb-4">
+                    Análise em tempo real do fluxo de tráfego em Boituva usando IA.
                 </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="stats-card">
-                    <div class="stats-icon bg-indigo-600/20 text-indigo-400">
-                        <i class="fas fa-server text-2xl"></i>
-                    </div>
-                    <div class="stats-number" data-target="150">0</div>
-                    <div class="stats-label">Usuários Migrados</div>
+                <div class="flex gap-2">
+                    <span class="tag tag-primary text-xs">Python</span>
+                    <span class="tag tag-primary text-xs">Machine Learning</span>
+                    <span class="tag tag-primary text-xs">IoT</span>
                 </div>
-                
-                <div class="stats-card">
-                    <div class="stats-icon bg-green-600/20 text-green-400">
-                        <i class="fas fa-clock text-2xl"></i>
+            </a>
+
+            <!-- Calculadora ROI -->
+            <a href="../calculadora-roi.html" class="card group">
+                <div class="relative overflow-hidden rounded-lg mb-4">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Calculadora ROI" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute top-4 right-4">
+                        <span class="tag tag-primary">
+                            <i class="fas fa-calculator"></i>
+                            Desenvolvimento
+                        </span>
                     </div>
-                    <div class="stats-number" data-target="95">0</div>
-                    <div class="stats-label">% Redução Tempo</div>
                 </div>
-                
-                <div class="stats-card">
-                    <div class="stats-icon bg-purple-600/20 text-purple-400">
-                        <i class="fas fa-chart-line text-2xl"></i>
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    Calculadora ROI Avançada
+                </h3>
+                <p class="text-gray-400 mb-4">
+                    Ferramenta interativa para análise de retorno sobre investimento.
+                </p>
+                <div class="flex gap-2">
+                    <span class="tag tag-primary text-xs">JavaScript</span>
+                    <span class="tag tag-primary text-xs">Chart.js</span>
+                    <span class="tag tag-primary text-xs">Analytics</span>
+                </div>
+            </a>
+
+            <!-- Dashboard Power BI -->
+            <a href="../dashboard.html" class="card group">
+                <div class="relative overflow-hidden rounded-lg mb-4">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Dashboard Analytics" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute top-4 right-4">
+                        <span class="tag tag-primary">
+                            <i class="fas fa-chart-bar"></i>
+                            Power BI
+                        </span>
                     </div>
-                    <div class="stats-number" data-target="40">0</div>
-                    <div class="stats-label">% Menos Incidentes</div>
                 </div>
-                
-                <div class="stats-card">
-                    <div class="stats-icon bg-blue-600/20 text-blue-400">
-                        <i class="fas fa-cogs text-2xl"></i>
-                    </div>
-                    <div class="stats-number" data-target="24">0</div>
-                    <div class="stats-label">Processos Automatizados</div>
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    Dashboard Analytics
+                </h3>
+                <p class="text-gray-400 mb-4">
+                    Dashboard interativo para análise de dados empresariais.
+                </p>
+                <div class="flex gap-2">
+                    <span class="tag tag-primary text-xs">Power BI</span>
+                    <span class="tag tag-primary text-xs">SQL</span>
+                    <span class="tag tag-primary text-xs">DAX</span>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-indigo-600 to-purple-600">
-        <div class="container text-center">
-            <h2 class="text-4xl font-bold mb-6">
-                Vamos Criar Algo Incrível Juntos?
-            </h2>
-            <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                Estou sempre em busca de novos desafios e oportunidades para aplicar 
-                minhas habilidades técnicas em projetos que fazem a diferença.
+    <!-- Contato -->
+    <section id="contact" class="container py-16">
+        <div class="card max-w-2xl mx-auto text-center">
+            <h2 class="subtitle mb-6">Vamos Conversar?</h2>
+            <p class="text-gray-300 mb-8">
+                Estou sempre aberto a novas oportunidades e parcerias.
+                Entre em contato para discutirmos como posso contribuir com seu projeto.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="/#contact" class="btn btn-white btn-lg">
-                    <i class="fas fa-envelope mr-2"></i>
-                    Entre em Contato
-                </a>
-                <a href="https://linkedin.com/in/alessandro-meneses-2425ab231" target="_blank" class="btn btn-outline-white btn-lg">
-                    <i class="fab fa-linkedin mr-2"></i>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="https://linkedin.com/in/alessandro-meneses-2425ab231" target="_blank" class="btn glass">
+                    <i class="fab fa-linkedin"></i>
                     LinkedIn
                 </a>
-                <a href="https://github.com/ManoAlee" target="_blank" class="btn btn-outline-white btn-lg">
-                    <i class="fab fa-github mr-2"></i>
+                <a href="mailto:ale_meneses2004@hotmail.com" class="btn glass">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+                <a href="tel:+5515998017732" class="btn glass">
+                    <i class="fas fa-phone"></i>
+                    (15) 99801-7732
+                </a>
+                <a href="https://github.com/ManoAlee" target="_blank" class="btn glass">
+                    <i class="fab fa-github"></i>
                     GitHub
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Modal de Projeto -->
-    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-scale-up">
-            <div id="modal-content">
-                <!-- Conteúdo será inserido dinamicamente -->
+    <footer class="container py-8">
+        <div class="flex justify-between items-center">
+            <p class="text-gray-400">&copy; 2025 Alessandro Dos Santos Costa Meneses</p>
+            <div class="flex gap-4">
+                <a href="https://linkedin.com/in/alessandro-meneses-2425ab231" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/ManoAlee" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:ale_meneses2004@hotmail.com" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
-    </div>
+    </footer>
 
-    <!-- Footer será carregado dinamicamente -->
-    <div id="footer-placeholder"></div>
-
-    <!-- Scripts -->
-    <script src="../../assets/js/footer.js"></script>
-    <script>
-        // Carrega os dados dos projetos
-        let projectsData = [];
-        
-        // Carrega dados do profile.json
-        async function loadProjects() {
-            try {
-                const response = await fetch('/data/profile.json');
-                const data = await response.json();
-                projectsData = data.projects || [];
-                renderProjects();
-                initializeFilters();
-                initializeStats();
-            } catch (error) {
-                console.error('Erro ao carregar projetos:', error);
-                showFallbackProjects();
-            }
-        }
-
-        // Renderiza os projetos
-        function renderProjects(filter = 'all') {
-            const grid = document.getElementById('projects-grid');
-            const filteredProjects = filter === 'all' ? 
-                projectsData : 
-                projectsData.filter(p => p.category === filter);
-
-            grid.innerHTML = filteredProjects.map(project => createProjectCard(project)).join('');
-        }
-
-        // Cria card do projeto
-        function createProjectCard(project) {
-            const statusClass = project.status === 'Concluído' ? 'bg-green-600' : 
-                               project.status === 'Em desenvolvimento' ? 'bg-yellow-600' : 'bg-blue-600';
-            
-            return `
-            <article class="project-card card group cursor-pointer transform hover:scale-105 transition-all duration-300" 
-                     data-category="${project.category}" 
-                     onclick="openProjectModal(${project.id})">
-                <div class="relative overflow-hidden rounded-xl mb-6 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 h-48 flex items-center justify-center">
-                    <div class="text-center">
-                        <i class="fas fa-${getCategoryIcon(project.category)} text-6xl text-indigo-400 opacity-50 mb-4"></i>
-                        <div class="absolute top-4 right-4">
-                            <span class="px-3 py-1 ${statusClass} text-white rounded-full text-xs font-medium">
-                                ${project.status}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="space-y-4">
-                    <div class="flex items-start justify-between">
-                        <h3 class="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors leading-tight">
-                            ${project.name}
-                        </h3>
-                        <span class="ml-4 px-3 py-1 bg-indigo-600/20 text-indigo-300 rounded-full text-xs font-medium whitespace-nowrap">
-                            ${getCategoryName(project.category)}
-                        </span>
-                    </div>
-                    
-                    <p class="text-gray-300 text-sm leading-relaxed line-clamp-3">
-                        ${project.description}
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-2">
-                        ${project.technologies.slice(0, 3).map(tech => `
-                            <span class="px-2 py-1 bg-gray-700 text-gray-300 rounded-md text-xs">
-                                ${tech}
-                            </span>
-                        `).join('')}
-                        ${project.technologies.length > 3 ? `<span class="px-2 py-1 bg-gray-600 text-gray-400 rounded-md text-xs">+${project.technologies.length - 3}</span>` : ''}
-                    </div>
-                    
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-700">
-                        <div class="flex items-center gap-4 text-sm text-gray-400">
-                            ${project.duration ? `<span><i class="fas fa-clock mr-1"></i>${project.duration}</span>` : ''}
-                            ${project.team_size ? `<span><i class="fas fa-users mr-1"></i>${project.team_size}</span>` : ''}
-                        </div>
-                        <button class="text-indigo-400 hover:text-indigo-300 transition-colors">
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>`;
-        }
-
-        // Ícones por categoria
-        function getCategoryIcon(category) {
-            const icons = {
-                'infraestrutura': 'server',
-                'analytics': 'chart-bar',
-                'automacao': 'robot',
-                'desenvolvimento': 'code',
-                'ferramenta': 'tools',
-                'scripts': 'terminal'
-            };
-            return icons[category] || 'project-diagram';
-        }
-
-        // Nomes das categorias
-        function getCategoryName(category) {
-            const names = {
-                'infraestrutura': 'Infraestrutura',
-                'analytics': 'Analytics',
-                'automacao': 'Automação',
-                'desenvolvimento': 'Desenvolvimento',
-                'ferramenta': 'Ferramenta',
-                'scripts': 'Scripts'
-            };
-            return names[category] || category;
-        }
-
-        // Inicializa filtros
-        function initializeFilters() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active de todos
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    // Adiciona active no clicado
-                    btn.classList.add('active');
-                    // Renderiza projetos filtrados
-                    const filter = btn.dataset.filter;
-                    renderProjects(filter);
-                });
-            });
-        }
-
-        // Abre modal do projeto
-        function openProjectModal(projectId) {
-            const project = projectsData.find(p => p.id === projectId);
-            if (!project) return;
-
-            const modal = document.getElementById('project-modal');
-            const content = document.getElementById('modal-content');
-            
-            content.innerHTML = createProjectModalContent(project);
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Fecha modal
-        function closeProjectModal() {
-            const modal = document.getElementById('project-modal');
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Conteúdo do modal
-        function createProjectModalContent(project) {
-            return `
-            <div class="relative">
-                <button onclick="closeProjectModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white z-10 transition-colors">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-                
-                <div class="bg-gradient-to-br from-indigo-600/20 to-purple-600/20 h-64 flex items-center justify-center rounded-t-2xl">
-                    <i class="fas fa-${getCategoryIcon(project.category)} text-8xl text-indigo-400 opacity-50"></i>
-                </div>
-                
-                <div class="p-8">
-                    <div class="mb-6">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="px-3 py-1 bg-indigo-600 text-white rounded-full text-sm font-medium">
-                                ${getCategoryName(project.category)}
-                            </span>
-                            <span class="px-3 py-1 ${project.status === 'Concluído' ? 'bg-green-600' : 'bg-yellow-600'} text-white rounded-full text-sm">
-                                ${project.status}
-                            </span>
-                        </div>
-                        <h2 class="text-3xl font-bold text-white mb-4">${project.name}</h2>
-                        <p class="text-gray-300 text-lg leading-relaxed">${project.detailed_description || project.description}</p>
-                    </div>
-                    
-                    ${project.highlights ? `
-                    <div class="mb-6">
-                        <h3 class="text-xl font-semibold text-white mb-3">Destaques do Projeto</h3>
-                        <div class="grid grid-cols-2 gap-3">
-                            ${project.highlights.map(highlight => `
-                                <div class="flex items-center gap-2 text-gray-300">
-                                    <i class="fas fa-check text-green-400"></i>
-                                    <span>${highlight}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                    ` : ''}
-                    
-                    <div class="mb-6">
-                        <h3 class="text-xl font-semibold text-white mb-3">Tecnologias Utilizadas</h3>
-                        <div class="flex flex-wrap gap-2">
-                            ${project.technologies.map(tech => `
-                                <span class="px-3 py-2 bg-gray-700 text-gray-200 rounded-lg text-sm font-medium">
-                                    ${tech}
-                                </span>
-                            `).join('')}
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-4 pt-6 border-t border-gray-700">
-                        ${project.github ? `
-                        <a href="${project.github}" target="_blank" class="btn btn-outline">
-                            <i class="fab fa-github mr-2"></i>Código
-                        </a>
-                        ` : ''}
-                        ${project.demo ? `
-                        <a href="${project.demo}" target="_blank" class="btn btn-primary">
-                            <i class="fas fa-external-link-alt mr-2"></i>Demo
-                        </a>
-                        ` : ''}
-                        ${project.link && project.link !== project.demo ? `
-                        <a href="${project.link}" class="btn btn-outline">
-                            <i class="fas fa-info-circle mr-2"></i>Detalhes
-                        </a>
-                        ` : ''}
-                    </div>
-                </div>
-            </div>`;
-        }
-
-        // Animação dos números
-        function initializeStats() {
-            const observerCallback = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateNumber(entry.target);
-                    }
-                });
-            };
-
-            const observer = new IntersectionObserver(observerCallback, {
-                threshold: 0.5
-            });
-
-            document.querySelectorAll('.stats-number').forEach(el => {
-                observer.observe(el);
-            });
-        }
-
-        function animateNumber(element) {
-            const target = parseInt(element.dataset.target);
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
-
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(current) + (element.dataset.target === '95' ? '%' : '');
-            }, 16);
-        }
-
-        // Fechar modal com ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeProjectModal();
-            }
-        });
-
-        // Fechar modal clicando fora
-        document.getElementById('project-modal').addEventListener('click', (e) => {
-            if (e.target.id === 'project-modal') {
-                closeProjectModal();
-            }
-        });
-
-        // Inicializar quando DOM carregado
-        document.addEventListener('DOMContentLoaded', () => {
-            loadProjects();
-        });
-    </script>
-
-    <!-- Estilos adicionais -->
-    <style>
-        .filter-btn {
-            padding: 12px 24px;
-            border: 2px solid transparent;
-            background: rgba(31, 41, 55, 0.8);
-            color: #9CA3AF;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-        }
-
-        .filter-btn:hover {
-            color: #FFFFFF;
-            background: rgba(99, 102, 241, 0.2);
-            border-color: rgba(99, 102, 241, 0.3);
-        }
-
-        .filter-btn.active {
-            background: linear-gradient(135deg, #6366F1, #8B5CF6);
-            color: #FFFFFF;
-            border-color: #6366F1;
-            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
-        }
-
-        .project-card {
-            background: rgba(31, 41, 55, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(75, 85, 99, 0.3);
-        }
-
-        .project-card:hover {
-            border-color: rgba(99, 102, 241, 0.5);
-            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.15);
-        }
-
-        .stats-card {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(31, 41, 55, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(75, 85, 99, 0.3);
-            border-radius: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .stats-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .stats-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-        }
-
-        .stats-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #FFFFFF;
-            margin-bottom: 0.5rem;
-        }
-
-        .stats-label {
-            color: #9CA3AF;
-            font-weight: 500;
-        }
-
-        .line-clamp-3 {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .nav-link {
-            position: relative;
-            color: #9CA3AF;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: #FFFFFF;
-        }
-
-        .nav-link.active {
-            color: #6366F1;
-        }
-
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #6366F1, #8B5CF6);
-            border-radius: 1px;
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-                background: none;
-                border: none;
-                cursor: pointer;
-            }
-
-            .hamburger span {
-                width: 25px;
-                height: 3px;
-                background: #9CA3AF;
-                border-radius: 2px;
-                transition: all 0.3s ease;
-            }
-        }
-    </style>
+    <script src="../../assets/js/main.js"></script>
 </body>
 </html> 

@@ -1,0 +1,213 @@
+/* Efeitos Futuristas */
+:root {
+    --neon-primary: #9333ea;
+    --neon-secondary: #3b82f6;
+    --cyber-glow: 0 0 10px rgba(147, 51, 234, 0.5),
+                  0 0 20px rgba(147, 51, 234, 0.3),
+                  0 0 30px rgba(147, 51, 234, 0.1);
+}
+
+/* Perfil Futurista */
+.profile-futuristic {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    overflow: hidden;
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.profile-futuristic img {
+    transform: rotate(-45deg) scale(1.4);
+    transition: all 0.5s ease;
+}
+
+.profile-futuristic::before,
+.profile-futuristic::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, 
+        transparent 40%, 
+        rgba(147, 51, 234, 1),
+        rgba(59, 130, 246, 1),
+        transparent 60%);
+    animation: borderRotate 4s linear infinite;
+}
+
+.profile-futuristic::after {
+    filter: blur(10px);
+}
+
+.profile-futuristic:hover {
+    transform: rotate(45deg) scale(1.1);
+    box-shadow: var(--cyber-glow);
+}
+
+/* Cards Cyber */
+.cyber-card {
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(147, 51, 234, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.cyber-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+        transparent,
+        rgba(147, 51, 234, 0.1),
+        transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.cyber-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-primary);
+    box-shadow: var(--cyber-glow);
+}
+
+.cyber-card:hover::before {
+    transform: translateX(100%);
+}
+
+/* Botão Futurista */
+.btn-cyber {
+    background: linear-gradient(45deg, var(--neon-primary), var(--neon-secondary));
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-cyber::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent);
+    transform: translateX(-100%);
+}
+
+.btn-cyber:hover {
+    box-shadow: var(--cyber-glow);
+    transform: translateY(-2px);
+}
+
+.btn-cyber:hover::before {
+    transform: translateX(100%);
+    transition: transform 0.6s ease;
+}
+
+/* Texto Cyber */
+.cyber-text {
+    background: linear-gradient(90deg, 
+        var(--neon-primary), 
+        var(--neon-secondary), 
+        var(--neon-primary));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 3s linear infinite;
+    text-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
+}
+
+/* Animações */
+@keyframes gradientFlow {
+    to { background-position: 200% center; }
+}
+
+@keyframes borderRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Grid Futurista */
+.cyber-grid {
+    display: grid;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.cyber-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba(147, 51, 234, 0.1) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+/* Navegação Futurista */
+.nav-cyber {
+    background: rgba(17, 24, 39, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+.nav-link-cyber {
+    position: relative;
+    padding: 0.5rem 1rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.nav-link-cyber::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        var(--neon-primary), 
+        var(--neon-secondary));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link-cyber:hover::before {
+    transform: scaleX(1);
+}
+
+/* Loading Futurista */
+.cyber-loading {
+    width: 40px;
+    height: 40px;
+    border: 3px solid transparent;
+    border-top-color: var(--neon-primary);
+    border-right-color: var(--neon-secondary);
+    border-radius: 50%;
+    animation: cyberSpin 1s linear infinite;
+    box-shadow: var(--cyber-glow);
+}
+
+@keyframes cyberSpin {
+    to { transform: rotate(360deg); }
+} 
