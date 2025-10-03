@@ -265,11 +265,11 @@ class UXEnhancer {
             if (e.key === 'Tab') {
                 document.body.classList.add('keyboard-navigation');
             }
-        });
+        }, { passive: true });
 
         document.addEventListener('mousedown', () => {
             document.body.classList.remove('keyboard-navigation');
-        });
+        }, { passive: true });
 
         // Atalhos de teclado
         document.addEventListener('keydown', (e) => {
@@ -360,7 +360,7 @@ class UXEnhancer {
                 if ('vibrate' in navigator) {
                     navigator.vibrate(10);
                 }
-            });
+            }, { passive: true });
 
             // Adiciona ripple effect
             element.addEventListener('click', (e) => {

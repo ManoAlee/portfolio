@@ -222,7 +222,7 @@ class ResourcePrefetcher {
     prefetchCriticalResources() {
         const criticalResources = [
             'assets/css/styles.css',
-            'assets/js/main.js',
+            'assets/js/core/main.js',
             'https://raw.githubusercontent.com/ManoAlee/portfolio/refs/heads/main/gif.webp'
         ];
 

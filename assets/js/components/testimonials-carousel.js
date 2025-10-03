@@ -171,6 +171,12 @@ class TestimonialsCarousel {
     }
 }
 
+// Exporta para uso global
+window.TestimonialsCarousel = TestimonialsCarousel;
+
+// Exporta para uso global
+window.TestimonialsCarousel = TestimonialsCarousel;
+
 // Initialize testimonials
 document.addEventListener('DOMContentLoaded', () => {
     new TestimonialsCarousel();

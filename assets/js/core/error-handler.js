@@ -1,6 +1,9 @@
 /**
- * Sistema de Tratamento de Erros e Fallbacks
- * Garante que o portfolio funcione mesmo quando há problemas de carregamento
+ * Sistema de Tratamento de Erros e Fallbac        const dependencies = [
+            { name: 'Font Awesome', check: () => document.querySelector('link[href*="font-awesome"]') },
+            { name: 'CSS Styles', check: () => document.querySelector('link[href*="styles.css"]') },
+            { name: 'Theme System', check: () => typeof ThemeManager !== 'undefined' || document.getElementById('theme-toggle') !== null }
+        ]; Garante que o portfolio funcione mesmo quando há problemas de carregamento
  */
 
 class ErrorHandler {

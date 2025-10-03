@@ -451,6 +451,10 @@ class ProjectsShowcase {
     }
 }
 
+// Exporta para uso global
+window.EnhancedProjects = ProjectsShowcase;
+window.ProjectsShowcase = ProjectsShowcase;
+
 // Initialize enhanced projects showcase
 document.addEventListener('DOMContentLoaded', () => {
     window.projectsShowcase = new ProjectsShowcase();

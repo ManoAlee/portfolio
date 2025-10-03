@@ -193,6 +193,9 @@ class InteractiveSkills {
     }
 }
 
+// Exporta para uso global
+window.InteractiveSkills = InteractiveSkills;
+
 // Initialize interactive skills
 document.addEventListener('DOMContentLoaded', () => {
     new InteractiveSkills();
