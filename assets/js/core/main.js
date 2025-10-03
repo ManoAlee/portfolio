@@ -231,13 +231,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const navigationManager = new NavigationManager();
     
     // Inicializa outras funcionalidades
-    initAnimations();
-    initParallax();
-    initCardHover();
-    initTypewriter();
+    try {
+        initAnimations();
+        initParallax();
+        initCardHover();
+        initTypewriter();
+    } catch (error) {
+        console.error('Erro ao inicializar funcionalidades:', error);
+    }
     
-    // Performance monitoring
-    initPerformanceMonitoring();
+    // Performance monitoring com verificação
+    setTimeout(() => {
+        if (typeof initPerformanceMonitoring === 'function') {
+            initPerformanceMonitoring();
+        } else {
+            console.warn('⚠️ Performance monitoring não disponível - carregando funcionalidades básicas');
+            // Inicialização básica de performance
+            initBasicPerformanceMonitoring();
+        }
+    }, 100);
 });
 
 // Configuração do observador de interseção
@@ -393,4 +405,38 @@ window.addEventListener('scroll', () => {
     } else {
         nav.classList.remove('scrolled');
     }
-}); 
+});
+
+// Fallback básico para performance monitoring
+function initBasicPerformanceMonitoring() {
+    console.log('📊 Iniciando monitoramento básico de performance...');
+    
+    // Lazy loading simples para imagens
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        img.classList.add('loaded');
+                    }
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+    
+    // Log de performance básico
+    if ('performance' in window) {
+        window.addEventListener('load', () => {
+            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+            console.log(`⚡ Página carregada em ${loadTime}ms`);
+        });
+    }
+} 
