@@ -56,15 +56,48 @@
 
     function render(){
         if (!content) return;
-        const scriptStatus = [
-            {name: 'Chart.js', ok: !!window.Chart},
-            {name: 'Leaflet', ok: !!window.L},
-            {name: 'RealTimeChart', ok: !!document.getElementById('realTimeChart')}
-        ];
+        // More detailed script/resource inspection
+        const scriptStatus = [];
 
-        let html = '<div style="margin-bottom:6px"><strong>Scripts</strong><ul style="margin:6px 0;padding-left:18px">';
-        scriptStatus.forEach(s => html += `<li style="color:${s.ok ? '#86efac' : '#fca5a5'}">${s.name}: ${s.ok ? 'OK' : 'FALHOU'}</li>`);
-        html += '</ul></div>';
+        // Helper to inspect script tags and performance entries
+        function inspectLib(namePatterns, globalCheck) {
+            const foundScriptTags = Array.from(document.scripts).filter(s => s.src && namePatterns.some(p => s.src.toLowerCase().includes(p)));
+            const perfEntries = performance && performance.getEntriesByType ? performance.getEntriesByType('resource').filter(e => namePatterns.some(p => e.name.toLowerCase().includes(p))) : [];
+
+            // Determine ok: global present OR a script tag loaded with transferSize > 0
+            let ok = !!globalCheck();
+            let details = '';
+
+            if (!ok) {
+                // check perf entries for evidence of load/failure
+                if (perfEntries.length) {
+                    const last = perfEntries[perfEntries.length - 1];
+                    if (last.transferSize === 0) {
+                        details = 'resource failed or blocked';
+                    } else if (last.duration > 1000) {
+                        details = 'slow resource';
+                        ok = true; // consider slow as loaded
+                    } else {
+                        ok = true;
+                    }
+                } else if (foundScriptTags.length) {
+                    // script tag exists but no perf entry yet — assume pending
+                    details = foundScriptTags.map(s => s.src.split('/').slice(-1)[0]).join(', ');
+                }
+            }
+
+            return { ok, details, scripts: foundScriptTags };
+        }
+
+        const chartInspect = inspectLib(['chart.js','chart.umd','chart.min'], () => !!window.Chart);
+        const leafletInspect = inspectLib(['leaflet'], () => !!window.L);
+        const realTimeInspect = { ok: !!document.getElementById('realTimeChart') && !!window.Chart };
+
+    let html = '<div style="margin-bottom:6px"><strong>Scripts</strong><ul style="margin:6px 0;padding-left:18px">';
+    html += `<li style="color:${chartInspect.ok ? '#86efac' : '#fca5a5'}">Chart.js: ${chartInspect.ok ? 'OK' : 'FALHOU'} ${chartInspect.details ? '— ' + escapeHtml(chartInspect.details) : ''}</li>`;
+    html += `<li style="color:${leafletInspect.ok ? '#86efac' : '#fca5a5'}">Leaflet: ${leafletInspect.ok ? 'OK' : 'FALHOU'} ${leafletInspect.details ? '— ' + escapeHtml(leafletInspect.details) : ''}</li>`;
+    html += `<li style="color:${realTimeInspect.ok ? '#86efac' : '#fca5a5'}">RealTimeChart: ${realTimeInspect.ok ? 'OK' : 'FALHOU'}</li>`;
+    html += '</ul></div>';
 
         html += '<div style="margin-bottom:6px"><strong>Últimos logs</strong>';
         html += '<ul style="margin:6px 0;padding-left:18px">';
@@ -83,6 +116,11 @@
 
         content.innerHTML = html;
     }
+
+    // Periodically refresh status (useful to catch late-loading CDN/scripts)
+    try {
+        setInterval(render, 1000);
+    } catch(e){}
 
     function escapeHtml(unsafe) {
         return unsafe.replace(/[&<"'`]/g, function(m) { return ({'&':'&amp;','<':'&lt;','"':'&quot;',"'":"&#39;","`":"&#96;"})[m]; });

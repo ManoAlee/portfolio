@@ -49,14 +49,19 @@ class ThemeManager {
     }
 
     toggleTheme() {
+        // Defensive: ensure theme toggle exists on pages that don't include the control
+        if (!this.themeToggle) return;
+
         const currentTheme = this.root.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
+
         this.themeToggle.classList.add('theme-transition');
         this.setTheme(newTheme);
-        
+
         setTimeout(() => {
-            this.themeToggle.classList.remove('theme-transition');
+            if (this.themeToggle) {
+                this.themeToggle.classList.remove('theme-transition');
+            }
         }, this.transitionDuration);
     }
 
@@ -400,6 +405,8 @@ function initTypewriter() {
 // Navegação com scroll
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('.nav');
+    if (!nav) return; // defensive: some pages don't have the main nav
+
     if (window.scrollY > 50) {
         nav.classList.add('scrolled');
     } else {
