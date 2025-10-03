@@ -23,13 +23,13 @@ Portfólio moderno e interativo showcaseando minha experiência como **Assistent
 - **🔧 Gerenciamento Centralizado**: Portfolio Manager para componentes
 - **� PWA Completo**: Instalável como app nativo com ícones customizados
 
-### 🛠️ **Projetos em Destaque**
-1. **Sistema de Infraestrutura Corporativa** - Migração de 150+ usuários
-2. **Dashboard de Monitoramento** - Power BI + PowerShell + APIs  
-3. **Automação de Relatórios** - Python com 95% redução de tempo
-4. **Calculadora ROI para TI** - Análise de investimentos técnicos
-5. **Scripts Administrativos** - 20+ utilitários PowerShell
-6. **Portfolio Responsivo** - Este próprio projeto
+### 🛠️ **Projetos Desenvolvidos**
+1. **Portfolio Web Responsivo** - HTML5, CSS3, JavaScript e PWA
+2. **Dashboard de Exemplo** - Power BI para demonstração de habilidades  
+3. **Scripts PowerShell** - Automação de tarefas administrativas
+4. **Calculadora ROI** - Ferramenta web para análise de investimentos
+5. **Sistema de Monitoramento** - Exemplo de monitoramento em tempo real
+6. **Projetos Acadêmicos** - Trabalhos desenvolvidos na FATEC
 
 ---
 
@@ -70,7 +70,7 @@ portfolio/
 │       └── profile.jpeg             # Foto do perfil
 ├── 📄 pages/
 │   ├── projects/index.html          # Portfolio de projetos
-│   ├── infraestrutura-corporativa.html # Case study detalhado
+│   ├── infraestrutura-corporativa.html # Projeto de exemplo
 │   ├── dashboard.html               # Dashboard interativo
 │   ├── about/index.html             # Página sobre
 │   ├── experience/index.html        # Experiência profissional
@@ -155,11 +155,11 @@ python -m http.server 3000
 
 ## 📊 **Métricas e Performance**
 
-### 🎯 **Estatísticas do Projeto**
-- **15+ Projetos** com case studies completos
-- **25+ Tecnologias** dominadas e documentadas
-- **3+ Anos** de experiência profissional
-- **8+ Certificações** técnicas ativas
+### 🎯 **Estatísticas Reais do Projeto**
+- **5 Projetos** pessoais e acadêmicos
+- **12+ Tecnologias** aprendidas e praticadas
+- **5 meses** de experiência profissional
+- **3 Certificações** técnicas ativas
 - **85%+ Taxa de Sucesso** nos testes automáticos
 - **100% Responsivo** em todos os dispositivos
 
@@ -228,7 +228,7 @@ git push origin main
 ## 👤 **Sobre o Desenvolvedor**
 
 **Alessandro Dos Santos Costa Meneses**  
-🎯 **Assistente de TI JR** na Automotion  
+🎯 **Assistente de TI JR** na Automotion (5 meses)  
 🎓 **Graduado em GTI** pela FATEC Tatuí  
 🌍 **Localização**: Boituva, SP
 
@@ -249,7 +249,7 @@ git push origin main
 ## 📞 **Contato Profissional**
 
 ### **Links Principais**
-- **💼 LinkedIn**: [Alessandro Meneses](https://linkedin.com/in/alessandro-meneses-2425ab231)
+- **💼 LinkedIn**: [Alessandro Meneses](https://www.linkedin.com/in/alessandro-meneses)
 - **💻 GitHub**: [@ManoAlee](https://github.com/ManoAlee)  
 - **📧 Email**: ale_meneses2004@hotmail.com
 - **📱 Telefone**: (15) 99801-7732
@@ -293,9 +293,9 @@ Gostou do projeto? Considere:
 ![Version](https://img.shields.io/badge/Version-2.1.0-blue)
 
 **Desenvolvido com 💙 por Alessandro Meneses**  
-*Assistente de TI JR | Graduado em GTI | Especialista em Infraestrutura*
+*Assistente de TI JR | Graduado em GTI | Em desenvolvimento na área de Infraestrutura*
 
-[🌐 Acessar Site](https://portifolioalessandro.netlify.app/) | [💼 LinkedIn](https://linkedin.com/in/alessandro-meneses-2425ab231) | [📧 Contato](mailto:ale_meneses2004@hotmail.com) | [📱 PWA](https://portifolioalessandro.netlify.app/manifest.json)
+[🌐 Acessar Site](https://portifolioalessandro.netlify.app/) | [💼 LinkedIn](https://www.linkedin.com/in/alessandro-meneses) | [📧 Contato](mailto:ale_meneses2004@hotmail.com) | [📱 PWA](https://portifolioalessandro.netlify.app/manifest.json)
 
 ---
 

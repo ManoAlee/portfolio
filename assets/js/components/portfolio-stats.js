@@ -19,10 +19,10 @@ class PortfolioStats {
         this.observer = null;
         
         this.stats = [
-            { label: 'Projetos Concluídos', value: 15, suffix: '+', icon: 'fas fa-project-diagram' },
-            { label: 'Tecnologias Dominadas', value: 25, suffix: '+', icon: 'fas fa-code' },
-            { label: 'Anos de Experiência', value: 3, suffix: '+', icon: 'fas fa-calendar-alt' },
-            { label: 'Certificações', value: 8, suffix: '+', icon: 'fas fa-certificate' }
+            { label: 'Meses de Experiência', value: 5, suffix: '', icon: 'fas fa-calendar-alt' },
+            { label: 'Tecnologias Aprendidas', value: 12, suffix: '+', icon: 'fas fa-code' },
+            { label: 'Projetos Pessoais', value: 5, suffix: '', icon: 'fas fa-project-diagram' },
+            { label: 'Certificações', value: 3, suffix: '', icon: 'fas fa-certificate' }
         ];
         
         this.init();

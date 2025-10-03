@@ -106,7 +106,7 @@ window.PortfolioConfig = {
             'FATEC'
         ],
         social: {
-            linkedin: 'https://linkedin.com/in/alessandro-meneses-2425ab231',
+            linkedin: 'https://www.linkedin.com/in/alessandro-meneses',
             github: 'https://github.com/ManoAlee',
             email: 'alessandro.meneses@exemplo.com'
         }

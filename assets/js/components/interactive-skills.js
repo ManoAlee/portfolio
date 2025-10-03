@@ -6,38 +6,38 @@ class InteractiveSkills {
                 title: 'Habilidades Técnicas',
                 icon: 'fas fa-code',
                 skills: [
-                    { name: 'Windows Server', level: 90, icon: 'fab fa-windows', category: 'Sistema' },
-                    { name: 'Linux (Ubuntu/CentOS)', level: 85, icon: 'fab fa-linux', category: 'Sistema' },
-                    { name: 'Active Directory', level: 88, icon: 'fas fa-users', category: 'Infraestrutura' },
-                    { name: 'Virtualização (VMware)', level: 82, icon: 'fas fa-server', category: 'Infraestrutura' },
-                    { name: 'Power BI', level: 92, icon: 'fas fa-chart-bar', category: 'Analytics' },
-                    { name: 'SQL Server', level: 80, icon: 'fas fa-database', category: 'Database' },
-                    { name: 'Python', level: 75, icon: 'fab fa-python', category: 'Programação' },
-                    { name: 'JavaScript', level: 78, icon: 'fab fa-js-square', category: 'Programação' }
+                    { name: 'Windows Server', level: 75, icon: 'fab fa-windows', category: 'Sistema' },
+                    { name: 'Linux (Ubuntu)', level: 65, icon: 'fab fa-linux', category: 'Sistema' },
+                    { name: 'Active Directory', level: 70, icon: 'fas fa-users', category: 'Infraestrutura' },
+                    { name: 'Virtualização', level: 60, icon: 'fas fa-server', category: 'Infraestrutura' },
+                    { name: 'Power BI', level: 80, icon: 'fas fa-chart-bar', category: 'Analytics' },
+                    { name: 'SQL Básico', level: 65, icon: 'fas fa-database', category: 'Database' },
+                    { name: 'Python (Básico)', level: 55, icon: 'fab fa-python', category: 'Programação' },
+                    { name: 'HTML/CSS/JS', level: 70, icon: 'fab fa-js-square', category: 'Programação' }
                 ]
             },
             'tools': {
                 title: 'Ferramentas e Tecnologias',
                 icon: 'fas fa-tools',
                 skills: [
-                    { name: 'Office 365', level: 95, icon: 'fas fa-file-office', category: 'Produtividade' },
-                    { name: 'SharePoint', level: 80, icon: 'fas fa-share-alt', category: 'Colaboração' },
-                    { name: 'Git & GitHub', level: 85, icon: 'fab fa-git-alt', category: 'Versionamento' },
-                    { name: 'Docker', level: 70, icon: 'fab fa-docker', category: 'Containerização' },
-                    { name: 'AWS Basics', level: 65, icon: 'fab fa-aws', category: 'Cloud' },
-                    { name: 'Networking', level: 82, icon: 'fas fa-network-wired', category: 'Infraestrutura' }
+                    { name: 'Office 365', level: 85, icon: 'fas fa-file-office', category: 'Produtividade' },
+                    { name: 'SharePoint (Básico)', level: 60, icon: 'fas fa-share-alt', category: 'Colaboração' },
+                    { name: 'Git & GitHub', level: 70, icon: 'fab fa-git-alt', category: 'Versionamento' },
+                    { name: 'PowerShell', level: 65, icon: 'fas fa-terminal', category: 'Automação' },
+                    { name: 'Excel Avançado', level: 80, icon: 'fas fa-file-excel', category: 'Produtividade' },
+                    { name: 'Suporte Técnico', level: 85, icon: 'fas fa-tools', category: 'Infraestrutura' }
                 ]
             },
             'soft': {
                 title: 'Soft Skills',
                 icon: 'fas fa-users',
                 skills: [
-                    { name: 'Trabalho em Equipe', level: 95, icon: 'fas fa-handshake', category: 'Interpessoal' },
-                    { name: 'Comunicação', level: 90, icon: 'fas fa-comments', category: 'Interpessoal' },
-                    { name: 'Resolução de Problemas', level: 88, icon: 'fas fa-puzzle-piece', category: 'Analítica' },
-                    { name: 'Liderança', level: 78, icon: 'fas fa-user-tie', category: 'Gestão' },
-                    { name: 'Adaptabilidade', level: 92, icon: 'fas fa-sync-alt', category: 'Flexibilidade' },
-                    { name: 'Aprendizado Contínuo', level: 98, icon: 'fas fa-graduation-cap', category: 'Desenvolvimento' }
+                    { name: 'Trabalho em Equipe', level: 85, icon: 'fas fa-handshake', category: 'Interpessoal' },
+                    { name: 'Comunicação', level: 80, icon: 'fas fa-comments', category: 'Interpessoal' },
+                    { name: 'Resolução de Problemas', level: 75, icon: 'fas fa-puzzle-piece', category: 'Analítica' },
+                    { name: 'Organização', level: 85, icon: 'fas fa-tasks', category: 'Gestão' },
+                    { name: 'Adaptabilidade', level: 85, icon: 'fas fa-sync-alt', category: 'Flexibilidade' },
+                    { name: 'Aprendizado Contínuo', level: 90, icon: 'fas fa-graduation-cap', category: 'Desenvolvimento' }
                 ]
             }
         };

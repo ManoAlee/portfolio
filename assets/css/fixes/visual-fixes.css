@@ -55,7 +55,8 @@
 
 /* ===== CORREÇÃO DE ESPAÇAMENTO DO CONTEÚDO ===== */
 body {
-    padding-top: 0 !important;
+    /* Ajuste para compensar a navegação fixa (evita que o header/nav cubra o conteúdo) */
+    padding-top: 80px !important;
 }
 
 header {
@@ -78,6 +79,25 @@ section {
     display: grid;
     gap: 2rem;
 }
+
+/* ===== UTILITÁRIOS (fallback para classes tipo Tailwind usadas no HTML) ===== */
+.max-w-2xl { max-width: 42rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.text-center { text-align: center; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.w-6 { width: 1.5rem; }
+.h-6 { height: 1.5rem; }
+
+/* Força centralização horizontal em cards que usam utilitário 'mx-auto' */
+.card.mx-auto, .card.max-w-2xl.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Remover qualquer float inesperado em imagens de perfil — garantir centralização */
+.profile-image.float { display: block; margin-left: auto; margin-right: auto; }
 
 .grid-2 {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));

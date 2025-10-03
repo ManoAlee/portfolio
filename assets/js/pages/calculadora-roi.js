@@ -134,11 +134,16 @@ function analisarInvestimento(roiAnual, tipoInvestimento) {
 
 function calcularROI() {
     try {
-        // Obter valores dos inputs com validação
-        const investimento = parseFloat(document.getElementById('investimento').value) || 0;
-        const retorno = parseFloat(document.getElementById('retorno').value) || 0;
-        const periodo = parseFloat(document.getElementById('periodo').value) || 0;
-        const tipoInvestimento = document.getElementById('tipoInvestimento')?.value || 'poupanca';
+    // Obter valores dos inputs com validação (guards para evitar erros se elemento não existir)
+    const investimentoEl = document.getElementById('investimento');
+    const retornoEl = document.getElementById('retorno');
+    const periodoEl = document.getElementById('periodo');
+    const tipoEl = document.getElementById('tipoInvestimento');
+
+    const investimento = investimentoEl ? parseFloat(investimentoEl.value) || 0 : 0;
+    const retorno = retornoEl ? parseFloat(retornoEl.value) || 0 : 0;
+    const periodo = periodoEl ? parseFloat(periodoEl.value) || 0 : 0;
+    const tipoInvestimento = tipoEl ? tipoEl.value : 'poupanca';
 
         // Validar inputs
         if (investimento <= 0 || retorno <= 0 || periodo <= 0) {
@@ -233,7 +238,11 @@ function calcularROI() {
         `;
 
         const resultadoDiv = document.getElementById('resultado-roi');
-        resultadoDiv.innerHTML = resultadoHTML;
+        if (resultadoDiv) {
+            resultadoDiv.innerHTML = resultadoHTML;
+        } else {
+            console.warn('calculadora-roi: elemento #resultado-roi não encontrado');
+        }
 
     } catch (error) {
         console.error('Erro ao calcular ROI:', error);

@@ -1,5 +1,6 @@
 // Configuração do gráfico de tráfego em tempo real
 let chart;
+let intervalId = null;
 const maxDataPoints = 8; // Reduzido para um visual ainda mais limpo
 let trafficData = Array(maxDataPoints).fill(0);
 let timeLabels = Array(maxDataPoints).fill('');
@@ -44,12 +45,22 @@ function atualizarGrafico() {
     timeLabels.push(novoTempo);
     timeLabels.shift();
 
-    chart.update('none');
+    // Segurança: garantir que o chart existe antes de atualizar
+    if (!chart || !chart.data || !chart.data.datasets || !chart.data.datasets[0]) return;
+
+    // Atualizar referências explícitas (ajuda em algumas versões do Chart.js)
+    chart.data.labels = timeLabels;
+    chart.data.datasets[0].data = trafficData;
+
+    // Atualizar sem animação adicional (Chart.js interpreta 'none' de forma diferente entre versões)
+    chart.update();
 }
 
 // Inicializar o gráfico
 function initRealTimeChart() {
-    const ctx = document.getElementById('realTimeChart').getContext('2d');
+    const canvas = document.getElementById('realTimeChart');
+    if (!canvas) return; // página não tem canvas — evita erro
+    const ctx = canvas.getContext('2d');
     
     // Criar gradiente suave
     const gradient = ctx.createLinearGradient(0, 0, 0, 300);
@@ -159,9 +170,29 @@ function initRealTimeChart() {
         }
     });
 
-    // Atualizar a cada 4 segundos para uma visualização mais suave
-    setInterval(atualizarGrafico, 4000);
+    // Inicializar labels/dados iniciais para evitar eixos vazios
+    for (let i = 0; i < maxDataPoints; i++) {
+        trafficData[i] = gerarDadosTrafegoRealisticos();
+        const ts = new Date(Date.now() - (maxDataPoints - i) * 4000);
+        timeLabels[i] = `${ts.getHours()}:${ts.getMinutes().toString().padStart(2, '0')}`;
+    }
+
+    // Atualizar o chart uma vez com os dados iniciais
+    if (chart && chart.data && chart.data.datasets && chart.data.datasets[0]) {
+        chart.data.labels = timeLabels;
+        chart.data.datasets[0].data = trafficData;
+        chart.update();
+    }
+
+    // Limpar intervalo anterior (se existir) para evitar duplicação
+    if (intervalId) clearInterval(intervalId);
+    intervalId = setInterval(atualizarGrafico, 4000);
 }
 
 // Inicializar quando o documento estiver pronto
-document.addEventListener('DOMContentLoaded', initRealTimeChart); 
+document.addEventListener('DOMContentLoaded', initRealTimeChart);
+
+// Remover interval se a página for descarregada (boa prática)
+window.addEventListener('beforeunload', () => {
+    if (intervalId) clearInterval(intervalId);
+});

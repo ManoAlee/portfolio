@@ -3,7 +3,7 @@
 [![Status do Projeto](https://img.shields.io/badge/Status-Ativo-green)](https://github.com/ManoAlee/portfolio)
 [![Versão](https://img.shields.io/badge/Versão-2.0.0-blue)](https://github.com/ManoAlee/portfolio/releases)
 [![Licença](https://img.shields.io/badge/Licença-MIT-yellow)](LICENSE)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Alessandro_Meneses-blue?logo=linkedin)](https://linkedin.com/in/alessandro-meneses-2425ab231)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Alessandro_Meneses-blue?logo=linkedin)](https://www.linkedin.com/in/alessandro-meneses)
 
 ## 📋 Índice
 

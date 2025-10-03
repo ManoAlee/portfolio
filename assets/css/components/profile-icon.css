@@ -8,7 +8,7 @@
     width: var(--icon-size);
     height: var(--icon-size);
     border-radius: 14px;
-    overflow: hidden;
+    overflow: visible; /* permitir pequenas translações sem cortar */
     transform: rotate(45deg);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -44,16 +44,16 @@
 }
 
 .profile-icon {
-    width: 140%;
-    height: 140%;
+    width: 120%;
+    height: 120%;
     object-fit: cover;
-    transform: rotate(-45deg) scale(1.2);
+    transform: rotate(-45deg) scale(1.05);
     transition: transform 0.4s ease;
 }
 
 /* Efeitos de Hover */
 .profile-icon-container:hover {
-    transform: rotate(45deg) scale(1.1);
+    transform: rotate(45deg) scale(1.05);
     box-shadow: 
         0 0 20px var(--glow-color),
         0 0 40px var(--glow-color),
@@ -61,7 +61,7 @@
 }
 
 .profile-icon-container:hover .profile-icon {
-    transform: rotate(-45deg) scale(1.3);
+    transform: rotate(-45deg) scale(1.08);
 }
 
 /* Animações */

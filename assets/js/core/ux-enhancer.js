@@ -177,20 +177,39 @@ class UXEnhancer {
             
             const placeholder = document.createElement('div');
             placeholder.className = 'image-placeholder';
-            placeholder.innerHTML = '<i class="fas fa-image"></i> Carregando...';
+            // Spinner SVG minimal e acessível
+            placeholder.innerHTML = `
+                <div class="spinner-wrapper" aria-hidden="true">
+                    <svg width="48" height="48" viewBox="0 0 50 50" class="spinner" aria-hidden="true">
+                        <circle cx="25" cy="25" r="20" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="5"></circle>
+                        <path d="M45 25a20 20 0 0 0-36.6-11" stroke="#60a5fa" stroke-width="5" stroke-linecap="round" fill="none"></path>
+                    </svg>
+                </div>
+            `;
             
             img.parentNode.insertBefore(placeholder, img);
             
-            img.addEventListener('load', () => {
+            // When loaded, ensure placeholder is removed and layout updated
+            const onLoad = () => {
                 img.classList.remove('loading');
                 img.classList.add('loaded');
-                placeholder.remove();
-            });
-            
-            img.addEventListener('error', () => {
+                if (placeholder && placeholder.parentNode) placeholder.remove();
+                // Ensure aspect ratio is recalculated
+                try { if (img.naturalWidth && img.naturalHeight) img.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`; } catch(e) {}
+                img.removeEventListener('load', onLoad);
+                img.removeEventListener('error', onError);
+            };
+
+            const onError = () => {
+                img.classList.remove('loading');
                 placeholder.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Erro ao carregar';
-                placeholder.style.background = 'rgba(239, 68, 68, 0.1)';
-            });
+                placeholder.style.background = 'rgba(239, 68, 68, 0.06)';
+                img.removeEventListener('load', onLoad);
+                img.removeEventListener('error', onError);
+            };
+
+            img.addEventListener('load', onLoad);
+            img.addEventListener('error', onError);
         });
     }
 

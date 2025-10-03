@@ -3,52 +3,52 @@ class CareerTimeline {
     constructor() {
         this.timelineData = [
             {
-                year: '2025',
+                year: '2024-Atual',
                 title: 'Assistente de TI JR',
                 company: 'Automotion',
                 type: 'work',
                 status: 'current',
-                description: 'Responsável pela infraestrutura de TI, suporte técnico e implementação de soluções tecnológicas.',
+                description: 'Atuação em suporte técnico, administração de sistemas e manutenção de infraestrutura de TI.',
                 achievements: [
-                    'Gestão completa da infraestrutura Windows Server',
-                    'Implementação de políticas Active Directory',
-                    'Suporte técnico especializado Level 2',
-                    'Automação de processos com PowerShell'
+                    'Suporte técnico aos usuários finais',
+                    'Manutenção de sistemas Windows Server',
+                    'Administração do Active Directory',
+                    'Resolução de incidentes de TI'
                 ],
-                technologies: ['Windows Server', 'Active Directory', 'VMware', 'PowerShell'],
+                technologies: ['Windows Server', 'Active Directory', 'Office 365', 'Suporte Técnico'],
                 icon: 'fas fa-server'
             },
             {
-                year: '2022-2025',
-                title: 'Gestão da Tecnologia da Informação',
+                year: '2022-2024',
+                title: 'Tecnólogo em GTI',
                 company: 'FATEC Tatuí',
                 type: 'education',
                 status: 'completed',
-                description: 'Graduação com foco em infraestrutura de TI, análise de dados e desenvolvimento de sistemas.',
+                description: 'Graduação em Gestão da Tecnologia da Informação com foco em infraestrutura e gestão de TI.',
                 achievements: [
-                    'TCC em Análise de Dados com Power BI',
-                    'Projetos práticos em infraestrutura',
-                    'Desenvolvimento de sistemas web',
-                    'Metodologias ágeis e gestão de projetos'
+                    'Conclusão do curso de GTI',
+                    'Projetos acadêmicos em infraestrutura',
+                    'Aprendizado em Power BI e análise de dados',
+                    'Base sólida em sistemas operacionais'
                 ],
-                technologies: ['Power BI', 'SQL Server', 'Python', 'HTML/CSS/JS'],
+                technologies: ['Power BI', 'Windows Server', 'Linux', 'Redes'],
                 icon: 'fas fa-graduation-cap'
             },
             {
-                year: '2023-2024',
-                title: 'Técnico de Suporte',
-                company: 'BR Conecta',
-                type: 'work',
+                year: '2023',
+                title: 'Desenvolvimento de Portfólio',
+                company: 'Projetos Pessoais',
+                type: 'project',
                 status: 'completed',
-                description: 'Suporte técnico remoto e presencial, atendimento ao cliente e resolução de problemas.',
+                description: 'Desenvolvimento de projetos pessoais para aprimoramento de habilidades técnicas.',
                 achievements: [
-                    'Atendimento técnico especializado',
-                    'Resolução de problemas complexos',
-                    'Otimização de processos de suporte',
-                    'Treinamento de usuários finais'
+                    'Criação de portfolio profissional',
+                    'Scripts de automação em PowerShell',
+                    'Dashboards em Power BI',
+                    'Estudos em virtualização'
                 ],
-                technologies: ['Windows', 'Office 365', 'Networking', 'Remote Support'],
-                icon: 'fas fa-headset'
+                technologies: ['HTML/CSS/JS', 'PowerShell', 'Power BI', 'Git'],
+                icon: 'fas fa-code'
             },
             {
                 year: '2022-2023',

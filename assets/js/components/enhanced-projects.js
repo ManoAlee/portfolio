@@ -4,10 +4,10 @@ class ProjectsShowcase {
         this.projects = [
             {
                 id: 'infrastructure-project',
-                title: 'Infraestrutura Corporativa Completa',
+                title: 'Projeto de Estudo - Infraestrutura Windows',
                 category: 'Infrastructure',
-                description: 'Implementação de infraestrutura Windows Server com Active Directory, GPO e virtualização VMware.',
-                longDescription: 'Projeto completo de infraestrutura corporativa incluindo configuração de Windows Server 2019/2022, implementação de Active Directory Domain Services, Group Policy Objects, DNS/DHCP, File Server com permissões NTFS, backup automatizado e monitoramento de serviços. Ambiente virtualizado com VMware vSphere para alta disponibilidade.',
+                description: 'Projeto acadêmico de infraestrutura Windows Server com Active Directory e virtualização para aprendizado.',
+                longDescription: 'Projeto de estudo sobre infraestrutura de TI incluindo conceitos de Windows Server 2019/2022, Active Directory Domain Services, Group Policy Objects, DNS/DHCP e virtualização. Desenvolvido como laboratório de aprendizado para demonstrar conhecimentos em administração de sistemas Windows.',
                 image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop',
                 technologies: ['Windows Server', 'Active Directory', 'VMware', 'PowerShell', 'DNS/DHCP'],
                 features: [
@@ -18,15 +18,15 @@ class ProjectsShowcase {
                     'Monitoramento de performance'
                 ],
                 metrics: {
-                    users: '200+',
-                    uptime: '99.9%',
-                    performance: '+40%'
+                    users: 'Laboratório',
+                    uptime: 'Estudo',
+                    performance: 'Conceitual'
                 },
-                status: 'Concluído',
-                duration: '6 meses',
-                role: 'Administrador de Sistemas',
-                challenges: 'Migração de sistema legado sem downtime',
-                solution: 'Implementação gradual com ambiente híbrido temporário',
+                status: 'Projeto de Estudo',
+                duration: '3 meses',
+                role: 'Estudante de TI',
+                challenges: 'Aprender conceitos de infraestrutura Windows',
+                solution: 'Ambiente de laboratório virtualizado para prática',
                 links: {
                     demo: '#',
                     github: 'https://github.com/ManoAlee/infrastructure-docs',
@@ -35,10 +35,10 @@ class ProjectsShowcase {
             },
             {
                 id: 'powerbi-dashboard',
-                title: 'Dashboard Analítico Power BI',
+                title: 'Dashboard Power BI - Exemplo',
                 category: 'Analytics',
-                description: 'Sistema de BI para análise de performance empresarial com KPIs interativos e relatórios automatizados.',
-                longDescription: 'Desenvolvimento de dashboard executivo em Power BI para análise de performance empresarial. Integração com múltiplas fontes de dados (SQL Server, Excel, APIs), criação de medidas DAX customizadas, modelagem dimensional e implementação de row-level security. Relatórios automatizados com refresh agendado.',
+                description: 'Exemplo de dashboard Power BI para demonstração de habilidades em análise de dados e visualização.',
+                longDescription: 'Projeto exemplo de dashboard em Power BI desenvolvido para demonstrar conhecimentos em análise de dados. Utiliza dados de exemplo para criar visualizações interativas, medidas DAX básicas e demonstrar conceitos de business intelligence para fins educacionais e de portfolio.',
                 image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
                 technologies: ['Power BI', 'DAX', 'SQL Server', 'Power Query', 'Azure'],
                 features: [
@@ -49,15 +49,15 @@ class ProjectsShowcase {
                     'Mobile-responsive design'
                 ],
                 metrics: {
-                    datasources: '8',
-                    reports: '25+',
-                    users: '50+'
+                    datasources: 'Exemplo',
+                    reports: 'Demo',
+                    users: 'Portfolio'
                 },
-                status: 'Em Produção',
-                duration: '4 meses',
-                role: 'Analista de BI',
-                challenges: 'Integração de múltiplas fontes de dados heterogêneas',
-                solution: 'ETL customizado com Power Query e validação de dados',
+                status: 'Projeto de Demonstração',
+                duration: '2 meses',
+                role: 'Estudante',
+                challenges: 'Aprender Power BI e conceitos de BI',
+                solution: 'Prática com dados de exemplo e tutoriais',
                 links: {
                     demo: '/pages/dashboard.html',
                     github: '#',
@@ -66,10 +66,10 @@ class ProjectsShowcase {
             },
             {
                 id: 'automation-scripts',
-                title: 'Automação com PowerShell',
+                title: 'Scripts PowerShell - Estudo',
                 category: 'Automation',
-                description: 'Scripts de automação para administração de sistemas Windows e Active Directory.',
-                longDescription: 'Coleção de scripts PowerShell para automação de tarefas administrativas: criação em massa de usuários AD, geração de relatórios de sistema, backup automatizado, monitoramento de serviços e limpeza de logs. Implementação de logging detalhado e tratamento de erros.',
+                description: 'Scripts PowerShell desenvolvidos para aprendizado de automação e administração de sistemas.',
+                longDescription: 'Coleção de scripts PowerShell desenvolvidos durante os estudos para aprender automação de tarefas administrativas básicas. Inclui scripts de exemplo para gerenciamento de arquivos, relatórios simples do sistema e conceitos básicos de Active Directory para fins educacionais.',
                 image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop',
                 technologies: ['PowerShell', 'Active Directory', 'Windows Server', 'Task Scheduler'],
                 features: [
@@ -80,15 +80,15 @@ class ProjectsShowcase {
                     'Limpeza automática de logs'
                 ],
                 metrics: {
-                    scripts: '15+',
-                    timesSaved: '20h/semana',
-                    errorReduction: '85%'
+                    scripts: '8',
+                    timesSaved: 'Aprendizado',
+                    errorReduction: 'Conceitual'
                 },
-                status: 'Concluído',
-                duration: '3 meses',
-                role: 'DevOps Engineer',
-                challenges: 'Execução segura com diferentes níveis de permissão',
-                solution: 'Implementação de RunAs e validação de privilégios',
+                status: 'Projeto de Aprendizado',
+                duration: '2 meses',
+                role: 'Estudante',
+                challenges: 'Aprender PowerShell e conceitos de automação',
+                solution: 'Prática com scripts simples e documentação',
                 links: {
                     demo: '#',
                     github: 'https://github.com/ManoAlee/powershell-automation',
@@ -117,7 +117,7 @@ class ProjectsShowcase {
                 },
                 status: 'Online',
                 duration: '2 meses',
-                role: 'Full Stack Developer',
+                role: 'Desenvolvedor Estudante',
                 challenges: 'Performance em dispositivos móveis de baixa performance',
                 solution: 'Lazy loading, code splitting e otimização de assets',
                 links: {

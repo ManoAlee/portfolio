@@ -66,12 +66,29 @@ optimizer.optimize().then(images => {
     if (images) {
         const profileIcons = document.querySelectorAll('.profile-icon');
         profileIcons.forEach(icon => {
-            // Configurar srcset para diferentes resoluções
-            icon.srcset = `
-                ${images[45]} 1x,
-                ${images[90]} 2x,
-                ${images[180]} 3x
-            `;
+            // Configurar srcset para diferentes resoluções (apenas para <img>)
+            try {
+                if (icon && icon.tagName && icon.tagName.toLowerCase() === 'img') {
+                    icon.setAttribute('srcset', `${images[45]} 1x, ${images[90]} 2x, ${images[180]} 3x`);
+                    // fallback para src se necessário
+                    if (!icon.getAttribute('src') || icon.getAttribute('src').trim() === '') {
+                        icon.setAttribute('src', images[90]);
+                    }
+                } else {
+                    // Se não for <img>, aplicar como background na wrapper mais próxima
+                    const wrapper = icon.closest && icon.closest('.profile-icon-wrapper') ? icon.closest('.profile-icon-wrapper') : icon.parentElement;
+                    if (wrapper) {
+                        wrapper.style.backgroundImage = `url(${images[90]})`;
+                        wrapper.style.backgroundSize = 'cover';
+                        wrapper.style.backgroundPosition = 'center';
+                    }
+                    // Garantir acessibilidade mínima
+                    if (icon && !icon.getAttribute('role')) icon.setAttribute('role', 'img');
+                    if (icon && !icon.getAttribute('aria-label')) icon.setAttribute('aria-label', 'Foto de perfil otimizada');
+                }
+            } catch (err) {
+                console.warn('profile-optimizer: falha ao aplicar imagens otimizadas', err);
+            }
         });
     }
 }); 

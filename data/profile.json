@@ -4,13 +4,13 @@
   "email": "ale_meneses2004@hotmail.com",
   "phone": "+55-15-99801-7732",
   "location": "Boituva, SP - Brasil",
-  "linkedin": "https://linkedin.com/in/alessandro-meneses-2425ab231",
+  "linkedin": "https://www.linkedin.com/in/alessandro-meneses",
   "github": "https://github.com/ManoAlee",
-  "bio": "Graduado em Gestão da Tecnologia da Informação com experiência sólida em infraestrutura de TI, suporte técnico e administração de sistemas. Especialista em Active Directory, Windows Server, Linux, virtualização e soluções em nuvem (Microsoft 365, Azure).",
+  "bio": "Graduado em Gestão da Tecnologia da Informação com conhecimentos em infraestrutura de TI, suporte técnico e administração de sistemas. Em desenvolvimento nas áreas de Active Directory, Windows Server, Linux, virtualização e soluções em nuvem (Microsoft 365, Azure).",
   "currentRole": {
     "position": "Assistente de TI JR",
     "company": "Automotion",
-    "startDate": "2024-01-01"
+    "startDate": "2025-06-01"
   },
   "skills": {
     "technical": [
@@ -52,15 +52,20 @@
       "title": "Assistente de TI JR",
       "company": "Automotion",
       "location": "Boituva, SP",
-      "startDate": "2024-01-01",
+      "startDate": "2025-06-01",
       "current": true,
       "responsibilities": [
-        "Suporte técnico a usuários e sistemas",
-        "Administração de servidores Windows e Linux",
-        "Gerenciamento do Active Directory",
-        "Manutenção de infraestrutura de virtualização",
-        "Implementação de soluções em nuvem",
-        "Automação de processos com PowerShell e Python"
+        "Atendimento de análise, suporte e troubleshooting para usuários internos e externos, local e remotamente via RDP, VNC, SSH e softwares de gerenciamento remoto",
+        "Análise de logs e documentação técnica, detalhando processos de resolução e gerando relatórios estratégicos",
+        "Administração de dispositivos de rede e servidores, utilizando protocolos TCP/IP, DNS, DHCP, SSH, VPN e AD",
+        "Gerenciamento do ciclo de vida de ativos de TI (notebooks, desktops, celulares e servidores), incluindo configuração, instalação e manutenção preventiva",
+        "Aplicação de patches de segurança e implementação de políticas de conformidade",
+        "Planejamento e avaliação de soluções de infraestrutura com foco em alta disponibilidade e segurança",
+        "Administração de ambientes Windows Server, Linux e virtualização (Hyper-V, VMware, VirtualBox, Proxmox) e soluções em nuvem (Microsoft 365, Azure AD)",
+        "Gerenciamento de Active Directory, políticas de GPO, controle de acessos (PAM/IAM), integração com DNS/DHCP e autenticação segura",
+        "Automação de processos críticos com PowerShell, Bash e Python",
+        "Implementação de backups com Restic e Rclone e integrações com OneDrive",
+        "Monitoramento de redes, servidores e aplicações para garantir estabilidade, performance e resiliência"
       ]
     }
   ],
@@ -74,29 +79,39 @@
   ],
   "certifications": [
     {
-      "name": "Microsoft 365 Certified",
-      "issuer": "Microsoft",
+      "name": "Tecnólogo em GTI",
+      "issuer": "FATEC Tatuí", 
       "year": "2024"
+    },
+    {
+      "name": "Fundamentos de Power BI",
+      "issuer": "Microsoft Learn",
+      "year": "2024"
+    },
+    {
+      "name": "Excel Avançado",
+      "issuer": "Certificação Microsoft",
+      "year": "2023"
     }
   ],
   "projects": [
     {
-      "name": "Sistema de Monitoramento de Tráfego",
-      "description": "Análise em tempo real do fluxo de tráfego em Boituva usando IA",
-      "technologies": ["Python", "Machine Learning", "IoT"],
-      "url": "/pages/analise-tempo-real.html"
+      "name": "Portfolio Profissional",
+      "description": "Site responsivo e moderno showcaseando experiência em TI",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "PWA"],
+      "url": "/index.html"
     },
     {
-      "name": "Calculadora ROI Avançada",
-      "description": "Ferramenta interativa para análise de retorno sobre investimento",
-      "technologies": ["JavaScript", "Chart.js", "Analytics"],
-      "url": "/pages/calculadora-roi.html"
+      "name": "Scripts de Automação",
+      "description": "Coleção de scripts PowerShell e Python para automação de tarefas de TI",
+      "technologies": ["PowerShell", "Python", "Bash"],
+      "url": "#"
     },
     {
-      "name": "Dashboard Analytics",
-      "description": "Dashboard interativo para análise de dados empresariais",
-      "technologies": ["Power BI", "SQL", "DAX"],
-      "url": "/pages/dashboard.html"
+      "name": "Dashboards Power BI", 
+      "description": "Relatórios e dashboards para análise de dados corporativos",
+      "technologies": ["Power BI", "DAX", "Power Query", "Excel"],
+      "url": "#"
     }
   ]
 }

@@ -3,28 +3,28 @@ class TestimonialsCarousel {
     constructor() {
         this.testimonials = [
             {
-                name: "BR Conecta",
-                role: "Referência Profissional",
-                company: "Empresa de Consultoria",
-                text: "Demonstrou competência profissional e lealdade. Foi uma pessoa idônea, cumpridora dos seus deveres, sendo acessível, com facilidade para trabalhar em equipe e boa comunicação.",
-                rating: 5,
-                image: "https://ui-avatars.com/api/?name=BR+Conecta&background=667eea&color=fff&size=80"
-            },
-            {
-                name: "Equipe FATEC",
-                role: "Coordenação Acadêmica",
+                name: "Formação Acadêmica",
+                role: "Tecnólogo em GTI",
                 company: "FATEC Tatuí",
-                text: "Excelente aluno, sempre proativo nas atividades acadêmicas. Demonstrou grande interesse em infraestrutura de TI e análise de dados durante o curso.",
+                text: "Formação completa em Gestão da Tecnologia da Informação com foco em infraestrutura, desenvolvimento e análise de sistemas.",
                 rating: 5,
                 image: "https://ui-avatars.com/api/?name=FATEC&background=764ba2&color=fff&size=80"
             },
             {
-                name: "Colegas de Equipe",
-                role: "Feedback de Colaboração",
-                company: "Projetos Acadêmicos",
-                text: "Sempre disposto a ajudar e compartilhar conhecimento. Sua dedicação e habilidades técnicas contribuíram significativamente para o sucesso dos projetos em equipe.",
+                name: "Experiência Profissional",
+                role: "Assistente de TI JR",
+                company: "Automotion",
+                text: "Atuação em suporte técnico, administração de sistemas e infraestrutura de TI com foco em soluções Windows Server e Active Directory.",
                 rating: 5,
-                image: "https://ui-avatars.com/api/?name=Team&background=f093fb&color=fff&size=80"
+                image: "https://ui-avatars.com/api/?name=Automotion&background=667eea&color=fff&size=80"
+            },
+            {
+                name: "Desenvolvimento Pessoal",
+                role: "Projetos e Estudos",
+                company: "Portfólio Próprio",
+                text: "Desenvolvimento contínuo de habilidades em automação, análise de dados e criação de soluções personalizadas para TI.",
+                rating: 5,
+                image: "https://ui-avatars.com/api/?name=Portfolio&background=f093fb&color=fff&size=80"
             }
         ];
         

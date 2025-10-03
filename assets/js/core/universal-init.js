@@ -253,7 +253,7 @@ class PortfolioInitializer {
                         © 2024 Alessandro Meneses. Todos os direitos reservados.
                     </p>
                     <div class="flex justify-center gap-4 mt-4">
-                        <a href="https://linkedin.com/in/alessandro-meneses-2425ab231" target="_blank" 
+                            <a href="https://www.linkedin.com/in/alessandro-meneses" target="_blank" 
                            class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-linkedin"></i> LinkedIn
                         </a>
