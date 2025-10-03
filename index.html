@@ -52,6 +52,11 @@
     <link href="assets/css/styles.css" rel="stylesheet">
     <link href="assets/css/base/utilities.css" rel="stylesheet">
     <link href="assets/css/base/animations.css" rel="stylesheet">
+    <link href="assets/css/components/enhanced-components.css" rel="stylesheet">
+    
+    <!-- Correções e Melhorias CSS -->
+    <link href="assets/css/fixes/visual-fixes.css" rel="stylesheet">
+    <link href="assets/css/fixes/ux-improvements.css" rel="stylesheet">
     
     <!-- Font Awesome com otimização -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -149,66 +154,50 @@
         </div>
     </header>
 
-    <!-- Projetos em Destaque -->
+    <!-- Estatísticas do Portfolio -->
+    <section class="stats-section py-16 bg-gradient-to-b from-background/50 to-transparent">
+        <div class="container">
+            <div id="portfolio-stats" class="animate-fade-in-up">
+                <!-- Conteúdo será inserido dinamicamente pelo JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="testimonials-section py-16 bg-gradient-to-b from-transparent to-background-secondary/30">
+        <div class="container">
+            <h2 class="subtitle text-center mb-12 animate-fade-in-up">Depoimentos Profissionais</h2>
+            <div id="testimonials-carousel" class="animate-fade-in-up">
+                <!-- Conteúdo será inserido dinamicamente pelo JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades Interativas -->
+    <section class="interactive-skills-section py-16">
+        <div class="container">
+            <h2 class="subtitle text-center mb-12 animate-fade-in-up">Competências Técnicas</h2>
+            <div id="interactive-skills" class="animate-fade-in-up">
+                <!-- Conteúdo será inserido dinamicamente pelo JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline de Carreira -->
+    <section class="career-timeline-section py-16 bg-gradient-to-b from-background-secondary/30 to-transparent">
+        <div class="container">
+            <h2 class="subtitle text-center mb-12 animate-fade-in-up">Jornada Profissional & Acadêmica</h2>
+            <div id="career-timeline" class="animate-fade-in-up">
+                <!-- Conteúdo será inserido dinamicamente pelo JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos em Destaque Aprimorados -->
     <section class="container py-16">
-        <h2 class="subtitle text-center mb-12">Projetos em Destaque</h2>
-        <div class="grid grid-3">
-            <!-- Monitoramento de Tráfego -->
-            <a href="pages/analise-tempo-real.html" class="card group card-hover animate-fade-in-up">
-                <div class="relative overflow-hidden rounded-lg mb-4">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Sistema de Monitoramento" class="w-full h-48 object-cover" loading="lazy" decoding="async">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    Sistema de Monitoramento de Tráfego
-                </h3>
-                <p class="text-gray-400 mb-4">
-                    Análise em tempo real do fluxo de tráfego em Boituva usando IA.
-                </p>
-                <div class="flex gap-2">
-                    <span class="tag tag-primary text-xs">Python</span>
-                    <span class="tag tag-primary text-xs">Machine Learning</span>
-                    <span class="tag tag-primary text-xs">IoT</span>
-                </div>
-            </a>
-
-            <!-- Calculadora ROI -->
-            <a href="pages/calculadora-roi.html" class="card group card-hover animate-fade-in-up">
-                <div class="relative overflow-hidden rounded-lg mb-4">
-                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Calculadora ROI" class="w-full h-48 object-cover" loading="lazy" decoding="async">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    Calculadora ROI Avançada
-                </h3>
-                <p class="text-gray-400 mb-4">
-                    Ferramenta interativa para análise de retorno sobre investimento.
-                </p>
-                <div class="flex gap-2">
-                    <span class="tag tag-primary text-xs">JavaScript</span>
-                    <span class="tag tag-primary text-xs">Chart.js</span>
-                    <span class="tag tag-primary text-xs">Analytics</span>
-                </div>
-            </a>
-
-            <!-- Dashboard Power BI -->
-            <a href="pages/dashboard.html" class="card group card-hover animate-fade-in-up">
-                <div class="relative overflow-hidden rounded-lg mb-4">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Dashboard Analytics" class="w-full h-48 object-cover" loading="lazy" decoding="async">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    Dashboard Analytics
-                </h3>
-                <p class="text-gray-400 mb-4">
-                    Dashboard interativo para análise de dados empresariais.
-                </p>
-                <div class="flex gap-2">
-                    <span class="tag tag-primary text-xs">Power BI</span>
-                    <span class="tag tag-primary text-xs">SQL</span>
-                    <span class="tag tag-primary text-xs">DAX</span>
-                </div>
-            </a>
+        <h2 class="subtitle text-center mb-12">Portfólio de Projetos</h2>
+        <div id="enhanced-projects" class="animate-fade-in-up">
+            <!-- Conteúdo será inserido dinamicamente pelo JavaScript -->
         </div>
     </section>
 
@@ -285,12 +274,31 @@
     }
     </script>
 
-    <!-- Configuração e scripts principais -->
+    <!-- Error Handler - Deve ser carregado primeiro -->
+    <script src="assets/js/core/error-handler.js"></script>
+    
+    <!-- Sistema de Configuração e Gerenciamento -->
+    <script src="assets/js/core/portfolio-manager.js"></script>
+    
+    <!-- Melhorias de UX e Correções -->
+    <script src="assets/js/core/ux-enhancer.js"></script>
+    
+    <!-- Novos Componentes Interativos -->
+    <script src="assets/js/components/portfolio-stats.js"></script>
+    <script src="assets/js/components/testimonials-carousel.js"></script>
+    <script src="assets/js/components/interactive-skills.js"></script>
+    <script src="assets/js/components/career-timeline.js"></script>
+    <script src="assets/js/components/enhanced-projects.js"></script>
+    
+    <!-- Sistema Universal de Inicialização -->
+    <script src="assets/js/core/component-loader.js"></script>
     <script src="config/portfolio.config.js"></script>
     <script src="src/utils/dependency-checker.js"></script>
     <script src="src/utils/css-fallback.js"></script>
     <script src="assets/js/components/footer.js"></script>
     <script src="assets/js/core/performance.js"></script>
     <script src="assets/js/core/main.js"></script>
+    <script src="assets/js/core/tester.js"></script>
+    <script src="assets/js/core/universal-init.js"></script>
 </body>
 </html> 
