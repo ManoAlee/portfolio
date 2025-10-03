@@ -71,6 +71,16 @@
         logs.slice().reverse().forEach(l => html += `<li style="color:${l.level==='error' ? '#fca5a5' : l.level==='warn' ? '#fbbf24' : '#cbd5e1'}">[${l.time}] ${l.level.toUpperCase()}: ${escapeHtml(l.msg)}</li>`);
         html += '</ul></div>';
 
+        // Show recent resource issues if available
+        if (window.__visualDebugResources && window.__visualDebugResources.length) {
+            html += '<div style="margin-bottom:6px"><strong>Recursos com problemas</strong>';
+            html += '<ul style="margin:6px 0;padding-left:18px">';
+            window.__visualDebugResources.slice().reverse().forEach(r => {
+                html += `<li style="color:#fca5a5">${escapeHtml(r.name || r.url)} — ${r.reason || r.detail || ''}</li>`;
+            });
+            html += '</ul></div>';
+        }
+
         content.innerHTML = html;
     }
 
@@ -78,4 +88,22 @@
         return unsafe.replace(/[&<"'`]/g, function(m) { return ({'&':'&amp;','<':'&lt;','"':'&quot;',"'":"&#39;","`":"&#96;"})[m]; });
     }
 
+})();
+
+// PerformanceObserver for resource issues (global capture)
+(function(){
+    if (typeof PerformanceObserver === 'undefined') return;
+    window.__visualDebugResources = window.__visualDebugResources || [];
+    try {
+        const ro = new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+                // capture slow or failed-like resources
+                if (entry.duration > 500 || entry.transferSize === 0) {
+                    window.__visualDebugResources.push({ name: entry.name, duration: entry.duration, transferSize: entry.transferSize });
+                    if (window.__visualDebugResources.length > 30) window.__visualDebugResources.shift();
+                }
+            }
+        });
+        ro.observe({ type: 'resource', buffered: true });
+    } catch(e){}
 })();
