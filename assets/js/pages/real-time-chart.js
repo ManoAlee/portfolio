@@ -4,8 +4,6 @@ let intervalId = null;
 const maxDataPoints = 8; // Reduzido para um visual ainda mais limpo
 let trafficData = Array(maxDataPoints).fill(0);
 let timeLabels = Array(maxDataPoints).fill('');
-// retry attempts if Chart.js isn't loaded yet
-let _rtc_initAttempts = 0;
 
 // Horários de pico típicos para Boituva
 const peakHours = {
@@ -62,19 +60,6 @@ function atualizarGrafico() {
 function initRealTimeChart() {
     const canvas = document.getElementById('realTimeChart');
     if (!canvas) return; // página não tem canvas — evita erro
-
-    // Se Chart.js ainda não estiver carregado, tentamos novamente algumas vezes antes de desistir
-    if (typeof Chart === 'undefined') {
-        _rtc_initAttempts += 1;
-        if (_rtc_initAttempts <= 6) {
-            console.warn('[real-time-chart] Chart.js não disponível ainda, retry', _rtc_initAttempts);
-            setTimeout(initRealTimeChart, 500);
-            return;
-        }
-        console.warn('[real-time-chart] Chart.js não carregado após várias tentativas, abortando inicialização do gráfico.');
-        return;
-    }
-
     const ctx = canvas.getContext('2d');
     
     // Criar gradiente suave

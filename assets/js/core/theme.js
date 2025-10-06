@@ -27,8 +27,11 @@ class ThemeManager {
     }
 
     initEventListeners() {
-        this.themeToggle.addEventListener('click', () => this.toggleTheme());
-        
+        // Protege caso o botão não exista no DOM (prevent runtime errors)
+        if (this.themeToggle) {
+            this.themeToggle.addEventListener('click', () => this.toggleTheme());
+        }
+
         // Observa mudanças na preferência do sistema
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
             if (!localStorage.getItem('theme')) {
@@ -57,9 +60,14 @@ class ThemeManager {
 
     updateThemeIcon() {
         const currentTheme = this.root.getAttribute('data-theme');
+        // Atualiza ícones com proteção caso o botão não exista
+        if (!this.themeToggle) return;
+
         const sunIcon = this.themeToggle.querySelector('.fa-sun');
         const moonIcon = this.themeToggle.querySelector('.fa-moon');
-        
+
+        if (!sunIcon || !moonIcon) return;
+
         if (currentTheme === 'dark') {
             sunIcon.style.opacity = '1';
             moonIcon.style.opacity = '0';
@@ -70,4 +78,9 @@ class ThemeManager {
     }
 }
 
-export default ThemeManager; 
+// Expõe a classe globalmente para código não-module (compatibilidade)
+if (typeof window !== 'undefined') {
+    window.ThemeManager = ThemeManager;
+}
+
+export default ThemeManager;

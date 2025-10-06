@@ -352,7 +352,11 @@
 }
 
 .timeline-content {
-    width: 45%;
+    /* Prevent horizontal overflow by including padding in the width calculation
+       and reserving a small gutter for the central timeline line. */
+    box-sizing: border-box;
+    width: calc(50% - 1rem);
+    max-width: 50%;
     position: relative;
 }
 

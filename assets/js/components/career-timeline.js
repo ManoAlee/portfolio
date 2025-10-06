@@ -277,8 +277,5 @@ class CareerTimeline {
 
 // Exporta para uso global
 window.CareerTimeline = CareerTimeline;
-
-// Initialize career timeline
-document.addEventListener('DOMContentLoaded', () => {
-    new CareerTimeline();
-});
+// Exporta para uso global (classe apenas) — instanciação deixada para o inicializador universal
+window.CareerTimeline = CareerTimeline;

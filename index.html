@@ -69,10 +69,10 @@
         <div class="container nav-content">
             <a href="/" class="text-gradient font-bold text-xl">AM</a>
             <div class="flex items-center gap-6">
-                <a href="pages/about/index.html" class="text-gray-300 hover:text-white transition-colors">Sobre</a>
-                <a href="pages/experience/index.html" class="text-gray-300 hover:text-white transition-colors">Experiência</a>
-                <a href="pages/skills/index.html" class="text-gray-300 hover:text-white transition-colors">Habilidades</a>
-                <a href="pages/projects/index.html" class="text-gray-300 hover:text-white transition-colors">Projetos</a>
+                    <a href="/pages/about/index.html" class="text-gray-300 hover:text-white transition-colors">Sobre</a>
+                    <a href="/pages/experience/index.html" class="text-gray-300 hover:text-white transition-colors">Experiência</a>
+                    <a href="/pages/skills/index.html" class="text-gray-300 hover:text-white transition-colors">Habilidades</a>
+                    <a href="/pages/projects/index.html" class="text-gray-300 hover:text-white transition-colors">Projetos</a>
                 <button id="theme-toggle" class="btn glass" aria-label="Alternar tema">
                     <i class="fas fa-sun" aria-hidden="true"></i>
                     <i class="fas fa-moon" aria-hidden="true"></i>
@@ -277,30 +277,57 @@
 
     <!-- Error Handler - Deve ser carregado primeiro -->
     <script src="/assets/js/core/error-handler.js"></script>
-    
-    <!-- Sistema de Configuração e Gerenciamento -->
-    <script src="/assets/js/core/portfolio-manager.js"></script>
-    
-    <!-- Melhorias de UX e Correções -->
-    <script src="/assets/js/core/ux-enhancer.js"></script>
-    
-    <!-- Novos Componentes Interativos -->
-    <script src="/assets/js/components/portfolio-stats.js"></script>
-    <script src="/assets/js/components/testimonials-carousel.js"></script>
-    <script src="/assets/js/components/interactive-skills.js"></script>
-    <script src="/assets/js/components/career-timeline.js"></script>
-    <script src="/assets/js/components/enhanced-projects.js"></script>
-    
-    <!-- Sistema Universal de Inicialização -->
-    <script src="/assets/js/core/component-loader.js"></script>
+
+    <!-- Módulos Core (usar type="module" para arquivos ES modules) -->
+    <script type="module" src="/assets/js/core/theme.js"></script>
+    <script type="module" src="/assets/js/core/navigation.js"></script>
+    <script type="module" src="/assets/js/core/portfolio-manager.js"></script>
+    <script type="module" src="/assets/js/core/ux-enhancer.js"></script>
+    <script type="module" src="/assets/js/core/component-loader.js"></script>
+    <script type="module" src="/assets/js/core/performance.js"></script>
+    <script type="module" src="/assets/js/core/main.js"></script>
+
+    <!-- Componentes (módulos) -->
+    <script type="module" src="/assets/js/components/portfolio-stats.js"></script>
+    <script type="module" src="/assets/js/components/testimonials-carousel.js"></script>
+    <script type="module" src="/assets/js/components/interactive-skills.js"></script>
+    <script type="module" src="/assets/js/components/career-timeline.js"></script>
+    <script type="module" src="/assets/js/components/enhanced-projects.js"></script>
+    <script type="module" src="/assets/js/components/footer.js"></script>
+
+    <!-- Config e utils (não-module, carregados normalmente) -->
     <script src="/config/portfolio.config.js"></script>
     <script src="/src/utils/dependency-checker.js"></script>
     <script src="/src/utils/css-fallback.js"></script>
-    <script src="/assets/js/components/footer.js"></script>
-    <script src="/assets/js/core/performance.js"></script>
-    <script src="/assets/js/core/main.js"></script>
+
+    <!-- Scripts auxiliares (mantidos como clássicos) -->
     <script src="/assets/js/core/tester.js"></script>
     <script src="/assets/js/verification-script.js"></script>
-    <script src="/assets/js/core/universal-init.js"></script>
+
+    <!-- Fallback leve: garante listener no botão de tema caso módulos não inicializem imediatamente -->
+    <script>
+    (function(){
+        try {
+            const btn = document.getElementById('theme-toggle');
+            if (!btn) return;
+
+            // Se ThemeManager modular já estiver disponível, não mexe
+            if (window.ThemeManager || window.themeManager) return;
+
+            btn.addEventListener('click', () => {
+                const root = document.documentElement;
+                const current = root.getAttribute('data-theme') || 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                try { localStorage.setItem('theme', next); } catch(e){}
+            });
+        } catch (e) {
+            console.warn('Fallback de tema falhou:', e);
+        }
+    })();
+    </script>
+
+    <!-- Inicializador universal (pode referenciar módulos) -->
+    <script type="module" src="/assets/js/core/universal-init.js"></script>
 </body>
 </html> 

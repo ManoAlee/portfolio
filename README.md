@@ -2,8 +2,6 @@
 
 Portfólio moderno e interativo showcaseando minha experiência como **Assistente de TI JR** especializado em infraestrutura, automação e análise de dados.
 
-![Portfolio Preview](https://img.shields.io/badge/Status-Online-brightgreen) ![Last Update](https://img.shields.io/badge/Last%20Update-October%202025-blue) ![Tech Stack](https://img.shields.io/badge/Tech-HTML5%20%7C%20CSS3%20%7C%20JavaScript-orange) ![PWA Ready](https://img.shields.io/badge/PWA-Ready-purple) ![Mobile Optimized](https://img.shields.io/badge/Mobile-Optimized-green)
-
 ## 🌐 **Acesso Online**
 - **🔗 Site Principal**: [https://portifolioalessandro.netlify.app/](https://portifolioalessandro.netlify.app/)
 - **📱 Totalmente Responsivo**: Otimizado para desktop, tablet e mobile

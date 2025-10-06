@@ -455,7 +455,6 @@ class ProjectsShowcase {
 window.EnhancedProjects = ProjectsShowcase;
 window.ProjectsShowcase = ProjectsShowcase;
 
-// Initialize enhanced projects showcase
-document.addEventListener('DOMContentLoaded', () => {
-    window.projectsShowcase = new ProjectsShowcase();
-});
+// Exporta para uso global (classe apenas) — instanciação deixada para o inicializador universal
+window.EnhancedProjects = ProjectsShowcase;
+window.ProjectsShowcase = ProjectsShowcase;

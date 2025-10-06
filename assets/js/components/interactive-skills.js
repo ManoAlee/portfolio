@@ -48,80 +48,106 @@ class InteractiveSkills {
 
     init() {
         this.createSkillsSection();
-        this.setupEventListeners();
-        this.displaySkills('technical');
+        // Ensure we only set up listeners and render if the container was actually created or is empty
+        const container = document.getElementById('interactive-skills');
+        if (container && (!container.dataset.injected || container.innerHTML.trim() === '')) {
+            this.setupEventListeners();
+            this.displaySkills('technical');
+            // Mark as injected to avoid duplicate renderings on pages that include both static and dynamic content
+            container.dataset.injected = '1';
+        } else {
+            // If the container already contains content (static HTML), wire up progressive enhancement: attach event listeners to existing tabs
+            this.setupEventListeners();
+        }
     }
 
     createSkillsSection() {
+        // If the page already contains a container with id 'interactive-skills', do not inject a full duplicate
+        const existing = document.getElementById('interactive-skills');
+        if (existing && existing.innerHTML.trim() !== '') {
+            // Container already contains static content; ensure it has an inner element for skills-grid
+            if (!existing.querySelector('#skills-grid')) {
+                existing.insertAdjacentHTML('beforeend', `<div class="skills-content max-w-6xl mx-auto"><div class="skills-grid" id="skills-grid"></div></div>`);
+            }
+            return;
+        }
+
         const skillsHTML = `
-            <section class="interactive-skills-section py-20">
-                <div class="container">
-                    <div class="text-center mb-12">
-                        <h2 class="subtitle mb-4">Minhas Competências</h2>
-                        <p class="text-gray-300">Explore minhas habilidades por categoria</p>
-                    </div>
-                    
-                    <!-- Category Tabs -->
-                    <div class="skills-tabs flex justify-center mb-12">
-                        ${Object.entries(this.skillsData).map(([key, data]) => `
-                            <button class="skill-tab ${key === 'technical' ? 'active' : ''}" data-category="${key}">
-                                <i class="${data.icon}"></i>
-                                <span>${data.title}</span>
-                            </button>
-                        `).join('')}
-                    </div>
-                    
-                    <!-- Skills Content -->
-                    <div class="skills-content max-w-6xl mx-auto">
-                        <div class="skills-grid" id="skills-grid">
-                            <!-- Skills will be dynamically loaded here -->
+            <div class="text-center mb-12">
+                <h2 class="subtitle mb-4">Minhas Competências</h2>
+                <p class="text-gray-300">Explore minhas habilidades por categoria</p>
+            </div>
+            
+            <!-- Category Tabs -->
+            <div class="skills-tabs flex justify-center mb-12">
+                ${Object.entries(this.skillsData).map(([key, data]) => `
+                    <button class="skill-tab ${key === 'technical' ? 'active' : ''}" data-category="${key}">
+                        <i class="${data.icon}"></i>
+                        <span>${data.title}</span>
+                    </button>
+                `).join('')}
+            </div>
+            
+            <!-- Skills Content -->
+            <div class="skills-content max-w-6xl mx-auto">
+                <div class="skills-grid" id="skills-grid">
+                    <!-- Skills will be dynamically loaded here -->
+                </div>
+            </div>
+            
+            <!-- Skills Summary -->
+            <div class="skills-summary mt-12 text-center">
+                <div class="glass p-6 rounded-xl max-w-2xl mx-auto">
+                    <h3 class="text-xl font-semibold mb-4">Resumo de Competências</h3>
+                    <div class="flex justify-around items-center flex-wrap gap-4">
+                        <div class="stat-item">
+                            <div class="stat-number text-2xl font-bold text-primary">25+</div>
+                            <div class="stat-label text-sm text-gray-400">Tecnologias</div>
                         </div>
-                    </div>
-                    
-                    <!-- Skills Summary -->
-                    <div class="skills-summary mt-12 text-center">
-                        <div class="glass p-6 rounded-xl max-w-2xl mx-auto">
-                            <h3 class="text-xl font-semibold mb-4">Resumo de Competências</h3>
-                            <div class="flex justify-around items-center flex-wrap gap-4">
-                                <div class="stat-item">
-                                    <div class="stat-number text-2xl font-bold text-primary">25+</div>
-                                    <div class="stat-label text-sm text-gray-400">Tecnologias</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-number text-2xl font-bold text-primary">3+</div>
-                                    <div class="stat-label text-sm text-gray-400">Anos Experiência</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-number text-2xl font-bold text-primary">50+</div>
-                                    <div class="stat-label text-sm text-gray-400">Projetos</div>
-                                </div>
-                            </div>
+                        <div class="stat-item">
+                            <div class="stat-number text-2xl font-bold text-primary">3+</div>
+                            <div class="stat-label text-sm text-gray-400">Anos Experiência</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number text-2xl font-bold text-primary">50+</div>
+                            <div class="stat-label text-sm text-gray-400">Projetos</div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         `;
 
-        // Find insertion point - after projects section or before contact
-        const projectsSection = document.querySelector('#projects');
-        const contactSection = document.querySelector('#contact');
-        
-        if (projectsSection) {
-            projectsSection.insertAdjacentHTML('afterend', skillsHTML);
-        } else if (contactSection) {
-            contactSection.insertAdjacentHTML('beforebegin', skillsHTML);
+        // Insert into the existing #interactive-skills container or fallback to before contact
+        if (existing) {
+            existing.innerHTML = skillsHTML;
+        } else {
+            const container = document.getElementById('interactive-skills');
+            if (container) {
+                container.innerHTML = skillsHTML;
+            } else {
+                const projectsSection = document.querySelector('#projects');
+                const contactSection = document.querySelector('#contact');
+                if (projectsSection) {
+                    projectsSection.insertAdjacentHTML('afterend', `<section class="interactive-skills-section py-20"><div class="container">${skillsHTML}</div></section>`);
+                } else if (contactSection) {
+                    contactSection.insertAdjacentHTML('beforebegin', `<section class="interactive-skills-section py-20"><div class="container">${skillsHTML}</div></section>`);
+                }
+            }
         }
     }
 
     setupEventListeners() {
-        const tabs = document.querySelectorAll('.skill-tab');
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const category = tab.dataset.category;
-                this.setActiveTab(category);
-                this.displaySkills(category);
-            });
-        });
+        // Delegate clicks to container to handle dynamically created tabs and avoid duplicate listeners
+        const parent = document.getElementById('interactive-skills') || document;
+        parent.removeEventListener('click', this._tabClickHandler);
+        this._tabClickHandler = (e) => {
+            const tab = e.target.closest('.skill-tab');
+            if (!tab) return;
+            const category = tab.dataset.category;
+            this.setActiveTab(category);
+            this.displaySkills(category);
+        };
+        parent.addEventListener('click', this._tabClickHandler);
     }
 
     setActiveTab(category) {
@@ -193,10 +219,5 @@ class InteractiveSkills {
     }
 }
 
-// Exporta para uso global
+// Exporta para uso global (classe apenas) — instanciação deixada para o inicializador universal
 window.InteractiveSkills = InteractiveSkills;
-
-// Initialize interactive skills
-document.addEventListener('DOMContentLoaded', () => {
-    new InteractiveSkills();
-});

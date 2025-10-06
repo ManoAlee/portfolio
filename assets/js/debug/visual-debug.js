@@ -3,6 +3,19 @@
 (function(){
     if (typeof window === 'undefined') return;
 
+    // Only show debug overlay when explicitly enabled via URL param ?debug=true or localStorage visualDebug=1
+    const urlParams = new URLSearchParams(window.location.search);
+    const enabledByUrl = urlParams.get('debug') === 'true';
+    const enabledByStorage = localStorage.getItem('visualDebug') === '1';
+    if (!enabledByUrl && !enabledByStorage) {
+        // Expose toggler to allow manual activation from console
+        window.toggleVisualDebug = function(enable) {
+            if (enable) localStorage.setItem('visualDebug','1'); else localStorage.removeItem('visualDebug');
+            window.location.reload();
+        };
+        return;
+    }
+
     const overlayId = 'visual-debug-overlay';
     function createOverlay(){
         if (document.getElementById(overlayId)) return;
@@ -32,7 +45,10 @@
         `;
 
         document.body.appendChild(div);
-        document.getElementById('visual-debug-toggle').addEventListener('click', ()=> div.remove());
+        document.getElementById('visual-debug-toggle').addEventListener('click', ()=> {
+            div.remove();
+            localStorage.removeItem('visualDebug');
+        });
     }
 
     createOverlay();
@@ -56,92 +72,32 @@
 
     function render(){
         if (!content) return;
-        // More detailed script/resource inspection
-        const scriptStatus = [];
+        const scriptStatus = [
+            {name: 'Chart.js', ok: !!window.Chart},
+            {name: 'Leaflet', ok: !!window.L},
+            {name: 'RealTimeChart', ok: !!document.getElementById('realTimeChart')}
+        ];
 
-        // Helper to inspect script tags and performance entries
-        function inspectLib(namePatterns, globalCheck) {
-            const foundScriptTags = Array.from(document.scripts).filter(s => s.src && namePatterns.some(p => s.src.toLowerCase().includes(p)));
-            const perfEntries = performance && performance.getEntriesByType ? performance.getEntriesByType('resource').filter(e => namePatterns.some(p => e.name.toLowerCase().includes(p))) : [];
-
-            // Determine ok: global present OR a script tag loaded with transferSize > 0
-            let ok = !!globalCheck();
-            let details = '';
-
-            if (!ok) {
-                // check perf entries for evidence of load/failure
-                if (perfEntries.length) {
-                    const last = perfEntries[perfEntries.length - 1];
-                    if (last.transferSize === 0) {
-                        details = 'resource failed or blocked';
-                    } else if (last.duration > 1000) {
-                        details = 'slow resource';
-                        ok = true; // consider slow as loaded
-                    } else {
-                        ok = true;
-                    }
-                } else if (foundScriptTags.length) {
-                    // script tag exists but no perf entry yet — assume pending
-                    details = foundScriptTags.map(s => s.src.split('/').slice(-1)[0]).join(', ');
-                }
-            }
-
-            return { ok, details, scripts: foundScriptTags };
-        }
-
-        const chartInspect = inspectLib(['chart.js','chart.umd','chart.min'], () => !!window.Chart);
-        const leafletInspect = inspectLib(['leaflet'], () => !!window.L);
-        const realTimeInspect = { ok: !!document.getElementById('realTimeChart') && !!window.Chart };
-
-    let html = '<div style="margin-bottom:6px"><strong>Scripts</strong><ul style="margin:6px 0;padding-left:18px">';
-    html += `<li style="color:${chartInspect.ok ? '#86efac' : '#fca5a5'}">Chart.js: ${chartInspect.ok ? 'OK' : 'FALHOU'} ${chartInspect.details ? '— ' + escapeHtml(chartInspect.details) : ''}</li>`;
-    html += `<li style="color:${leafletInspect.ok ? '#86efac' : '#fca5a5'}">Leaflet: ${leafletInspect.ok ? 'OK' : 'FALHOU'} ${leafletInspect.details ? '— ' + escapeHtml(leafletInspect.details) : ''}</li>`;
-    html += `<li style="color:${realTimeInspect.ok ? '#86efac' : '#fca5a5'}">RealTimeChart: ${realTimeInspect.ok ? 'OK' : 'FALHOU'}</li>`;
-    html += '</ul></div>';
+        let html = '<div style="margin-bottom:6px"><strong>Scripts</strong><ul style="margin:6px 0;padding-left:18px">';
+        scriptStatus.forEach(s => html += `<li style="color:${s.ok ? '#86efac' : '#fca5a5'}">${s.name}: ${s.ok ? 'OK' : 'FALHOU'}</li>`);
+        html += '</ul></div>';
 
         html += '<div style="margin-bottom:6px"><strong>Últimos logs</strong>';
         html += '<ul style="margin:6px 0;padding-left:18px">';
         logs.slice().reverse().forEach(l => html += `<li style="color:${l.level==='error' ? '#fca5a5' : l.level==='warn' ? '#fbbf24' : '#cbd5e1'}">[${l.time}] ${l.level.toUpperCase()}: ${escapeHtml(l.msg)}</li>`);
         html += '</ul></div>';
 
-        // Show recent resource issues if available
-        if (window.__visualDebugResources && window.__visualDebugResources.length) {
-            html += '<div style="margin-bottom:6px"><strong>Recursos com problemas</strong>';
-            html += '<ul style="margin:6px 0;padding-left:18px">';
-            window.__visualDebugResources.slice().reverse().forEach(r => {
-                html += `<li style="color:#fca5a5">${escapeHtml(r.name || r.url)} — ${r.reason || r.detail || ''}</li>`;
-            });
-            html += '</ul></div>';
-        }
-
         content.innerHTML = html;
     }
-
-    // Periodically refresh status (useful to catch late-loading CDN/scripts)
-    try {
-        setInterval(render, 1000);
-    } catch(e){}
 
     function escapeHtml(unsafe) {
         return unsafe.replace(/[&<"'`]/g, function(m) { return ({'&':'&amp;','<':'&lt;','"':'&quot;',"'":"&#39;","`":"&#96;"})[m]; });
     }
 
-})();
+    // Expose a quick toggler to console
+    window.toggleVisualDebug = function(enable) {
+        if (enable) localStorage.setItem('visualDebug','1'); else localStorage.removeItem('visualDebug');
+        window.location.reload();
+    };
 
-// PerformanceObserver for resource issues (global capture)
-(function(){
-    if (typeof PerformanceObserver === 'undefined') return;
-    window.__visualDebugResources = window.__visualDebugResources || [];
-    try {
-        const ro = new PerformanceObserver((list) => {
-            for (const entry of list.getEntries()) {
-                // capture slow or failed-like resources
-                if (entry.duration > 500 || entry.transferSize === 0) {
-                    window.__visualDebugResources.push({ name: entry.name, duration: entry.duration, transferSize: entry.transferSize });
-                    if (window.__visualDebugResources.length > 30) window.__visualDebugResources.shift();
-                }
-            }
-        });
-        ro.observe({ type: 'resource', buffered: true });
-    } catch(e){}
 })();

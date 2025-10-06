@@ -1,3 +1,93 @@
+// Service Worker básico para cache offline e atualização controlada
+// Observações:
+// - Mantive um cache simples e lista de pré-cache de recursos críticos.
+// - Ajuste `CACHE_VERSION` se desejar invalidar o cache via deploy.
+
+const CACHE_VERSION = 'portfolio-cache-v1';
+const PRECACHE_URLS = [
+  '/',
+  '/index.html',
+  '/assets/css/styles.css',
+  '/assets/css/base/utilities.css',
+  '/assets/css/base/animations.css',
+  '/assets/js/core/main.js',
+  '/assets/js/core/performance.js',
+  '/assets/js/core/portfolio-manager.js',
+  '/assets/js/components/portfolio-stats.js',
+  '/assets/images/icon-192.png',
+  '/assets/images/icon-512.png',
+  '/config/manifest.json'
+];
+
+self.addEventListener('install', (event) => {
+  // Instalação: pré-cache dos recursos essenciais
+  event.waitUntil(
+    caches.open(CACHE_VERSION).then((cache) => cache.addAll(PRECACHE_URLS))
+  );
+  // Força o SW a entrar em 'activated' mais rápido
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  // Limpa caches antigos
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys
+          .filter((key) => key !== CACHE_VERSION)
+          .map((key) => caches.delete(key))
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+// Estratégia fetch: cache-first para recursos estáticos, fallback para rede
+self.addEventListener('fetch', (event) => {
+  // Ignora requests de navegação cross-origin e chrome-extension, devtools, etc.
+  const request = event.request;
+  const url = new URL(request.url);
+
+  // Ignore non-GET requests
+  if (request.method !== 'GET') return;
+
+  // Para API requests proponha network-first (evitar cache de dados dinâmicos)
+  if (url.pathname.startsWith('/api/') || url.hostname !== self.location.hostname) {
+    event.respondWith(
+      fetch(request).catch(() => caches.match(request))
+    );
+    return;
+  }
+
+  // Cache-first para assets estáticos
+  event.respondWith(
+    caches.match(request).then((cached) => {
+      if (cached) return cached;
+      return fetch(request)
+        .then((response) => {
+          // Só armazena respostas válidas
+          if (!response || response.status !== 200 || response.type !== 'basic') return response;
+          const responseClone = response.clone();
+          caches.open(CACHE_VERSION).then((cache) => cache.put(request, responseClone));
+          return response;
+        })
+        .catch(() => {
+          // Fallback simples: tenta servir index.html para navegações (SPA-friendly)
+          if (request.mode === 'navigate') return caches.match('/index.html');
+        });
+    })
+  );
+});
+
+// Mensagens úteis para controle (skipWaiting / update flow)
+self.addEventListener('message', (event) => {
+  if (!event.data) return;
+  if (event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
+// Fim do service worker
 // Service Worker para Cache e Performance
 const CACHE_NAME = 'alessandro-portfolio-v2.0.0';
 const STATIC_CACHE_URLS = [
