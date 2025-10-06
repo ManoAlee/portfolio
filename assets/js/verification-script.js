@@ -65,7 +65,7 @@ iconSizes.forEach(size => {
     const img = new Image();
     img.onload = () => console.log(`✅ Ícone ${size}x${size} - Carregado`);
     img.onerror = () => console.log(`❌ Ícone ${size}x${size} - Erro`);
-    img.src = `assets/images/icon-${size}.png`;
+    img.src = `/assets/images/icon-${size}.png`;
 });
 
 // Verificar favicon

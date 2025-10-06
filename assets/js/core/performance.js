@@ -220,7 +220,6 @@ class ResourcePrefetcher {
     }
 
     prefetchCriticalResources() {
-        // Use absolute paths for assets to avoid relative resolution when pages live under /pages/*
         const criticalResources = [
             '/assets/css/styles.css',
             '/assets/js/core/main.js',

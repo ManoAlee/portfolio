@@ -55,7 +55,7 @@ class ProfileImageOptimizer {
 }
 
 // Uso do otimizador
-const optimizer = new ProfileImageOptimizer('assets/images/profile.jpeg', {
+const optimizer = new ProfileImageOptimizer('/assets/images/profile.jpeg', {
     45: 0.9,   // 45x45px para mobile
     90: 0.95,  // 90x90px para retina
     180: 1     // 180x180px para retina @2x
