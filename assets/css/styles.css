@@ -1,3 +1,27 @@
+/* CSS Sentinel - Kit de Primeiros Socorros */
+/*
+  1) Garante box-sizing consistente para elementos e pseudo-elementos
+  2) Torna mídia responsiva por padrão (imagens, video, iframe)
+  3) Previne overflow por palavras longas em blocos de texto
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Mídia fluida - evita overflow de imagens e elementos embutidos */
+img, video, picture, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Quebra de palavras em blocos de texto para evitar overflow horizontal */
+p, h1, h2, h3 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
 /* Variáveis CSS - Tema Claro */
 :root {
     /* Cores Principais */
