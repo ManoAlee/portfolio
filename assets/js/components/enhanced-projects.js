@@ -197,7 +197,10 @@ class ProjectsShowcase {
     }
 
     renderProjects() {
-        return this.projects.map(project => `
+        return this.projects.map(project => {
+            // Oculta bloco de métricas se todos os valores forem zero ou falsy
+            const hasMetrics = Object.values(project.metrics).some(v => v && v !== '0');
+            return `
             <div class="project-card ${this.currentView}-view" data-category="${project.category}">
                 <div class="project-image">
                     <img src="${project.image}" alt="${project.title}" loading="lazy">
@@ -238,14 +241,14 @@ class ProjectsShowcase {
                         ` : ''}
                     </div>
                     
-                    <div class="project-metrics">
+                    ${hasMetrics ? `<div class="project-metrics">
                         ${Object.entries(project.metrics).map(([key, value]) => (value && value !== '0') ? `
                             <div class="metric-item">
                                 <div class="metric-value">${value}</div>
                                 <div class="metric-label">${this.getMetricLabel(key)}</div>
                             </div>
                         ` : '').join('')}
-                    </div>
+                    </div>` : ''}
                     
                     <div class="project-footer">
                         <button class="btn btn-sm btn-primary" onclick="projectsShowcase.viewProject('${project.id}')">
@@ -254,7 +257,8 @@ class ProjectsShowcase {
                     </div>
                 </div>
             </div>
-        `).join('');
+            `;
+        }).join('');
     }
 
     setupEventListeners() {
