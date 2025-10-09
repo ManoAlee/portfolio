@@ -239,12 +239,12 @@ class ProjectsShowcase {
                     </div>
                     
                     <div class="project-metrics">
-                        ${Object.entries(project.metrics).map(([key, value]) => `
+                        ${Object.entries(project.metrics).map(([key, value]) => (value && value !== '0') ? `
                             <div class="metric-item">
                                 <div class="metric-value">${value}</div>
                                 <div class="metric-label">${this.getMetricLabel(key)}</div>
                             </div>
-                        `).join('')}
+                        ` : '').join('')}
                     </div>
                     
                     <div class="project-footer">
