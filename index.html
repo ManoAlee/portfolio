@@ -222,20 +222,24 @@
                     <i class="fab fa-linkedin"></i>
                     LinkedIn
                 </a>
-                <a href="mailto:ale_meneses2004@hotmail.com" class="btn glass" aria-label="Enviar email para Alessandro Meneses">
-                    <i class="fas fa-envelope"></i>
-                    Email
-                </a>
-                <a href="tel:+5515998017732" class="btn glass" aria-label="Ligar para Alessandro Meneses">
-                    <i class="fas fa-phone"></i>
-                    (15) 99801-7732
-                </a>
                 <a href="https://github.com/ManoAlee" target="_blank" class="btn glass" aria-label="Ver GitHub de Alessandro Meneses">
                     <i class="fab fa-github"></i>
                     GitHub
                 </a>
+                <button class="btn btn-primary" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})" aria-label="Abrir formulário de contato">Formulário de Contato</button>
             </div>
         </div>
+        <form id="contact-form" class="max-w-xl mx-auto mt-8 p-6 glass rounded-xl flex flex-col gap-4" autocomplete="off">
+            <h3 class="text-lg font-semibold mb-2">Envie sua mensagem</h3>
+            <label for="nome" class="text-left">Nome</label>
+            <input type="text" id="nome" name="nome" required class="input">
+            <label for="email" class="text-left">E-mail</label>
+            <input type="email" id="email" name="email" required class="input">
+            <label for="mensagem" class="text-left">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required class="input"></textarea>
+            <button type="submit" class="btn btn-primary mt-2">Enviar</button>
+            <span id="form-msg" class="text-sm mt-2" aria-live="polite"></span>
+        </form>
     </section>
 
     <!-- Schema.org Structured Data -->
