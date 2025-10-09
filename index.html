@@ -124,19 +124,21 @@
                 <div class="glass p-8 relative z-10 hover-lift">
                     <div class="profile-image-container gradient-border">
                         <img src="https://raw.githubusercontent.com/ManoAlee/portfolio/refs/heads/main/gif.webp" 
-                             src="assets/images/profile.jpeg"
-                             alt="Foto de Alessandro Meneses sorrindo, perfil profissional"
-                             class="profile-image float"
-                             loading="lazy"
-                             decoding="async">
+                            src="assets/images/profile.jpeg"
+                            alt="Foto de Alessandro Meneses sorrindo, perfil profissional"
+                            class="profile-image float"
+                            loading="lazy"
+                            decoding="async"
+                            onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<i class=\'fas fa-image\' aria-label=\'Imagem não encontrada\'></i>');">
                         <div class="pulse-border"></div>
                         <div class="hover-info">
                             <p class="text-sm font-medium">Graduado em GTI</p>
                             <div class="flex items-center gap-2 mt-1">
                                 <img src="https://media.licdn.com/dms/image/v2/C560BAQGjRBOcU6l8Rg/company-logo_100_100/company-logo_100_100/0/1643767566858/fatectatui_logo?e=1749081600&v=beta&t=edlzQczVvDLMIKRvJTolKtB_PxsVh6yGGeOoV50cWvE" 
-                                     src="assets/images/icon-192.png"
-                                     alt="Logo da FATEC Tatuí"
-                                     class="w-6 h-6">
+                                    src="assets/images/icon-192.png"
+                                    alt="Logo da FATEC Tatuí"
+                                    class="w-6 h-6"
+                                    onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<i class=\'fas fa-university\' aria-label=\'Logo não encontrada\'></i>');">
                                 <p class="text-xs opacity-80">FATEC Tatuí</p>
                             </div>
                         </div>
@@ -220,6 +222,11 @@
             </div>
         </div>
         <form id="contact-form" class="max-w-xl mx-auto mt-8 p-6 glass rounded-xl flex flex-col gap-4" autocomplete="off">
+            <!-- Honeypot anti-spam -->
+            <div style="display:none;">
+                <label for="website">Website</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
             <h3 class="text-lg font-semibold mb-2">Envie sua mensagem</h3>
             <label for="nome" class="text-left">Nome</label>
             <input type="text" id="nome" name="nome" required class="input">
@@ -227,9 +234,41 @@
             <input type="email" id="email" name="email" required class="input">
             <label for="mensagem" class="text-left">Mensagem</label>
             <textarea id="mensagem" name="mensagem" rows="4" required class="input"></textarea>
+            <!-- Google reCAPTCHA -->
+            <div class="flex justify-center my-2">
+                <div class="g-recaptcha" data-sitekey="SUA_CHAVE_SITE_RECAPTCHA_AQUI"></div>
+            </div>
             <button type="submit" class="btn btn-primary mt-2">Enviar</button>
             <span id="form-msg" class="text-sm mt-2" aria-live="polite"></span>
         </form>
+
+    <!-- Google reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+    // Validação do formulário com honeypot e reCAPTCHA
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        var honeypot = document.getElementById('website').value;
+        var msg = document.getElementById('form-msg');
+        if (honeypot) {
+            e.preventDefault();
+            msg.textContent = 'Erro: Detecção de spam.';
+            msg.style.color = 'red';
+            return false;
+        }
+        // Validação reCAPTCHA
+        if (typeof grecaptcha !== 'undefined') {
+            var response = grecaptcha.getResponse();
+            if (!response) {
+                e.preventDefault();
+                msg.textContent = 'Por favor, confirme o reCAPTCHA.';
+                msg.style.color = 'red';
+                return false;
+            }
+        }
+        // Validação extra de campos (opcional, pois HTML5 já faz)
+        // Se quiser, pode adicionar validação JS customizada aqui
+    });
+    </script>
     </section>
 
     <!-- Schema.org Structured Data -->

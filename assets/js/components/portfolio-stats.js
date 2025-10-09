@@ -71,7 +71,7 @@ class PortfolioStats {
                 </p>
             </div>
             <div class="grid grid-2 md:grid-4 gap-8">
-                ${this.stats.map((stat, index) => this.createStatCard(stat, index)).join('')}
+                ${this.stats.filter(stat => stat.value > 0).map((stat, index) => this.createStatCard(stat, index)).join('')}
             </div>
         `;
         
