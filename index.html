@@ -30,6 +30,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="AM Portfolio">
+    <!-- Favicon padrão -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     
     <!-- DNS Prefetch e Preconnect para otimização -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -368,6 +371,14 @@
     </script>
 
     <!-- Inicializador universal (pode referenciar módulos) -->
+    <!-- Chat widget (local) -->
+    <link rel="stylesheet" href="/assets/css/components/chat-widget.css">
+    <script src="/assets/js/components/chat-widget.js"></script>
+
+    <!-- Inicializador universal (pode referenciar módulos) -->
     <script type="module" src="/assets/js/core/universal-init.js"></script>
+    <!-- Chat widget local (carrega assets do projeto) -->
+    <link href="/assets/css/components/chat-widget.css" rel="stylesheet">
+    <script src="/assets/js/components/chat-widget.js"></script>
 </body>
 </html> 
