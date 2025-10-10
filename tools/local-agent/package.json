@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-local-agent",
+  "version": "0.1.0",
+  "description": "Agente local simples para buscar conteúdo do portfolio sem rede externa",
+  "main": "agent.js",
+  "scripts": {
+    "index": "node agent.js --index",
+    "repl": "node agent.js --repl"
+  },
+  "author": "",
+  "license": "MIT"
+}
