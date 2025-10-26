@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json({ limit: '200kb' }));
 
+// Servir arquivos estáticos do projeto pelo mesmo servidor API para facilitar testes locais
+app.use(express.static(path.join(__dirname, '..')));
+
 const DATA_FILE = path.join(__dirname, '..', 'data', 'contacts.json');
 
 function ensureDataFile() {

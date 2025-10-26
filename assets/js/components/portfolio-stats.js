@@ -32,6 +32,15 @@ class PortfolioStats {
         if (this.isInitialized) return;
         
         this.findContainer();
+        // If multiple containers exist, keep the first and remove duplicates
+        const allContainers = document.querySelectorAll('#portfolio-stats');
+        if (allContainers && allContainers.length > 1) {
+            // leave first, remove others
+            for (let i = 1; i < allContainers.length; i++) {
+                try { allContainers[i].parentNode && allContainers[i].parentNode.removeChild(allContainers[i]); } catch(e) {}
+            }
+        }
+
         if (!this.container) {
             this.createContainer();
         }

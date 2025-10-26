@@ -133,7 +133,7 @@
                             class="profile-image float"
                             loading="lazy"
                             decoding="async"
-                            onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<i class=\'fas fa-image\' aria-label=\'Imagem não encontrada\'></i>');">
+                            onerror="(function(img){try{img.style.display='none';var el=document.createElement('span');el.className='image-missing';el.setAttribute('aria-hidden','true');el.textContent='[imagem indisponível]';img.parentNode && img.parentNode.insertBefore(el,img.nextSibling);}catch(e){console.warn(e)}})(this)">
                         <div class="pulse-border"></div>
                         <div class="hover-info">
                             <p class="text-sm font-medium">Graduado em GTI</p>
@@ -142,7 +142,7 @@
                                     src="assets/images/icon-192.png"
                                     alt="Logo da FATEC Tatuí"
                                     class="w-6 h-6"
-                                    onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<i class=\'fas fa-university\' aria-label=\'Logo não encontrada\'></i>');">
+                                    onerror="(function(img){try{img.style.display='none';var el=document.createElement('span');el.className='image-missing';el.setAttribute('aria-hidden','true');el.textContent='[logo indisponível]';img.parentNode && img.parentNode.insertBefore(el,img.nextSibling);}catch(e){console.warn(e)}})(this)">
                                 <p class="text-xs opacity-80">FATEC Tatuí</p>
                             </div>
                         </div>
@@ -237,11 +237,11 @@
             </div>
             <h3 class="text-lg font-semibold mb-2">Envie sua mensagem</h3>
             <label for="nome" class="text-left">Nome</label>
-            <input type="text" id="nome" name="nome" required class="input">
+            <input type="text" id="nome" name="nome" required class="input" aria-required="true" aria-describedby="form-msg">
             <label for="email" class="text-left">E-mail</label>
-            <input type="email" id="email" name="email" required class="input">
+            <input type="email" id="email" name="email" required class="input" aria-required="true" aria-describedby="form-msg">
             <label for="mensagem" class="text-left">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="4" required class="input"></textarea>
+            <textarea id="mensagem" name="mensagem" rows="4" required class="input" aria-required="true" aria-describedby="form-msg"></textarea>
             <!-- Google reCAPTCHA -->
             <div class="flex justify-center my-2">
                 <div class="g-recaptcha" data-sitekey="SUA_CHAVE_SITE_RECAPTCHA_AQUI"></div>
@@ -265,8 +265,7 @@
         "description": "Graduado em Gestão da Tecnologia da Informação, profissional em desenvolvimento na área de infraestrutura de TI, suporte técnico e análise de dados",
         "url": "https://manoalee.github.io/portfolio/",
         "image": "https://raw.githubusercontent.com/ManoAlee/portfolio/refs/heads/main/gif.webp",
-        "telephone": "+55-15-99801-7732",
-        "email": "ale_meneses2004@hotmail.com",
+    "email": "ale_meneses2004@hotmail.com",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Boituva",

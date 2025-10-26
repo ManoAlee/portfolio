@@ -369,6 +369,39 @@ select:focus-visible {
     }
 }
 
+/* ===== FORM INPUTS (corrige campos colados e espaçamento) ===== */
+.card form label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.card form .input,
+form .input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: transparent;
+    color: var(--text, #fff);
+    box-sizing: border-box;
+}
+
+.card form .input:focus,
+form .input:focus {
+    outline: none;
+    border-color: rgba(79,70,229,0.9);
+    box-shadow: 0 6px 18px rgba(79,70,229,0.06);
+}
+
+.image-missing {
+    display: inline-block;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.875rem;
+    margin-left: 0.5rem;
+}
+
 @media (prefers-color-scheme: light) {
     :root:not([data-theme="dark"]) {
         --background: #ffffff;
