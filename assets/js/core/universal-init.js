@@ -250,16 +250,20 @@ class PortfolioInitializer {
             <div class="container py-8">
                 <div class="text-center">
                     <p class="text-gray-400">
-                        © 2024 Alessandro Meneses. Todos os direitos reservados.
+                        © 2025 Alessandro Meneses. Todos os direitos reservados.
                     </p>
                     <div class="flex justify-center gap-4 mt-4">
-                            <a href="https://www.linkedin.com/in/alessandro-meneses" target="_blank" 
-                           class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-linkedin"></i> LinkedIn
+                        <a href="https://www.linkedin.com/in/alessandro-meneses" target="_blank" rel="noopener noreferrer" 
+                           class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                            <svg class="icon icon-linkedin" role="img" aria-label="LinkedIn" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.036-1.852-3.036-1.853 0-2.136 1.446-2.136 2.941v5.664H8.945V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.368-1.852 3.602 0 4.267 2.37 4.267 5.457v6.286zM5.337 7.433c-1.144 0-2.07-.927-2.07-2.07 0-1.144.926-2.07 2.07-2.07 1.144 0 2.07.926 2.07 2.07 0 1.143-.926 2.07-2.07 2.07zM6.784 20.452H3.889V9h2.895v11.452z"/>
+                            </svg>
                         </a>
-                        <a href="https://github.com/ManoAlee" target="_blank" 
-                           class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-github"></i> GitHub
+                        <a href="https://github.com/ManoAlee" target="_blank" rel="noopener noreferrer" 
+                           class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+                            <svg class="icon icon-github" role="img" aria-label="GitHub" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.42-1.305.763-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.381 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.839 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.372.81 1.102.81 2.222 0 1.606-.015 2.902-.015 3.293 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z"/>
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -282,6 +286,8 @@ class PortfolioInitializer {
                 
                 root.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
+                // Ensure tooltip/title is present for accessibility
+                try { themeToggle.setAttribute('title', 'Alterar tema'); } catch (e) {}
             });
         }
         

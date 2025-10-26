@@ -42,6 +42,39 @@ class UXEnhancer {
     }
 
     /**
+     * Retorna SVG inline para ícones comuns (mapping simples)
+     * Aceita valores como 'fas fa-home' ou apenas 'fa-home' e retorna uma string SVG
+     */
+    getIconSVG(icon, size = 16) {
+        const s = size;
+        const icons = {
+            'fa-home': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>`,
+            'fa-user': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>`,
+            'fa-briefcase': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10 4h4v2h-4zM3 7v11c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7H3z"/></svg>`,
+            'fa-cogs': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19.4 12.9c.04-.3.06-.6.06-.9s-.02-.6-.06-.9l2.1-1.6c.19-.14.24-.41.12-.62l-2-3.4c-.12-.21-.38-.3-.6-.22l-2.5 1c-.5-.4-1-.7-1.6-.9l-.4-2.6A.486.486 0 0013 2h-4c-.24 0-.44.17-.48.4l-.4 2.6c-.6.2-1.1.5-1.6.9l-2.5-1a.5.5 0 00-.6.22l-2 3.4c-.12.21-.07.48.12.62l2.1 1.6c-.04.3-.06.6-.06.9s.02.6.06.9L2.1 14.5c-.19.14-.24.41-.12.62l2 3.4c.12.21.38.3.6.22l2.5-1c.5.4 1 .7 1.6.9l.4 2.6c.04.23.24.4.48.4h4c.24 0 .44-.17.48-.4l.4-2.6c.6-.2 1.1-.5 1.6-.9l2.5 1c.22.09.48 0 .6-.22l2-3.4c.12-.21.07-.48-.12-.62l-2.1-1.6z"/></svg>`,
+            'fa-folder-open': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>`,
+            'fa-envelope': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5L4 8V6l8 5 8-5v2z"/></svg>`,
+            'fa-exclamation-triangle': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>`,
+            'fa-th': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>`,
+            'fa-server': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 5h18v4H3zM3 11h18v4H3zM3 17h18v4H3z"/></svg>`,
+            'fa-chart-line': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 17l6-6 4 4 8-8v10H3z"/></svg>`,
+            'fa-robot': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a2 2 0 00-2 2v1H7a2 2 0 00-2 2v4h14V7a2 2 0 00-2-2h-3V4a2 2 0 00-2-2zM7 14v4h10v-4H7z"/></svg>`,
+            'fa-code': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M8.7 16.3L3.4 12 8.7 7.7 10.1 9.1 6.9 12l3.2 2.9-1.4 1.4zM15.3 7.7L20.6 12 15.3 16.3 13.9 14.9 17.1 12l-3.2-2.9 1.4-1.4z"/></svg>`,
+            'fa-th-large': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>`,
+            'fa-list': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/></svg>`,
+            'fa-plus': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/></svg>`,
+            'fa-eye': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7zm0 11a4 4 0 110-8 4 4 0 010 8z"/></svg>`,
+            'fa-external-link-alt': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5v2H7v10h10v-3h2v5H5V5z"/></svg>`,
+            'fa-github': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.42-1.305.763-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.381 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.839 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.372.81 1.102.81 2.222 0 1.606-.015 2.902-.015 3.293 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z"/></svg>`,
+            'fa-times': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.41 4.29 19.71 2.88 18.3 9.18 12 2.88 5.71 4.29 4.29 10.59 10.59 16.89 4.29z"/></svg>`,
+            'default': `<svg class="icon" role="img" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/></svg>`
+        };
+
+        const token = (icon || '').toString().split(' ').find(t => t.startsWith('fa-')) || icon;
+        return icons[token] || icons['default'];
+    }
+
+    /**
      * Cria menu mobile aprimorado
      */
     createMobileMenu() {
@@ -81,7 +114,9 @@ class UXEnhancer {
         menuItems.forEach(item => {
             const link = document.createElement('a');
             link.href = item.href;
-            link.innerHTML = `<i class="${item.icon}"></i>${item.text}`;
+            link.innerHTML = `${this.getIconSVG(item.icon, 18)} ${item.text}`;
+            // preserve semantic icon information for tooltips and analytics
+            link.dataset.icon = item.icon;
             link.addEventListener('click', () => {
                 this.closeMobileMenu();
             });
@@ -131,7 +166,10 @@ class UXEnhancer {
         
         hamburger.classList.add('active');
         mobileMenu.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        // Use a class to control scrolling so other scripts/CSS don't accidentally leave the page locked
+        document.documentElement.classList.add('no-scroll');
+        // Keep body.style as a best-effort fallback for older code
+        try { document.body.style.overflow = 'hidden'; } catch(e) {}
         this.mobileMenuOpen = true;
     }
 
@@ -141,7 +179,8 @@ class UXEnhancer {
         
         if (hamburger) hamburger.classList.remove('active');
         if (mobileMenu) mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
+        document.documentElement.classList.remove('no-scroll');
+        try { document.body.style.overflow = ''; } catch(e) {}
         this.mobileMenuOpen = false;
     }
 
@@ -151,14 +190,18 @@ class UXEnhancer {
     createScrollIndicator() {
         this.scrollIndicator = document.createElement('div');
         this.scrollIndicator.className = 'scroll-indicator';
-        document.body.appendChild(this.scrollIndicator);
+    document.body.appendChild(this.scrollIndicator);
+    // Prevent the indicator from intercepting pointer events (should never block interaction)
+    this.scrollIndicator.style.pointerEvents = 'none';
 
         const updateScrollIndicator = () => {
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = scrollTop / docHeight;
-            
-            this.scrollIndicator.style.transform = `scaleX(${scrollPercent})`;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+            // Avoid division by zero and clamp value between 0 and 1
+            const docHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
+            const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) : 0;
+            const clamped = Math.max(0, Math.min(1, isFinite(scrollPercent) ? scrollPercent : 0));
+
+            this.scrollIndicator.style.transform = `scaleX(${clamped})`;
         };
 
         window.addEventListener('scroll', updateScrollIndicator, { passive: true });
@@ -202,7 +245,7 @@ class UXEnhancer {
 
             const onError = () => {
                 img.classList.remove('loading');
-                placeholder.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Erro ao carregar';
+                placeholder.innerHTML = `${this.getIconSVG('fa-exclamation-triangle', 18)} Erro ao carregar`;
                 placeholder.style.background = 'rgba(239, 68, 68, 0.06)';
                 img.removeEventListener('load', onLoad);
                 img.removeEventListener('error', onError);
@@ -233,19 +276,27 @@ class UXEnhancer {
             element.appendChild(tooltip);
         });
 
-        // Tooltips para botões sem texto
-        const iconButtons = document.querySelectorAll('button i[class*="fa-"], a i[class*="fa-"]');
-        iconButtons.forEach(icon => {
-            const button = icon.closest('button, a');
-            if (!button || button.querySelector('.tooltip-content')) return;
-            
-            const tooltipText = this.getTooltipForIcon(icon.className);
+        // Tooltips para botões sem texto (suporta elementos com data-icon e ícones inline)
+        const iconButtons = document.querySelectorAll('button i[class*="fa-"], a i[class*="fa-"], [data-icon]');
+        iconButtons.forEach(node => {
+            const button = node.closest ? node.closest('button, a') : null;
+            const target = button || node;
+            if (!target || target.querySelector('.tooltip-content')) return;
+
+            let iconClass = null;
+            if (node.dataset && node.dataset.icon) {
+                iconClass = node.dataset.icon;
+            } else if (node.className) {
+                iconClass = node.className;
+            }
+
+            const tooltipText = this.getTooltipForIcon(iconClass || '');
             if (tooltipText) {
-                button.classList.add('tooltip');
+                target.classList.add('tooltip');
                 const tooltip = document.createElement('div');
                 tooltip.className = 'tooltip-content';
                 tooltip.textContent = tooltipText;
-                button.appendChild(tooltip);
+                target.appendChild(tooltip);
             }
         });
     }

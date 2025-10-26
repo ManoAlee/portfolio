@@ -108,7 +108,7 @@ window.PortfolioConfig = {
         social: {
             linkedin: 'https://www.linkedin.com/in/alessandro-meneses',
             github: 'https://github.com/ManoAlee',
-            email: 'alessandro.meneses@exemplo.com'
+            email: 'ale_meneses2004@hotmail.com'
         }
     },
 

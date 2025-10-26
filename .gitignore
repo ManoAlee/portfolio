@@ -42,3 +42,15 @@ Thumbs.db
 *.tmp
 *.temp
 __pycache__/
+
+# Secrets and generated files
+.env
+.env.*
+index.json
+*.pem
+*.key
+id_rsa
+*.p12
+*.pfx
+*.pbix
+backup_*

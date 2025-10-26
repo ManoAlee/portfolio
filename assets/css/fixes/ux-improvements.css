@@ -263,8 +263,15 @@
     background: linear-gradient(90deg, #4F46E5, #06B6D4);
     z-index: var(--z-fixed);
     transform-origin: left;
+    pointer-events: none; /* do not block clicks */
     transform: scaleX(0);
     transition: transform 0.3s ease;
+}
+
+/* Class-based scroll lock to avoid accidental persistent overflow from scripts */
+.no-scroll, html.no-scroll, :root.no-scroll {
+    overflow: hidden !important;
+    height: 100% !important;
 }
 
 /* ===== FOCUS MANAGEMENT MELHORADO ===== */

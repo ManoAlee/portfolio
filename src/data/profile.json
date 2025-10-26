@@ -1,8 +1,8 @@
 {
   "name": "Alessandro Dos Santos Costa Meneses",
   "title": "Assistente de TI JR | Graduado em GTI",
-  "email": "ale_meneses2004@hotmail.com",
-  "phone": "+55-15-99801-7732",
+  "email": "contato@exemplo.com",
+  "phone": "(00) 00000-0000",
   "location": "Boituva, SP - Brasil",
   "linkedin": "https://www.linkedin.com/in/alessandro-meneses",
   "github": "https://github.com/ManoAlee",
@@ -99,9 +99,9 @@
     },
     {
       "name": "Dashboard Analytics",
-      "description": "Dashboard interativo para análise de dados empresariais",
+      "description": "Removido por privacidade (conteúdo empresarial)",
       "technologies": ["Power BI", "SQL", "DAX"],
-      "url": "/pages/dashboard.html"
+      "url": "#"
     }
   ]
 }

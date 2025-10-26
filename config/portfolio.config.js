@@ -10,7 +10,8 @@ const portfolioConfig = {
     description: "Desenvolvedor Full Stack especializado em Python, JavaScript e análise de dados",
     url: "https://manoalee.github.io/portfolio",
     author: "Manoel Alexandre",
-    email: "contato@manoelalexandre.dev"
+    // contato público para o portfólio
+    email: "ale_meneses2004@hotmail.com"
   },
 
   // Configurações de tema

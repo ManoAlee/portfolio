@@ -97,3 +97,26 @@
 .cw-msg { margin-bottom:10px; padding:8px 10px; border-radius:8px; max-width:90%; }
 .cw-user { align-self:flex-end; background: linear-gradient(90deg,var(--primary),var(--accent)); color:white; }
 .cw-assistant { align-self:flex-start; background: rgba(0,0,0,0.06); color:var(--text); }
+
+/* New consolidated widget styles (cw- prefix) */
+.cw-root { position: fixed; right: 20px; bottom: 20px; z-index: 2000; font-family: Inter, Arial, sans-serif; }
+.cw-root .cw-toggle { width:56px; height:56px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,0.18); cursor:pointer; border:none }
+.cw-root .cw-panel { width:360px; max-height:60vh; background:var(--glass-bg); border-radius:12px; box-shadow:0 20px 40px rgba(0,0,0,0.25); overflow:hidden; display:flex; flex-direction:column; }
+.cw-root .cw-panel.minimized { height:48px; overflow:visible; width:220px; }
+.cw-root .cw-panel[aria-hidden="true"] { display:none; }
+.cw-root .cw-header { padding:12px 14px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.04); background:linear-gradient(90deg,var(--primary),var(--accent)); color:#fff; }
+.cw-root .cw-body { padding:12px; overflow:auto; flex:1; background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent); color:var(--text); }
+.cw-root .cw-footer { display:flex; gap:8px; padding:8px; border-top:1px solid rgba(255,255,255,0.04); }
+.cw-root input#cw-input { flex:1; padding:8px 10px; border-radius:8px; border:1px solid rgba(0,0,0,0.08); }
+.cw-root button { padding:8px 12px; background:var(--primary); color:#fff; border-radius:8px; border:none; cursor:pointer }
+.cw-root .cw-actions button { background: transparent; color: #fff; border: none; font-size: 1rem; margin-left:8px; cursor:pointer }
+.cw-root .cw-msg { margin-bottom:10px; padding:8px 10px; border-radius:8px; max-width:90%; }
+.cw-root .cw-user { align-self:flex-end; background: linear-gradient(90deg,var(--primary),var(--accent)); color:white; }
+.cw-root .cw-assistant { align-self:flex-start; background: rgba(0,0,0,0.06); color:var(--text); }
+
+/* Mobile adjustments: hide panel (only toggle visible) */
+@media (max-width: 420px) {
+  .cw-root { right: 12px; bottom: 12px; }
+  .cw-root .cw-panel { display: none !important; }
+  .cw-root.cw-mobile .cw-toggle { width:48px; height:48px; }
+}

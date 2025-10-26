@@ -195,6 +195,22 @@ body {
     background: rgba(var(--primary), 0.1);
 }
 
+/* Active underline indicator for better navigation feedback */
+.nav a.active {
+    color: var(--primary);
+}
+.nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: -6px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 2px;
+    opacity: 0.95;
+}
+
 /* Menu Mobile */
 .menu-button {
     display: none;
