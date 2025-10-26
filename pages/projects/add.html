@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adicionar Projeto | Alessandro Meneses</title>
+  <link href="/assets/css/styles.css" rel="stylesheet">
+  <link href="/assets/css/base/utilities.css" rel="stylesheet">
+  <meta name="description" content="Adicionar novo projeto ao portfólio - formulário" />
+  <style>
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-single { display:block; }
+    @media (max-width:700px){ .form-row{ grid-template-columns:1fr } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-content">
+      <a href="../../index.html" class="text-gradient font-bold text-xl">AM</a>
+      <div class="flex items-center gap-6">
+        <a href="../projects/index.html" class="text-gray-300 hover:text-white transition-colors">Voltar aos projetos</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-12">
+    <div class="card max-w-3xl mx-auto">
+      <h1 class="title mb-4">Adicionar Novo Projeto</h1>
+      <p class="text-gray-400 mb-6">Preencha as informações do projeto. Campos marcados com * são obrigatórios.</p>
+
+      <form id="add-project-form">
+        <!-- Honeypot -->
+        <div style="display:none">
+          <label>Website (não preencher)</label>
+          <input name="website" />
+        </div>
+
+        <div class="form-row">
+          <label class="form-single">
+            <span>Título *</span>
+            <input type="text" name="title" id="title" required class="input" />
+          </label>
+          <label class="form-single">
+            <span>Categoria</span>
+            <input type="text" name="category" id="category" placeholder="Ex: Análise de Dados, Web" class="input" />
+          </label>
+        </div>
+
+        <label class="form-single mt-4">
+          <span>Resumo curto *</span>
+          <textarea name="description" id="description" rows="4" required class="input"></textarea>
+        </label>
+
+        <div class="form-row mt-4">
+          <label class="form-single">
+            <span>Tecnologias (separadas por vírgula)</span>
+            <input type="text" name="technologies" id="technologies" placeholder="JavaScript, Node.js, Docker" class="input" />
+          </label>
+          <label class="form-single">
+            <span>Papel (seu papel no projeto)</span>
+            <input type="text" name="role" id="role" placeholder="Desenvolvedor Fullstack" class="input" />
+          </label>
+        </div>
+
+        <div class="form-row mt-4">
+          <label class="form-single">
+            <span>Link GitHub</span>
+            <input type="url" name="github" id="github" placeholder="https://github.com/usuario/repositorio" class="input" />
+          </label>
+          <label class="form-single">
+            <span>Link Demo</span>
+            <input type="url" name="demo" id="demo" placeholder="https://example.com/demo" class="input" />
+          </label>
+        </div>
+
+        <label class="form-single mt-4">
+          <span>Métricas / Impacto (opcional)</span>
+          <input type="text" name="metrics" id="metrics" placeholder="Ex: +30% performance, redução de X" class="input" />
+        </label>
+
+        <label class="form-single mt-4">
+          <span>Thumbnail (opcional) — imagem será redimensionada para otimizar</span>
+          <input type="file" accept="image/*" id="imageFile" class="input" />
+        </label>
+
+        <div class="mt-6 flex gap-4 items-center">
+          <button type="submit" class="btn btn-primary">Enviar projeto</button>
+          <a href="../projects/index.html" class="btn glass">Cancelar</a>
+          <div id="form-status" class="text-sm text-gray-400"></div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script src="/assets/js/core/error-handler.js"></script>
+  <script type="module" src="/assets/js/pages/add-project.js"></script>
+</body>
+</html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Adicionar Projeto — Portfolio</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <main class="container py-12">
+    <h1 class="title">Adicionar Projeto</h1>
+    <p class="text-gray-300">Use este formulário para adicionar um projeto novo ao seu portfolio (servidor local salva em <code>data/projects.json</code>).</p>
+
+    <form id="add-project-form" class="max-w-2xl mt-6 glass p-6 rounded" autocomplete="off">
+      <label for="title">Título</label>
+      <input id="title" name="title" class="input" required>
+
+      <label for="category">Categoria</label>
+      <input id="category" name="category" class="input" placeholder="Ex: Web Development, Analytics">
+
+      <label for="description">Descrição curta</label>
+      <textarea id="description" name="description" class="input" rows="3" required></textarea>
+
+      <label for="image">URL da Imagem (opcional)</label>
+      <input id="image" name="image" class="input" placeholder="https://...">
+
+      <label for="demo">Link Demo (opcional)</label>
+      <input id="demo" name="demo" class="input" placeholder="https://...">
+
+      <label for="github">Link GitHub (opcional)</label>
+      <input id="github" name="github" class="input" placeholder="https://github.com/...">
+
+      <div class="mt-4">
+        <button type="submit" class="btn btn-primary">Adicionar Projeto</button>
+        <span id="msg" class="text-sm ml-4" aria-live="polite"></span>
+      </div>
+    </form>
+  </main>
+
+  <script src="/assets/js/pages/add-project.js"></script>
+</body>
+</html>
