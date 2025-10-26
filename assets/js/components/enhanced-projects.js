@@ -8,7 +8,7 @@ class ProjectsShowcase {
                 category: 'Infrastructure',
                 description: 'Projeto acadêmico de infraestrutura Windows Server com Active Directory e virtualização para aprendizado.',
                 longDescription: 'Projeto de estudo sobre infraestrutura de TI incluindo conceitos de Windows Server 2019/2022, Active Directory Domain Services, Group Policy Objects, DNS/DHCP e virtualização. Desenvolvido como laboratório de aprendizado para demonstrar conhecimentos em administração de sistemas Windows.',
-                image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop',
+                image: '/assets/images/projects/infrastructure-project.jpg',
                 technologies: ['Windows Server', 'Active Directory', 'VMware', 'PowerShell', 'DNS/DHCP'],
                 features: [
                     'Active Directory Domain Services',
@@ -39,7 +39,7 @@ class ProjectsShowcase {
                 category: 'Analytics',
                 description: 'Exemplo de dashboard Power BI para demonstração de habilidades em análise de dados e visualização.',
                 longDescription: 'Projeto exemplo de dashboard em Power BI desenvolvido para demonstrar conhecimentos em análise de dados. Utiliza dados de exemplo para criar visualizações interativas, medidas DAX básicas e demonstrar conceitos de business intelligence para fins educacionais e de portfolio.',
-                image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
+                image: '/assets/images/projects/powerbi-dashboard.jpg',
                 technologies: ['Power BI', 'DAX', 'SQL Server', 'Power Query', 'Azure'],
                 features: [
                     'KPIs executivos interativos',
@@ -71,7 +71,7 @@ class ProjectsShowcase {
                 category: 'Automation',
                 description: 'Scripts PowerShell desenvolvidos para aprendizado de automação e administração de sistemas.',
                 longDescription: 'Coleção de scripts PowerShell desenvolvidos durante os estudos para aprender automação de tarefas administrativas básicas. Inclui scripts de exemplo para gerenciamento de arquivos, relatórios simples do sistema e conceitos básicos de Active Directory para fins educacionais.',
-                image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop',
+                image: '/assets/images/projects/automation-scripts.jpg',
                 technologies: ['PowerShell', 'Active Directory', 'Windows Server', 'Task Scheduler'],
                 features: [
                     'Criação em massa de usuários AD',
@@ -102,7 +102,7 @@ class ProjectsShowcase {
                 category: 'Web Development',
                 description: 'Website portfolio moderno com animações, PWA e performance otimizada.',
                 longDescription: 'Desenvolvimento de portfolio pessoal com foco em performance e experiência do usuário. Implementação de PWA com Service Worker, lazy loading, animações CSS/JS, tema dark/light, responsividade completa e otimizações SEO. Arquitetura modular e componentizada.',
-                image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop',
+                image: '/assets/images/projects/portfolio-website.jpg',
                 technologies: ['HTML5', 'CSS3', 'JavaScript', 'PWA', 'Service Worker'],
                 features: [
                     'Progressive Web App (PWA)',
