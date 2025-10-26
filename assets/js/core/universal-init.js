@@ -465,3 +465,53 @@ if (document.readyState === 'loading') {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = PortfolioInitializer;
 }
+
+/**
+ * Substitui elementos <i class="fa-..."> por SVGs inline para maior compatibilidade.
+ * Executado no carregamento do DOM para cobrir ícones estáticos em HTML.
+ */
+function replaceFaIcons() {
+    const icons = {
+        'fa-sun': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6.76 4.84l-1.8-1.79L3.17 4.84 4.97 6.63 6.76 4.84zM1 13h3v-2H1v2zm10 9h2v-3h-2v3zm9-9v-2h-3v2h3zM6.76 19.16l-1.79 1.79 1.41 1.41 1.79-1.79-1.41-1.41zM19.24 4.84l1.79-1.79L20.62 1.64l-1.79 1.79 1.41 1.41zM17.24 19.16l1.41 1.41 1.79-1.79-1.41-1.41-1.79 1.79zM12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>`,
+        'fa-moon': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`,
+        'fa-server': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 5h18v4H3zM3 11h18v4H3zM3 17h18v4H3z"/></svg>`,
+        'fa-headset': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 1a9 9 0 00-9 9v4a4 4 0 004 4h1v-6H7v-2a5 5 0 0110 0v2h-1v6h1a4 4 0 004-4v-4a9 9 0 00-9-9z"/></svg>`,
+        'fa-chart-line': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 17l6-6 4 4 8-8v10H3z"/></svg>`,
+        'fa-arrow-right': `<svg class="icon" role="img" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10 17l5-5-5-5v10z"/></svg>`,
+        'fa-image': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21 19V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14l4-4 3 3 5-5 6 6z"/></svg>`,
+        'fa-university': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L1 7l11 5 9-4.09V20h2V7L12 2zM11 12V9l-7-3 7 3z"/></svg>`,
+        'fa-network-wired': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 11v-2h-2V7h-4v2H6v2h2v2H6v2h2v2h8v-2h-2v-2h2v-2h-2v-2h2z"/></svg>`,
+        'fa-clipboard-check': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9 11l2 2 4-4 1.5 1.5L11 16l-3-3L9 11zM17 3h-3.18A3 3 0 0012 2a3 3 0 00-1.82 1H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2z"/></svg>`,
+        'fa-box': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5zM12 3.3L19 7v2l-7-3.4V3.3z"/></svg>`,
+        'fa-graduation-cap': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2zM11 12v5h2v-5l-1 0z"/></svg>`,
+        'fa-certificate': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 12l-8 6-8-6 8-6 8 6zM12 2v8l6 4-6 4v8l-6-4V8l6-6z"/></svg>`,
+        'fa-calculator': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M7 3h10v18H7V3zm2 2v4h6V5H9zM9 11h2v2H9v-2zm4 0h2v2h-2v-2zM9 15h2v2H9v-2zm4 0h2v2h-2v-2z"/></svg>`,
+        'fa-check-circle': `<svg class="icon" role="img" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm-1 15l-5-5 1.41-1.41L11 14.17l6.59-6.59L19 9z"/></svg>`,
+        'default': `<svg class="icon" role="img" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/></svg>`
+    };
+
+    document.querySelectorAll('i[class*="fa-"]').forEach(i => {
+        try {
+            const classes = (i.className || '').split(/\s+/);
+            const token = classes.find(c => c.startsWith('fa-')) || null;
+            const svg = icons[token] || icons['default'];
+
+            // preserve some accessibility attributes
+            const wrapper = document.createElement('span');
+            wrapper.className = (i.className || '').replace(/fa[a-z]?-\S+/g, '').trim();
+            if (i.getAttribute('aria-hidden') !== null) wrapper.setAttribute('aria-hidden', i.getAttribute('aria-hidden'));
+            if (i.getAttribute('aria-label')) wrapper.setAttribute('aria-label', i.getAttribute('aria-label'));
+            wrapper.innerHTML = svg;
+            i.replaceWith(wrapper);
+        } catch (e) {
+            // no-op on replace errors
+            console.warn('replaceFaIcons error:', e);
+        }
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', replaceFaIcons);
+} else {
+    replaceFaIcons();
+}

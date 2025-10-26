@@ -60,12 +60,29 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    // Aqui não temos endpoint de envio configurado no repositório.
-    // Então exibimos uma confirmação visual e simulamos envio.
-    showMessage('Sua mensagem foi enviada! (simulação)', 'success');
-    form.reset();
-    if (typeof grecaptcha !== 'undefined' && grecaptcha.reset) {
-      try { grecaptcha.reset(); } catch (e) { /* noop */ }
-    }
+    // Envia para endpoint local (server/contact-server.js)
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nome: nome.trim(), email: email.trim(), mensagem: mensagem.trim(), website: (honeypot && honeypot.value) || '', recaptcha: (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse) ? grecaptcha.getResponse() : null })
+    }).then(r => r.json()).then(result => {
+      if (result && result.ok) {
+        showMessage('Sua mensagem foi enviada com sucesso. Obrigado!', 'success');
+        form.reset();
+        if (typeof grecaptcha !== 'undefined' && grecaptcha.reset) {
+          try { grecaptcha.reset(); } catch (e) { /* noop */ }
+        }
+      } else {
+        showMessage(result && result.error ? `Erro: ${result.error}` : 'Erro ao enviar a mensagem.', 'error');
+      }
+    }).catch(err => {
+      console.error('Erro no envio do formulário:', err);
+      showMessage('Erro na conexão. Tente novamente mais tarde.', 'error');
+    }).finally(() => {
+      if (submitBtn) submitBtn.disabled = false;
+    });
   });
 });
