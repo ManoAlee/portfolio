@@ -152,6 +152,13 @@ class PortfolioInitializer {
                         await component.init();
                     }
                     this.components.add(componentName);
+                    // Expose some components as globals for inline handlers or legacy code
+                    try {
+                        if (componentName === 'ProjectsShowcase') window.projectsShowcase = component;
+                        if (componentName === 'PortfolioStats') window.portfolioStats = component;
+                    } catch (e) {
+                        // noop
+                    }
                     console.log(`✅ ${componentName} inicializado`);
                 } catch (error) {
                     console.warn(`⚠️ Falha ao carregar ${componentName}:`, error.message);
@@ -514,4 +521,57 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', replaceFaIcons);
 } else {
     replaceFaIcons();
+}
+
+/**
+ * Limpa seções duplicadas e textos estranhos que podem ter sido injetados acidentalmente.
+ * Mantém a primeira ocorrência válida e remove duplicatas para evitar conteúdo repetido
+ * (ex: múltiplos footers, múltiplas navbars, múltiplos painéis de stats/timeline).
+ */
+function removeDuplicateSectionsAndStrayText() {
+    try {
+        // Footers duplicados
+        const footers = document.querySelectorAll('footer');
+        if (footers.length > 1) {
+            for (let i = 1; i < footers.length; i++) {
+                footers[i].remove();
+            }
+            console.info('removeDuplicateSectionsAndStrayText: footers duplicados removidos');
+        }
+
+        // Navs duplicadas (navegação principal)
+        const navs = document.querySelectorAll('nav.nav');
+        if (navs.length > 1) {
+            for (let i = 1; i < navs.length; i++) navs[i].remove();
+            console.info('removeDuplicateSectionsAndStrayText: navs duplicadas removidas');
+        }
+
+        // Seções dinâmicas como stats/timeline
+        ['#portfolio-stats', '.career-timeline-section', '.testimonials-carousel'].forEach(sel => {
+            const els = document.querySelectorAll(sel);
+            if (els.length > 1) {
+                for (let i = 1; i < els.length; i++) els[i].remove();
+                console.info(`removeDuplicateSectionsAndStrayText: duplicatas de ${sel} removidas`);
+            }
+        });
+
+        // Remove instâncias do texto 'BLACKBOX.AI' que possam ter sido injetadas acidentalmente
+        document.querySelectorAll('body *').forEach(node => {
+            // só inspeciona elementos que não têm filhos para evitar afetar marcação complexa
+            if (node.children.length === 0 && node.textContent && node.textContent.includes('BLACKBOX.AI')) {
+                node.textContent = node.textContent.replace(/BLACKBOX\.AI/g, '').trim();
+                if (!node.textContent) node.remove();
+            }
+        });
+
+    } catch (e) {
+        console.warn('removeDuplicateSectionsAndStrayText falhou:', e);
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', removeDuplicateSectionsAndStrayText);
+} else {
+    // já carregado
+    removeDuplicateSectionsAndStrayText();
 }
